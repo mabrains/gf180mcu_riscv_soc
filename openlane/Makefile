@@ -22,7 +22,7 @@ designs = $(shell find * -maxdepth 0 -type d)
 current_design = null
 
 ROOTLESS ?= 0
-USER_ARGS = -u $$(id -u $$USER):$$(id -g $$USER)
+# USER_ARGS = -u $$(id -u $$USER):$$(id -g $$USER)
 ifeq ($(ROOTLESS), 1)
 	USER_ARGS =
 endif
