@@ -7,3 +7,7 @@
 *.vcd
 *.gtkw
 *.nl.v
+venv-cocotb/
+mgmt_core_wrapper/
+caravel/
+
