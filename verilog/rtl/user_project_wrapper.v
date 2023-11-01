@@ -70,20 +70,37 @@ module user_project_wrapper #(
 /* User project is instantiated  here   */
 /*--------------------------------------*/
 
-riscv_top riscv_top(
+serv_rf_top serv_rf_top(
 `ifdef USE_POWER_PINS
 	.vdd(vdd),	// // User area 5.0V supply
 	.vss(vss),	// User area ground
 `endif
 
     .clk(wb_clk_i),
-    .reset(wb_rst_i),
+    .i_rst(wb_rst_i),
+    .i_timer_irq(user_irq[0]),
+
+    // MGMT SoC Wishbone Slave
+    // .wbs_cyc_i(wbs_cyc_i),
+    // .wbs_stb_i(wbs_stb_i),
+    // .wbs_we_i(wbs_we_i),
+    // .wbs_sel_i(wbs_sel_i),
+    // .wbs_adr_i(wbs_adr_i),
+    // .wbs_dat_i(wbs_dat_i),
+    // .wbs_ack_o(wbs_ack_o),
+
+    // .o_dbus_dat(wbs_dat_o), // o_dbus_dat --> OUT --> Data bus write data
 
     // IO Pads
+    // .i_ibus_ack(io_in[0]),
+    // .i_dbus_ack(io_in[1]),
+    // .i_ext_ready(io_in[2]),
 
-    .led_out(io_out[14:8]),
-    .io_oeb(io_oeb[14:8])
-
+    // .o_ibus_cyc(io_out[0]),
+    // .o_dbus_we(io_out[1]),
+    // .o_dbus_cyc(io_out[2]),
+    // .o_mdu_valid(io_out[3])
+    
 );
 
 endmodule	// user_project_wrapper

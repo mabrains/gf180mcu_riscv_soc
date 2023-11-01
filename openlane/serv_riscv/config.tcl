@@ -5,7 +5,7 @@
 ## =========================== General ===========================
 
 set ::env(DESIGN_NAME) "serv_rf_top"
-set ::env(VERILOG_FILES) [glob $::env(DESIGN_DIR)/../../verilog/rtl/serv_riscv/*.v $::env(DESIGN_DIR)/../../verilog/rtl/GF180_RAM_64x32/GF180_RAM_64x32.v "$::env(DESIGN_DIR)/../../verilog/rtl/defines.v"]
+set ::env(VERILOG_FILES) [glob $::env(DESIGN_DIR)/../../verilog/rtl/serv_riscv/*.v  "$::env(DESIGN_DIR)/../../verilog/rtl/defines.v"]
 set ::env(DESIGN_IS_CORE) "0"
 set ::env(GND_NETS) "vss"
 set ::env(VDD_NETS) "vdd"
@@ -19,16 +19,9 @@ set ::env(STD_CELL_LIBRARY) "gf180mcu_fd_sc_mcu7t5v0"
 set ::env(STD_CELL_LIBRARY_OPT) "gf180mcu_fd_sc_mcu7t5v0"
 set ::env(SCLPATH) "/home/farag/open_design_environment/foundry/pdks/GF180/gf180mcuD/gf180mcu_fd_sc_mcu7t5v0"
 
-## FOR RAM
-set ::env(VERILOG_FILES_BLACKBOX) "$::env(DESIGN_DIR)/../../verilog/gl/gf180_ram_64x8_wrapper.v"
-set ::env(EXTRA_LEFS) "$::env(DESIGN_DIR)/../../lef/gf180_ram_64x8_wrapper.lef"
-set ::env(EXTRA_GDS_FILES) "$::env(DESIGN_DIR)/../../gds/gf180_ram_64x8_wrapper.gds"
-set ::env(EXTRA_LIBS) "$::env(DESIGN_DIR)/../../lib/gf180_ram_64x8_wrapper.lib"
-set ::env(EXTRA_SPEFS) [list "gf180_ram_64x8_wrapper"  "$::env(DESIGN_DIR)/../../spef/multicorner/gf180_ram_64x8_wrapper.min.spef"  "$::env(DESIGN_DIR)/../../spef/multicorner/gf180_ram_64x8_wrapper.nom.spef"  "$::env(DESIGN_DIR)/../../spef/multicorner/gf180_ram_64x8_wrapper.max.spef"]
-
 ## =========================== CLK ===========================
 
-set ::env(CLOCK_PERIOD) "10"
+set ::env(CLOCK_PERIOD) "25"
 set ::env(CLOCK_PORT) "clk"
 set ::env(CLOCK_BUFFER_FANOUT) "16"
 set ::env(CLOCK_WIRE_RC_LAYER) "Metal4"
@@ -41,11 +34,8 @@ set ::env(MAX_TRANSITION_CONSTRAINT) "3"
 
 # =========================== OpenLane FLOW ===========================
 
-set ::env(OPENLANE_VERBOSE) "0"
-set ::env(OPENLANE_VERSION) "dc5af9827620a2189f65fa42d9965e7a3d7b4695"
-set ::env(RUN_CTS) "0"
-set ::env(RUN_CVC) "0"
-set ::env(RUN_DRT) "1"
+set ::env(RUN_CTS) "1"
+set ::env(RUN_CVC) "1"
 set ::env(RUN_FILL_INSERTION) "1"
 set ::env(RUN_HEURISTIC_DIODE_INSERTION) "1"
 set ::env(RUN_IRDROP_REPORT) "1"
@@ -81,42 +71,37 @@ set ::env(IO_PCT) "0.2"
 
 ## =========================== FLOORPLAN ===========================
 
-set ::env(DIE_AREA) "0 0 2800 1760"
-set ::env(FP_SIZING) absolute
-set ::env(FP_ASPECT_RATIO) "1"
-set ::env(FP_CORE_UTIL) "40"
-set ::env(FP_PDN_AUTO_ADJUST) "1"
-set ::env(FP_PDN_CHECK_NODES) "0"
-set ::env(FP_PDN_CORE_RING) "0"
-set ::env(FP_PDN_ENABLE_GLOBAL_CONNECTIONS) "1"
-# set ::env(FP_PDN_CFG) $::env(DESIGN_DIR)/pdn_cfg.tcl
-set ::env(FP_PDN_ENABLE_RAILS) "0"
-set ::env(FP_PDN_VERTICAL_LAYER) "Metal4"
-set ::env(FP_PDN_HORIZONTAL_LAYER) "Metal5"
-set ::env(FP_PDN_MACRO_HOOKS) "GF180_RAM.RAM00 vdd vss vdd vss, GF180_RAM.RAM01 vdd vss vdd vss, GF180_RAM.RAM02 vdd vss vdd vss, GF180_RAM.RAM03 vdd vss vdd vss"
+# set ::env(DIE_AREA) "0 0 2800 1760"
+# set ::env(FP_SIZING) absolute
+# set ::env(FP_ASPECT_RATIO) "1"
+set ::env(FP_CORE_UTIL) "30"
+# set ::env(FP_PDN_AUTO_ADJUST) "1"
+# set ::env(FP_PDN_CHECK_NODES) "0"
+# set ::env(FP_PDN_CORE_RING) "0"
+# set ::env(FP_PDN_ENABLE_GLOBAL_CONNECTIONS) "1"
+# set ::env(FP_PDN_ENABLE_RAILS) "0"
 
 ## =========================== PL & Rotute ===========================
 
-set ::env(RUN_DRT) "0"
+# set ::env(RUN_DRT) "0"
 set ::env(ROUTING_CORES) "8"
 set ::env(PL_TARGET_DENSITY) "0.4"
-set ::env(GLOBAL_ROUTER) "fastroute"
-set ::env(DETAILED_ROUTER) "tritonroute"
 set ::env(PL_ROUTABILITY_DRIVEN) "1"
 set ::env(PL_BASIC_PLACEMENT) "0"
 set ::env(PL_ESTIMATE_PARASITICS) "1"
 set ::env(PL_MAX_DISPLACEMENT_X) "500"
 set ::env(PL_MAX_DISPLACEMENT_Y) "100"
 set ::env(PL_OPTIMIZE_MIRRORING) "1"
-set ::env(PL_RANDOM_GLB_PLACEMENT) "1"
+# set ::env(PL_RANDOM_GLB_PLACEMENT) "1"
 set ::env(PL_SKIP_INITIAL_PLACEMENT) "0"
-set ::env(GPL_CELL_PADDING) "2"
+# set ::env(GPL_CELL_PADDING) "2"
 set ::env(DIODE_PADDING) "2"
+set ::env(CELL_PAD) 2
 
 ## =========================== RESIZER =========================== 
 
 set ::env(RSZ_MULTICORNER_LIB) "1"
-set ::env(RT_MAX_LAYER) "Metal4"
+# set ::env(RT_MAX_LAYER) "Metal4"
 set ::env(RT_MIN_LAYER) "Metal2"
 set ::env(GLB_OPTIMIZE_MIRRORING) "1"
 set ::env(GLB_RESIZER_ALLOW_SETUP_VIOS) "0"

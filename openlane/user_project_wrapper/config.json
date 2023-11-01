@@ -7,22 +7,22 @@
 		"dir::../../verilog/rtl/user_project_wrapper.v"
 	],
 	"CLOCK_PORT": "wb_clk_i",
-	"CLOCK_NET": "riscv_top.clk",
+	"CLOCK_NET": "serv_rf_top.clk",
 	"CLOCK_PERIOD": 25,
 	"MACRO_PLACEMENT_CFG": "dir::macro.cfg",
 	"VERILOG_FILES_BLACKBOX": [
-		"dir::../../verilog/gl/riscv_top.v"
+		"dir::../../verilog/gl/serv_rf_top.v"
 	],
-	"EXTRA_LEFS": "dir::../../lef/riscv_top.lef",
-	"EXTRA_GDS_FILES": "dir::../../gds/riscv_top.gds",
-	"EXTRA_LIBS": "dir::../../lib/riscv_top.lib",
+	"EXTRA_LEFS": "dir::../../lef/serv_rf_top.lef",
+	"EXTRA_GDS_FILES": "dir::../../gds/serv_rf_top.gds",
+	"EXTRA_LIBS": "dir::../../lib/serv_rf_top.lib",
 	"EXTRA_SPEFS": [
-		"riscv_top",
-		"dir::../../spef/multicorner/riscv_top.min.spef",
-		"dir::../../spef/multicorner/riscv_top.nom.spef",
-		"dir::../../spef/multicorner/riscv_top.max.spef"
+		"serv_rf_top",
+		"dir::../../spef/multicorner/serv_rf_top.min.spef",
+		"dir::../../spef/multicorner/serv_rf_top.nom.spef",
+		"dir::../../spef/multicorner/serv_rf_top.max.spef"
 	],
-	"FP_PDN_MACRO_HOOKS": "riscv_top vdd vss vdd vss",
+	"FP_PDN_MACRO_HOOKS": "serv_rf_top vdd vss vdd vss",
 	"QUIT_ON_SYNTH_CHECKS": 0,
 	"FP_PDN_CHECK_NODES": 0,
 	"SYNTH_ELABORATE_ONLY": 1,
