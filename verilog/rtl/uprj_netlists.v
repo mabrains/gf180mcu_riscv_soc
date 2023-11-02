@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2020 Efabless Corporation
+// SPDX-FileCopyrightText: 2023 Efabless Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@
     // Assume default net type to be wire because GL netlists don't have the wire definitions
     `default_nettype wire
     `include "gl/user_project_wrapper.v"
-    `include "gl/user_proj_example.v"
+    `include "gl/serv_rf_top.v"
 `else
     `include "user_project_wrapper.v"
-    `include "user_proj_example.v"
+    `include "serv_riscv/serv_rf_top.v"
 `endif

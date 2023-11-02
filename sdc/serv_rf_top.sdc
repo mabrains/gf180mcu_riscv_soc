@@ -1,12 +1,12 @@
 ###############################################################################
 # Created by write_sdc
-# Tue Oct 31 20:09:03 2023
+# Thu Nov  2 15:02:15 2023
 ###############################################################################
 current_design serv_rf_top
 ###############################################################################
 # Timing Constraints
 ###############################################################################
-create_clock -name clk -period 25.0000 [get_ports {clk}]
+create_clock -name clk -period 20.0000 [get_ports {clk}]
 set_clock_transition 0.1500 [get_clocks {clk}]
 set_clock_uncertainty 0.2500 clk
 set_propagated_clock [get_clocks {clk}]

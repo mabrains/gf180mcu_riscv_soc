@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2020 Efabless Corporation
+// SPDX-FileCopyrightText: 2023 Efabless Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -115,7 +115,6 @@ serv_rf_top serv_rf_top(
     .o_ext_funct3(io_oeb[34:32]),               // o_ext_func3: Extension interface funct3 contents   === OUT === 3  bit
     .o_mdu_valid(io_oeb[35]),                   // o_mdu_valid: MDU request                           === OUT === 1  bit
     .o_dbus_cyc(io_oeb[36])                     // o_dbus_cyc : Data bus active cycle                 === OUT === 1  bit
-
 );
 
 endmodule	// user_project_wrapper
