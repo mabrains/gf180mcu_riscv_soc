@@ -287,11 +287,11 @@ library (serv_rf_top) {
       direction : output;
       capacitance : 0.0000;
     }
-    pin("vdd") {
+    pin("VDD") {
       direction : input;
       capacitance : 0.0000;
     }
-    pin("vss") {
+    pin("VSS") {
       direction : input;
       capacitance : 0.0000;
     }

@@ -97,6 +97,7 @@ set ::env(SYNTH_USE_PG_PINS_DEFINES) "USE_POWER_PINS"
 set ::env(FP_PIN_ORDER_CFG) "$::env(DESIGN_DIR)/pin_order.cfg"
 set ::env(FP_DEF_TEMPLATE) "$::env(DESIGN_DIR)/fixed_dont_change/user_project_wrapper.def"
 set ::env(DIE_AREA) "0 0 2980.2 2980.2"
+set ::env(CORE_AREA) "12 12 2968.2 2968.2"
 set ::env(FP_SIZING) absolute
 set ::env(FP_CORE_UTIL) "30"
 set ::env(FP_PDN_MACRO_HOOKS) "serv_rf_top vdd vss vdd vss"

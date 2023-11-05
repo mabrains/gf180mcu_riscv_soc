@@ -7,6 +7,54 @@ MACRO serv_rf_top
   FOREIGN serv_rf_top ;
   ORIGIN 0.000 0.000 ;
   SIZE 755.700 BY 773.620 ;
+  PIN VDD
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER Metal4 ;
+        RECT 22.240 15.380 23.840 756.860 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 175.840 15.380 177.440 756.860 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 329.440 15.380 331.040 756.860 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 483.040 15.380 484.640 756.860 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 636.640 15.380 638.240 756.860 ;
+    END
+  END VDD
+  PIN VSS
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER Metal4 ;
+        RECT 99.040 15.380 100.640 756.860 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 252.640 15.380 254.240 756.860 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 406.240 15.380 407.840 756.860 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 559.840 15.380 561.440 756.860 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 713.440 15.380 715.040 756.860 ;
+    END
+  END VSS
   PIN clk
     DIRECTION INPUT ;
     USE SIGNAL ;
@@ -2496,54 +2544,6 @@ MACRO serv_rf_top
         RECT 571.200 769.620 571.760 773.620 ;
     END
   END o_mdu_valid
-  PIN vdd
-    DIRECTION INOUT ;
-    USE POWER ;
-    PORT
-      LAYER Metal4 ;
-        RECT 22.240 15.380 23.840 756.860 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 175.840 15.380 177.440 756.860 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 329.440 15.380 331.040 756.860 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 483.040 15.380 484.640 756.860 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 636.640 15.380 638.240 756.860 ;
-    END
-  END vdd
-  PIN vss
-    DIRECTION INOUT ;
-    USE GROUND ;
-    PORT
-      LAYER Metal4 ;
-        RECT 99.040 15.380 100.640 756.860 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 252.640 15.380 254.240 756.860 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 406.240 15.380 407.840 756.860 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 559.840 15.380 561.440 756.860 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 713.440 15.380 715.040 756.860 ;
-    END
-  END vss
   OBS
       LAYER Metal1 ;
         RECT 6.720 4.630 748.720 756.860 ;

@@ -48,8 +48,8 @@ module serv_rf_top
 	parameter RF_L2D   = $clog2((32+(WITH_CSR*4))*32/RF_WIDTH))
   (
 `ifdef USE_POWER_PINS
-    inout vdd,		// User area 5.0V supply
-    inout vss,		// User area ground
+    inout VDD,		// User area 5.0V supply
+    inout VSS,		// User area ground
 `endif
    input wire 	      clk,
    input wire 	      i_rst,

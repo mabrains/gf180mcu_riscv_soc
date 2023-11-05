@@ -20,10 +20,10 @@
 ## =========================== General ===========================
 
 set ::env(DESIGN_NAME) "serv_rf_top"
-set ::env(VERILOG_FILES) [glob $::env(DESIGN_DIR)/../../verilog/rtl/serv_riscv/*.v  "$::env(DESIGN_DIR)/../../verilog/rtl/defines.v"]
+set ::env(VERILOG_FILES) [glob $::env(DESIGN_DIR)/../../verilog/rtl/serv_rf_top/*.v  "$::env(DESIGN_DIR)/../../verilog/rtl/defines.v"]
 set ::env(DESIGN_IS_CORE) "0"
-set ::env(GND_NETS) "vss"
-set ::env(VDD_NETS) "vdd"
+set ::env(GND_NETS) "VSS"
+set ::env(VDD_NETS) "VDD"
 
 ## =========================== PDK ===========================
 

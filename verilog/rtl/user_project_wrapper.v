@@ -33,8 +33,8 @@ module user_project_wrapper #(
     parameter BITS = 32
 ) (
 `ifdef USE_POWER_PINS
-    inout vdd,		// User area 5.0V supply
-    inout vss,		// User area ground
+    inout VDD,		// User area 5.0V supply
+    inout VSS,		// User area ground
 `endif
 
     // Wishbone Slave ports (WB MI A)
@@ -72,8 +72,8 @@ module user_project_wrapper #(
 
 serv_rf_top serv_rf_top(
 `ifdef USE_POWER_PINS
-	.vdd(vdd),	// // User area 5.0V supply
-	.vss(vss),	// User area ground
+	.VDD(VDD),	// // User area 5.0V supply
+	.VSS(VSS),	// User area ground
 `endif
 
     // ================================= Main signals =================================

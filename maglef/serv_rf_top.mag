@@ -1,7 +1,7 @@
 magic
 tech gf180mcuD
 magscale 1 5
-timestamp 1698937677
+timestamp 1699167808
 << obsm1 >>
 rect 672 463 74872 75686
 << metal2 >>
@@ -743,578 +743,578 @@ rect 71534 1689 74522 73463
 << obsm5 >>
 rect 8406 10823 74530 55507
 << labels >>
+rlabel metal4 s 2224 1538 2384 75686 6 VDD
+port 1 nsew power bidirectional
+rlabel metal4 s 17584 1538 17744 75686 6 VDD
+port 1 nsew power bidirectional
+rlabel metal4 s 32944 1538 33104 75686 6 VDD
+port 1 nsew power bidirectional
+rlabel metal4 s 48304 1538 48464 75686 6 VDD
+port 1 nsew power bidirectional
+rlabel metal4 s 63664 1538 63824 75686 6 VDD
+port 1 nsew power bidirectional
+rlabel metal4 s 9904 1538 10064 75686 6 VSS
+port 2 nsew ground bidirectional
+rlabel metal4 s 25264 1538 25424 75686 6 VSS
+port 2 nsew ground bidirectional
+rlabel metal4 s 40624 1538 40784 75686 6 VSS
+port 2 nsew ground bidirectional
+rlabel metal4 s 55984 1538 56144 75686 6 VSS
+port 2 nsew ground bidirectional
+rlabel metal4 s 71344 1538 71504 75686 6 VSS
+port 2 nsew ground bidirectional
 rlabel metal3 s 75170 55440 75570 55496 6 clk
-port 1 nsew signal input
-rlabel metal3 s 75170 14784 75570 14840 6 i_dbus_ack
-port 2 nsew signal input
-rlabel metal3 s 75170 13104 75570 13160 6 i_dbus_rdt[0]
 port 3 nsew signal input
-rlabel metal3 s 75170 55104 75570 55160 6 i_dbus_rdt[10]
+rlabel metal3 s 75170 14784 75570 14840 6 i_dbus_ack
 port 4 nsew signal input
-rlabel metal3 s 75170 47376 75570 47432 6 i_dbus_rdt[11]
+rlabel metal3 s 75170 13104 75570 13160 6 i_dbus_rdt[0]
 port 5 nsew signal input
-rlabel metal3 s 75170 50400 75570 50456 6 i_dbus_rdt[12]
+rlabel metal3 s 75170 55104 75570 55160 6 i_dbus_rdt[10]
 port 6 nsew signal input
-rlabel metal3 s 75170 43680 75570 43736 6 i_dbus_rdt[13]
+rlabel metal3 s 75170 47376 75570 47432 6 i_dbus_rdt[11]
 port 7 nsew signal input
-rlabel metal3 s 75170 42672 75570 42728 6 i_dbus_rdt[14]
+rlabel metal3 s 75170 50400 75570 50456 6 i_dbus_rdt[12]
 port 8 nsew signal input
-rlabel metal3 s 75170 35280 75570 35336 6 i_dbus_rdt[15]
+rlabel metal3 s 75170 43680 75570 43736 6 i_dbus_rdt[13]
 port 9 nsew signal input
-rlabel metal3 s 75170 40320 75570 40376 6 i_dbus_rdt[16]
+rlabel metal3 s 75170 42672 75570 42728 6 i_dbus_rdt[14]
 port 10 nsew signal input
-rlabel metal3 s 75170 39648 75570 39704 6 i_dbus_rdt[17]
+rlabel metal3 s 75170 35280 75570 35336 6 i_dbus_rdt[15]
 port 11 nsew signal input
-rlabel metal3 s 75170 43008 75570 43064 6 i_dbus_rdt[18]
+rlabel metal3 s 75170 40320 75570 40376 6 i_dbus_rdt[16]
 port 12 nsew signal input
-rlabel metal3 s 75170 47712 75570 47768 6 i_dbus_rdt[19]
+rlabel metal3 s 75170 39648 75570 39704 6 i_dbus_rdt[17]
 port 13 nsew signal input
-rlabel metal3 s 75170 25872 75570 25928 6 i_dbus_rdt[1]
+rlabel metal3 s 75170 43008 75570 43064 6 i_dbus_rdt[18]
 port 14 nsew signal input
-rlabel metal3 s 75170 54768 75570 54824 6 i_dbus_rdt[20]
+rlabel metal3 s 75170 47712 75570 47768 6 i_dbus_rdt[19]
 port 15 nsew signal input
-rlabel metal3 s 75170 41664 75570 41720 6 i_dbus_rdt[21]
+rlabel metal3 s 75170 25872 75570 25928 6 i_dbus_rdt[1]
 port 16 nsew signal input
-rlabel metal3 s 75170 45360 75570 45416 6 i_dbus_rdt[22]
+rlabel metal3 s 75170 54768 75570 54824 6 i_dbus_rdt[20]
 port 17 nsew signal input
-rlabel metal3 s 75170 34272 75570 34328 6 i_dbus_rdt[23]
+rlabel metal3 s 75170 41664 75570 41720 6 i_dbus_rdt[21]
 port 18 nsew signal input
-rlabel metal3 s 75170 51072 75570 51128 6 i_dbus_rdt[24]
+rlabel metal3 s 75170 45360 75570 45416 6 i_dbus_rdt[22]
 port 19 nsew signal input
-rlabel metal3 s 75170 35616 75570 35672 6 i_dbus_rdt[25]
+rlabel metal3 s 75170 34272 75570 34328 6 i_dbus_rdt[23]
 port 20 nsew signal input
-rlabel metal3 s 75170 51408 75570 51464 6 i_dbus_rdt[26]
+rlabel metal3 s 75170 51072 75570 51128 6 i_dbus_rdt[24]
 port 21 nsew signal input
-rlabel metal3 s 75170 38304 75570 38360 6 i_dbus_rdt[27]
+rlabel metal3 s 75170 35616 75570 35672 6 i_dbus_rdt[25]
 port 22 nsew signal input
-rlabel metal3 s 75170 29568 75570 29624 6 i_dbus_rdt[28]
+rlabel metal3 s 75170 51408 75570 51464 6 i_dbus_rdt[26]
 port 23 nsew signal input
-rlabel metal3 s 75170 54432 75570 54488 6 i_dbus_rdt[29]
+rlabel metal3 s 75170 38304 75570 38360 6 i_dbus_rdt[27]
 port 24 nsew signal input
-rlabel metal3 s 75170 12096 75570 12152 6 i_dbus_rdt[2]
+rlabel metal3 s 75170 29568 75570 29624 6 i_dbus_rdt[28]
 port 25 nsew signal input
-rlabel metal3 s 75170 52416 75570 52472 6 i_dbus_rdt[30]
+rlabel metal3 s 75170 54432 75570 54488 6 i_dbus_rdt[29]
 port 26 nsew signal input
-rlabel metal3 s 75170 29232 75570 29288 6 i_dbus_rdt[31]
+rlabel metal3 s 75170 12096 75570 12152 6 i_dbus_rdt[2]
 port 27 nsew signal input
-rlabel metal3 s 75170 23856 75570 23912 6 i_dbus_rdt[3]
+rlabel metal3 s 75170 52416 75570 52472 6 i_dbus_rdt[30]
 port 28 nsew signal input
-rlabel metal3 s 75170 22848 75570 22904 6 i_dbus_rdt[4]
+rlabel metal3 s 75170 29232 75570 29288 6 i_dbus_rdt[31]
 port 29 nsew signal input
-rlabel metal3 s 75170 22512 75570 22568 6 i_dbus_rdt[5]
+rlabel metal3 s 75170 23856 75570 23912 6 i_dbus_rdt[3]
 port 30 nsew signal input
-rlabel metal3 s 75170 52080 75570 52136 6 i_dbus_rdt[6]
+rlabel metal3 s 75170 22848 75570 22904 6 i_dbus_rdt[4]
 port 31 nsew signal input
-rlabel metal3 s 75170 33600 75570 33656 6 i_dbus_rdt[7]
+rlabel metal3 s 75170 22512 75570 22568 6 i_dbus_rdt[5]
 port 32 nsew signal input
-rlabel metal3 s 75170 31248 75570 31304 6 i_dbus_rdt[8]
+rlabel metal3 s 75170 52080 75570 52136 6 i_dbus_rdt[6]
 port 33 nsew signal input
-rlabel metal3 s 75170 34608 75570 34664 6 i_dbus_rdt[9]
+rlabel metal3 s 75170 33600 75570 33656 6 i_dbus_rdt[7]
 port 34 nsew signal input
-rlabel metal2 s 0 0 56 400 6 i_ext_rd[0]
+rlabel metal3 s 75170 31248 75570 31304 6 i_dbus_rdt[8]
 port 35 nsew signal input
-rlabel metal2 s 336 0 392 400 6 i_ext_rd[10]
+rlabel metal3 s 75170 34608 75570 34664 6 i_dbus_rdt[9]
 port 36 nsew signal input
-rlabel metal2 s 672 0 728 400 6 i_ext_rd[11]
+rlabel metal2 s 0 0 56 400 6 i_ext_rd[0]
 port 37 nsew signal input
-rlabel metal2 s 1008 0 1064 400 6 i_ext_rd[12]
+rlabel metal2 s 336 0 392 400 6 i_ext_rd[10]
 port 38 nsew signal input
-rlabel metal2 s 1344 0 1400 400 6 i_ext_rd[13]
+rlabel metal2 s 672 0 728 400 6 i_ext_rd[11]
 port 39 nsew signal input
-rlabel metal2 s 1680 0 1736 400 6 i_ext_rd[14]
+rlabel metal2 s 1008 0 1064 400 6 i_ext_rd[12]
 port 40 nsew signal input
-rlabel metal2 s 2016 0 2072 400 6 i_ext_rd[15]
+rlabel metal2 s 1344 0 1400 400 6 i_ext_rd[13]
 port 41 nsew signal input
-rlabel metal2 s 2352 0 2408 400 6 i_ext_rd[16]
+rlabel metal2 s 1680 0 1736 400 6 i_ext_rd[14]
 port 42 nsew signal input
-rlabel metal2 s 2688 0 2744 400 6 i_ext_rd[17]
+rlabel metal2 s 2016 0 2072 400 6 i_ext_rd[15]
 port 43 nsew signal input
-rlabel metal2 s 3024 0 3080 400 6 i_ext_rd[18]
+rlabel metal2 s 2352 0 2408 400 6 i_ext_rd[16]
 port 44 nsew signal input
-rlabel metal2 s 3360 0 3416 400 6 i_ext_rd[19]
+rlabel metal2 s 2688 0 2744 400 6 i_ext_rd[17]
 port 45 nsew signal input
-rlabel metal2 s 3696 0 3752 400 6 i_ext_rd[1]
+rlabel metal2 s 3024 0 3080 400 6 i_ext_rd[18]
 port 46 nsew signal input
-rlabel metal2 s 4032 0 4088 400 6 i_ext_rd[20]
+rlabel metal2 s 3360 0 3416 400 6 i_ext_rd[19]
 port 47 nsew signal input
-rlabel metal2 s 4368 0 4424 400 6 i_ext_rd[21]
+rlabel metal2 s 3696 0 3752 400 6 i_ext_rd[1]
 port 48 nsew signal input
-rlabel metal2 s 4704 0 4760 400 6 i_ext_rd[22]
+rlabel metal2 s 4032 0 4088 400 6 i_ext_rd[20]
 port 49 nsew signal input
-rlabel metal2 s 5040 0 5096 400 6 i_ext_rd[23]
+rlabel metal2 s 4368 0 4424 400 6 i_ext_rd[21]
 port 50 nsew signal input
-rlabel metal2 s 5376 0 5432 400 6 i_ext_rd[24]
+rlabel metal2 s 4704 0 4760 400 6 i_ext_rd[22]
 port 51 nsew signal input
-rlabel metal2 s 5712 0 5768 400 6 i_ext_rd[25]
+rlabel metal2 s 5040 0 5096 400 6 i_ext_rd[23]
 port 52 nsew signal input
-rlabel metal2 s 6048 0 6104 400 6 i_ext_rd[26]
+rlabel metal2 s 5376 0 5432 400 6 i_ext_rd[24]
 port 53 nsew signal input
-rlabel metal2 s 6384 0 6440 400 6 i_ext_rd[27]
+rlabel metal2 s 5712 0 5768 400 6 i_ext_rd[25]
 port 54 nsew signal input
-rlabel metal2 s 6720 0 6776 400 6 i_ext_rd[28]
+rlabel metal2 s 6048 0 6104 400 6 i_ext_rd[26]
 port 55 nsew signal input
-rlabel metal2 s 7056 0 7112 400 6 i_ext_rd[29]
+rlabel metal2 s 6384 0 6440 400 6 i_ext_rd[27]
 port 56 nsew signal input
-rlabel metal2 s 7392 0 7448 400 6 i_ext_rd[2]
+rlabel metal2 s 6720 0 6776 400 6 i_ext_rd[28]
 port 57 nsew signal input
-rlabel metal2 s 7728 0 7784 400 6 i_ext_rd[30]
+rlabel metal2 s 7056 0 7112 400 6 i_ext_rd[29]
 port 58 nsew signal input
-rlabel metal2 s 8064 0 8120 400 6 i_ext_rd[31]
+rlabel metal2 s 7392 0 7448 400 6 i_ext_rd[2]
 port 59 nsew signal input
-rlabel metal2 s 8400 0 8456 400 6 i_ext_rd[3]
+rlabel metal2 s 7728 0 7784 400 6 i_ext_rd[30]
 port 60 nsew signal input
-rlabel metal2 s 8736 0 8792 400 6 i_ext_rd[4]
+rlabel metal2 s 8064 0 8120 400 6 i_ext_rd[31]
 port 61 nsew signal input
-rlabel metal2 s 9072 0 9128 400 6 i_ext_rd[5]
+rlabel metal2 s 8400 0 8456 400 6 i_ext_rd[3]
 port 62 nsew signal input
-rlabel metal2 s 9408 0 9464 400 6 i_ext_rd[6]
+rlabel metal2 s 8736 0 8792 400 6 i_ext_rd[4]
 port 63 nsew signal input
-rlabel metal2 s 9744 0 9800 400 6 i_ext_rd[7]
+rlabel metal2 s 9072 0 9128 400 6 i_ext_rd[5]
 port 64 nsew signal input
-rlabel metal2 s 10080 0 10136 400 6 i_ext_rd[8]
+rlabel metal2 s 9408 0 9464 400 6 i_ext_rd[6]
 port 65 nsew signal input
-rlabel metal2 s 10416 0 10472 400 6 i_ext_rd[9]
+rlabel metal2 s 9744 0 9800 400 6 i_ext_rd[7]
 port 66 nsew signal input
-rlabel metal2 s 10752 0 10808 400 6 i_ext_ready
+rlabel metal2 s 10080 0 10136 400 6 i_ext_rd[8]
 port 67 nsew signal input
-rlabel metal3 s 75170 18144 75570 18200 6 i_ibus_ack
+rlabel metal2 s 10416 0 10472 400 6 i_ext_rd[9]
 port 68 nsew signal input
-rlabel metal2 s 11088 0 11144 400 6 i_ibus_rdt[0]
+rlabel metal2 s 10752 0 10808 400 6 i_ext_ready
 port 69 nsew signal input
-rlabel metal3 s 75170 20832 75570 20888 6 i_ibus_rdt[10]
+rlabel metal3 s 75170 18144 75570 18200 6 i_ibus_ack
 port 70 nsew signal input
-rlabel metal3 s 75170 19152 75570 19208 6 i_ibus_rdt[11]
+rlabel metal2 s 11088 0 11144 400 6 i_ibus_rdt[0]
 port 71 nsew signal input
-rlabel metal3 s 75170 27888 75570 27944 6 i_ibus_rdt[12]
+rlabel metal3 s 75170 20832 75570 20888 6 i_ibus_rdt[10]
 port 72 nsew signal input
-rlabel metal3 s 75170 26880 75570 26936 6 i_ibus_rdt[13]
+rlabel metal3 s 75170 19152 75570 19208 6 i_ibus_rdt[11]
 port 73 nsew signal input
-rlabel metal3 s 75170 26208 75570 26264 6 i_ibus_rdt[14]
+rlabel metal3 s 75170 27888 75570 27944 6 i_ibus_rdt[12]
 port 74 nsew signal input
-rlabel metal3 s 75170 28560 75570 28616 6 i_ibus_rdt[15]
+rlabel metal3 s 75170 26880 75570 26936 6 i_ibus_rdt[13]
 port 75 nsew signal input
-rlabel metal3 s 75170 32592 75570 32648 6 i_ibus_rdt[16]
+rlabel metal3 s 75170 26208 75570 26264 6 i_ibus_rdt[14]
 port 76 nsew signal input
-rlabel metal3 s 75170 25536 75570 25592 6 i_ibus_rdt[17]
+rlabel metal3 s 75170 28560 75570 28616 6 i_ibus_rdt[15]
 port 77 nsew signal input
-rlabel metal3 s 75170 12432 75570 12488 6 i_ibus_rdt[18]
+rlabel metal3 s 75170 32592 75570 32648 6 i_ibus_rdt[16]
 port 78 nsew signal input
-rlabel metal3 s 75170 13440 75570 13496 6 i_ibus_rdt[19]
+rlabel metal3 s 75170 25536 75570 25592 6 i_ibus_rdt[17]
 port 79 nsew signal input
-rlabel metal2 s 11424 0 11480 400 6 i_ibus_rdt[1]
+rlabel metal3 s 75170 12432 75570 12488 6 i_ibus_rdt[18]
 port 80 nsew signal input
-rlabel metal2 s 68880 0 68936 400 6 i_ibus_rdt[20]
+rlabel metal3 s 75170 13440 75570 13496 6 i_ibus_rdt[19]
 port 81 nsew signal input
-rlabel metal3 s 75170 19488 75570 19544 6 i_ibus_rdt[21]
+rlabel metal2 s 11424 0 11480 400 6 i_ibus_rdt[1]
 port 82 nsew signal input
-rlabel metal2 s 74592 0 74648 400 6 i_ibus_rdt[22]
+rlabel metal2 s 68880 0 68936 400 6 i_ibus_rdt[20]
 port 83 nsew signal input
-rlabel metal3 s 75170 16128 75570 16184 6 i_ibus_rdt[23]
+rlabel metal3 s 75170 19488 75570 19544 6 i_ibus_rdt[21]
 port 84 nsew signal input
-rlabel metal3 s 75170 17136 75570 17192 6 i_ibus_rdt[24]
+rlabel metal2 s 74592 0 74648 400 6 i_ibus_rdt[22]
 port 85 nsew signal input
-rlabel metal2 s 74928 0 74984 400 6 i_ibus_rdt[25]
+rlabel metal3 s 75170 16128 75570 16184 6 i_ibus_rdt[23]
 port 86 nsew signal input
-rlabel metal2 s 67872 0 67928 400 6 i_ibus_rdt[26]
+rlabel metal3 s 75170 17136 75570 17192 6 i_ibus_rdt[24]
 port 87 nsew signal input
-rlabel metal2 s 72912 0 72968 400 6 i_ibus_rdt[27]
+rlabel metal2 s 74928 0 74984 400 6 i_ibus_rdt[25]
 port 88 nsew signal input
-rlabel metal2 s 73584 0 73640 400 6 i_ibus_rdt[28]
+rlabel metal2 s 67872 0 67928 400 6 i_ibus_rdt[26]
 port 89 nsew signal input
-rlabel metal2 s 73920 0 73976 400 6 i_ibus_rdt[29]
+rlabel metal2 s 72912 0 72968 400 6 i_ibus_rdt[27]
 port 90 nsew signal input
-rlabel metal2 s 68544 0 68600 400 6 i_ibus_rdt[2]
+rlabel metal2 s 73584 0 73640 400 6 i_ibus_rdt[28]
 port 91 nsew signal input
-rlabel metal2 s 73248 0 73304 400 6 i_ibus_rdt[30]
+rlabel metal2 s 73920 0 73976 400 6 i_ibus_rdt[29]
 port 92 nsew signal input
-rlabel metal3 s 75170 16464 75570 16520 6 i_ibus_rdt[31]
+rlabel metal2 s 68544 0 68600 400 6 i_ibus_rdt[2]
 port 93 nsew signal input
-rlabel metal3 s 75170 28896 75570 28952 6 i_ibus_rdt[3]
+rlabel metal2 s 73248 0 73304 400 6 i_ibus_rdt[30]
 port 94 nsew signal input
-rlabel metal3 s 75170 21840 75570 21896 6 i_ibus_rdt[4]
+rlabel metal3 s 75170 16464 75570 16520 6 i_ibus_rdt[31]
 port 95 nsew signal input
-rlabel metal3 s 75170 18816 75570 18872 6 i_ibus_rdt[5]
+rlabel metal3 s 75170 28896 75570 28952 6 i_ibus_rdt[3]
 port 96 nsew signal input
-rlabel metal3 s 75170 23184 75570 23240 6 i_ibus_rdt[6]
+rlabel metal3 s 75170 21840 75570 21896 6 i_ibus_rdt[4]
 port 97 nsew signal input
-rlabel metal3 s 75170 20160 75570 20216 6 i_ibus_rdt[7]
+rlabel metal3 s 75170 18816 75570 18872 6 i_ibus_rdt[5]
 port 98 nsew signal input
-rlabel metal3 s 75170 19824 75570 19880 6 i_ibus_rdt[8]
+rlabel metal3 s 75170 23184 75570 23240 6 i_ibus_rdt[6]
 port 99 nsew signal input
-rlabel metal3 s 75170 21168 75570 21224 6 i_ibus_rdt[9]
+rlabel metal3 s 75170 20160 75570 20216 6 i_ibus_rdt[7]
 port 100 nsew signal input
-rlabel metal2 s 75264 0 75320 400 6 i_rst
+rlabel metal3 s 75170 19824 75570 19880 6 i_ibus_rdt[8]
 port 101 nsew signal input
-rlabel metal2 s 71232 0 71288 400 6 i_timer_irq
+rlabel metal3 s 75170 21168 75570 21224 6 i_ibus_rdt[9]
 port 102 nsew signal input
+rlabel metal2 s 75264 0 75320 400 6 i_rst
+port 103 nsew signal input
+rlabel metal2 s 71232 0 71288 400 6 i_timer_irq
+port 104 nsew signal input
 rlabel metal3 s 0 30576 400 30632 6 o_dbus_adr[0]
-port 103 nsew signal output
-rlabel metal2 s 72240 0 72296 400 6 o_dbus_adr[10]
-port 104 nsew signal output
-rlabel metal2 s 69888 0 69944 400 6 o_dbus_adr[11]
 port 105 nsew signal output
-rlabel metal2 s 71904 0 71960 400 6 o_dbus_adr[12]
+rlabel metal2 s 72240 0 72296 400 6 o_dbus_adr[10]
 port 106 nsew signal output
-rlabel metal2 s 69552 0 69608 400 6 o_dbus_adr[13]
+rlabel metal2 s 69888 0 69944 400 6 o_dbus_adr[11]
 port 107 nsew signal output
-rlabel metal2 s 70896 0 70952 400 6 o_dbus_adr[14]
+rlabel metal2 s 71904 0 71960 400 6 o_dbus_adr[12]
 port 108 nsew signal output
-rlabel metal2 s 70560 0 70616 400 6 o_dbus_adr[15]
+rlabel metal2 s 69552 0 69608 400 6 o_dbus_adr[13]
 port 109 nsew signal output
-rlabel metal2 s 69216 0 69272 400 6 o_dbus_adr[16]
+rlabel metal2 s 70896 0 70952 400 6 o_dbus_adr[14]
 port 110 nsew signal output
-rlabel metal2 s 71568 0 71624 400 6 o_dbus_adr[17]
+rlabel metal2 s 70560 0 70616 400 6 o_dbus_adr[15]
 port 111 nsew signal output
-rlabel metal2 s 72576 0 72632 400 6 o_dbus_adr[18]
+rlabel metal2 s 69216 0 69272 400 6 o_dbus_adr[16]
 port 112 nsew signal output
-rlabel metal2 s 70224 0 70280 400 6 o_dbus_adr[19]
+rlabel metal2 s 71568 0 71624 400 6 o_dbus_adr[17]
 port 113 nsew signal output
-rlabel metal3 s 75170 44688 75570 44744 6 o_dbus_adr[1]
+rlabel metal2 s 72576 0 72632 400 6 o_dbus_adr[18]
 port 114 nsew signal output
-rlabel metal2 s 68208 0 68264 400 6 o_dbus_adr[20]
+rlabel metal2 s 70224 0 70280 400 6 o_dbus_adr[19]
 port 115 nsew signal output
-rlabel metal2 s 74256 0 74312 400 6 o_dbus_adr[21]
+rlabel metal3 s 75170 44688 75570 44744 6 o_dbus_adr[1]
 port 116 nsew signal output
-rlabel metal2 s 52416 0 52472 400 6 o_dbus_adr[22]
+rlabel metal2 s 68208 0 68264 400 6 o_dbus_adr[20]
 port 117 nsew signal output
-rlabel metal2 s 50064 0 50120 400 6 o_dbus_adr[23]
+rlabel metal2 s 74256 0 74312 400 6 o_dbus_adr[21]
 port 118 nsew signal output
-rlabel metal2 s 50400 0 50456 400 6 o_dbus_adr[24]
+rlabel metal2 s 52416 0 52472 400 6 o_dbus_adr[22]
 port 119 nsew signal output
-rlabel metal2 s 51744 0 51800 400 6 o_dbus_adr[25]
+rlabel metal2 s 50064 0 50120 400 6 o_dbus_adr[23]
 port 120 nsew signal output
-rlabel metal2 s 67200 0 67256 400 6 o_dbus_adr[26]
+rlabel metal2 s 50400 0 50456 400 6 o_dbus_adr[24]
 port 121 nsew signal output
-rlabel metal2 s 67536 0 67592 400 6 o_dbus_adr[27]
+rlabel metal2 s 51744 0 51800 400 6 o_dbus_adr[25]
 port 122 nsew signal output
-rlabel metal2 s 55104 0 55160 400 6 o_dbus_adr[28]
+rlabel metal2 s 67200 0 67256 400 6 o_dbus_adr[26]
 port 123 nsew signal output
-rlabel metal2 s 56784 0 56840 400 6 o_dbus_adr[29]
+rlabel metal2 s 67536 0 67592 400 6 o_dbus_adr[27]
 port 124 nsew signal output
-rlabel metal3 s 75170 0 75570 56 6 o_dbus_adr[2]
+rlabel metal2 s 55104 0 55160 400 6 o_dbus_adr[28]
 port 125 nsew signal output
-rlabel metal2 s 57456 0 57512 400 6 o_dbus_adr[30]
+rlabel metal2 s 56784 0 56840 400 6 o_dbus_adr[29]
 port 126 nsew signal output
-rlabel metal2 s 58800 0 58856 400 6 o_dbus_adr[31]
+rlabel metal3 s 75170 0 75570 56 6 o_dbus_adr[2]
 port 127 nsew signal output
-rlabel metal3 s 75170 1344 75570 1400 6 o_dbus_adr[3]
+rlabel metal2 s 57456 0 57512 400 6 o_dbus_adr[30]
 port 128 nsew signal output
-rlabel metal2 s 61824 0 61880 400 6 o_dbus_adr[4]
+rlabel metal2 s 58800 0 58856 400 6 o_dbus_adr[31]
 port 129 nsew signal output
-rlabel metal2 s 59808 0 59864 400 6 o_dbus_adr[5]
+rlabel metal3 s 75170 1344 75570 1400 6 o_dbus_adr[3]
 port 130 nsew signal output
-rlabel metal2 s 61152 0 61208 400 6 o_dbus_adr[6]
+rlabel metal2 s 61824 0 61880 400 6 o_dbus_adr[4]
 port 131 nsew signal output
-rlabel metal2 s 63840 0 63896 400 6 o_dbus_adr[7]
+rlabel metal2 s 59808 0 59864 400 6 o_dbus_adr[5]
 port 132 nsew signal output
-rlabel metal2 s 63504 0 63560 400 6 o_dbus_adr[8]
+rlabel metal2 s 61152 0 61208 400 6 o_dbus_adr[6]
 port 133 nsew signal output
-rlabel metal2 s 62160 0 62216 400 6 o_dbus_adr[9]
+rlabel metal2 s 63840 0 63896 400 6 o_dbus_adr[7]
 port 134 nsew signal output
-rlabel metal3 s 75170 20496 75570 20552 6 o_dbus_cyc
+rlabel metal2 s 63504 0 63560 400 6 o_dbus_adr[8]
 port 135 nsew signal output
-rlabel metal3 s 75170 13776 75570 13832 6 o_dbus_dat[0]
+rlabel metal2 s 62160 0 62216 400 6 o_dbus_adr[9]
 port 136 nsew signal output
-rlabel metal3 s 75170 48048 75570 48104 6 o_dbus_dat[10]
+rlabel metal3 s 75170 20496 75570 20552 6 o_dbus_cyc
 port 137 nsew signal output
-rlabel metal3 s 75170 32256 75570 32312 6 o_dbus_dat[11]
+rlabel metal3 s 75170 13776 75570 13832 6 o_dbus_dat[0]
 port 138 nsew signal output
-rlabel metal3 s 75170 39312 75570 39368 6 o_dbus_dat[12]
+rlabel metal3 s 75170 48048 75570 48104 6 o_dbus_dat[10]
 port 139 nsew signal output
-rlabel metal3 s 75170 35952 75570 36008 6 o_dbus_dat[13]
+rlabel metal3 s 75170 32256 75570 32312 6 o_dbus_dat[11]
 port 140 nsew signal output
-rlabel metal3 s 75170 40992 75570 41048 6 o_dbus_dat[14]
+rlabel metal3 s 75170 39312 75570 39368 6 o_dbus_dat[12]
 port 141 nsew signal output
-rlabel metal3 s 75170 47040 75570 47096 6 o_dbus_dat[15]
+rlabel metal3 s 75170 35952 75570 36008 6 o_dbus_dat[13]
 port 142 nsew signal output
-rlabel metal3 s 75170 48720 75570 48776 6 o_dbus_dat[16]
+rlabel metal3 s 75170 40992 75570 41048 6 o_dbus_dat[14]
 port 143 nsew signal output
-rlabel metal3 s 75170 38640 75570 38696 6 o_dbus_dat[17]
+rlabel metal3 s 75170 47040 75570 47096 6 o_dbus_dat[15]
 port 144 nsew signal output
-rlabel metal3 s 75170 46704 75570 46760 6 o_dbus_dat[18]
+rlabel metal3 s 75170 48720 75570 48776 6 o_dbus_dat[16]
 port 145 nsew signal output
-rlabel metal3 s 75170 42000 75570 42056 6 o_dbus_dat[19]
+rlabel metal3 s 75170 38640 75570 38696 6 o_dbus_dat[17]
 port 146 nsew signal output
-rlabel metal3 s 75170 27552 75570 27608 6 o_dbus_dat[1]
+rlabel metal3 s 75170 46704 75570 46760 6 o_dbus_dat[18]
 port 147 nsew signal output
-rlabel metal3 s 75170 36960 75570 37016 6 o_dbus_dat[20]
+rlabel metal3 s 75170 42000 75570 42056 6 o_dbus_dat[19]
 port 148 nsew signal output
-rlabel metal3 s 75170 37968 75570 38024 6 o_dbus_dat[21]
+rlabel metal3 s 75170 27552 75570 27608 6 o_dbus_dat[1]
 port 149 nsew signal output
-rlabel metal3 s 75170 34944 75570 35000 6 o_dbus_dat[22]
+rlabel metal3 s 75170 36960 75570 37016 6 o_dbus_dat[20]
 port 150 nsew signal output
-rlabel metal3 s 75170 36288 75570 36344 6 o_dbus_dat[23]
+rlabel metal3 s 75170 37968 75570 38024 6 o_dbus_dat[21]
 port 151 nsew signal output
-rlabel metal3 s 75170 43344 75570 43400 6 o_dbus_dat[24]
+rlabel metal3 s 75170 34944 75570 35000 6 o_dbus_dat[22]
 port 152 nsew signal output
-rlabel metal3 s 75170 37632 75570 37688 6 o_dbus_dat[25]
+rlabel metal3 s 75170 36288 75570 36344 6 o_dbus_dat[23]
 port 153 nsew signal output
-rlabel metal3 s 75170 38976 75570 39032 6 o_dbus_dat[26]
+rlabel metal3 s 75170 43344 75570 43400 6 o_dbus_dat[24]
 port 154 nsew signal output
-rlabel metal3 s 75170 32928 75570 32984 6 o_dbus_dat[27]
+rlabel metal3 s 75170 37632 75570 37688 6 o_dbus_dat[25]
 port 155 nsew signal output
-rlabel metal3 s 75170 53760 75570 53816 6 o_dbus_dat[28]
+rlabel metal3 s 75170 38976 75570 39032 6 o_dbus_dat[26]
 port 156 nsew signal output
-rlabel metal3 s 75170 41328 75570 41384 6 o_dbus_dat[29]
+rlabel metal3 s 75170 32928 75570 32984 6 o_dbus_dat[27]
 port 157 nsew signal output
-rlabel metal3 s 75170 14448 75570 14504 6 o_dbus_dat[2]
+rlabel metal3 s 75170 53760 75570 53816 6 o_dbus_dat[28]
 port 158 nsew signal output
-rlabel metal3 s 75170 31584 75570 31640 6 o_dbus_dat[30]
+rlabel metal3 s 75170 41328 75570 41384 6 o_dbus_dat[29]
 port 159 nsew signal output
-rlabel metal3 s 75170 30240 75570 30296 6 o_dbus_dat[31]
+rlabel metal3 s 75170 14448 75570 14504 6 o_dbus_dat[2]
 port 160 nsew signal output
-rlabel metal3 s 75170 23520 75570 23576 6 o_dbus_dat[3]
+rlabel metal3 s 75170 31584 75570 31640 6 o_dbus_dat[30]
 port 161 nsew signal output
-rlabel metal3 s 75170 17472 75570 17528 6 o_dbus_dat[4]
+rlabel metal3 s 75170 30240 75570 30296 6 o_dbus_dat[31]
 port 162 nsew signal output
-rlabel metal3 s 75170 21504 75570 21560 6 o_dbus_dat[5]
+rlabel metal3 s 75170 23520 75570 23576 6 o_dbus_dat[3]
 port 163 nsew signal output
-rlabel metal3 s 75170 22176 75570 22232 6 o_dbus_dat[6]
+rlabel metal3 s 75170 17472 75570 17528 6 o_dbus_dat[4]
 port 164 nsew signal output
-rlabel metal3 s 75170 31920 75570 31976 6 o_dbus_dat[7]
+rlabel metal3 s 75170 21504 75570 21560 6 o_dbus_dat[5]
 port 165 nsew signal output
-rlabel metal3 s 75170 50736 75570 50792 6 o_dbus_dat[8]
+rlabel metal3 s 75170 22176 75570 22232 6 o_dbus_dat[6]
 port 166 nsew signal output
-rlabel metal3 s 75170 33264 75570 33320 6 o_dbus_dat[9]
+rlabel metal3 s 75170 31920 75570 31976 6 o_dbus_dat[7]
 port 167 nsew signal output
-rlabel metal3 s 75170 14112 75570 14168 6 o_dbus_sel[0]
+rlabel metal3 s 75170 50736 75570 50792 6 o_dbus_dat[8]
 port 168 nsew signal output
-rlabel metal3 s 75170 24528 75570 24584 6 o_dbus_sel[1]
+rlabel metal3 s 75170 33264 75570 33320 6 o_dbus_dat[9]
 port 169 nsew signal output
-rlabel metal3 s 75170 15792 75570 15848 6 o_dbus_sel[2]
+rlabel metal3 s 75170 14112 75570 14168 6 o_dbus_sel[0]
 port 170 nsew signal output
-rlabel metal3 s 75170 15456 75570 15512 6 o_dbus_sel[3]
+rlabel metal3 s 75170 24528 75570 24584 6 o_dbus_sel[1]
 port 171 nsew signal output
-rlabel metal3 s 75170 18480 75570 18536 6 o_dbus_we
+rlabel metal3 s 75170 15792 75570 15848 6 o_dbus_sel[2]
 port 172 nsew signal output
-rlabel metal3 s 75170 25200 75570 25256 6 o_ext_funct3[0]
+rlabel metal3 s 75170 15456 75570 15512 6 o_dbus_sel[3]
 port 173 nsew signal output
-rlabel metal3 s 75170 24192 75570 24248 6 o_ext_funct3[1]
+rlabel metal3 s 75170 18480 75570 18536 6 o_dbus_we
 port 174 nsew signal output
-rlabel metal3 s 75170 24864 75570 24920 6 o_ext_funct3[2]
+rlabel metal3 s 75170 25200 75570 25256 6 o_ext_funct3[0]
 port 175 nsew signal output
-rlabel metal3 s 75170 11424 75570 11480 6 o_ext_rs1[0]
+rlabel metal3 s 75170 24192 75570 24248 6 o_ext_funct3[1]
 port 176 nsew signal output
-rlabel metal2 s 60480 0 60536 400 6 o_ext_rs1[10]
+rlabel metal3 s 75170 24864 75570 24920 6 o_ext_funct3[2]
 port 177 nsew signal output
-rlabel metal2 s 59136 0 59192 400 6 o_ext_rs1[11]
+rlabel metal3 s 75170 11424 75570 11480 6 o_ext_rs1[0]
 port 178 nsew signal output
-rlabel metal2 s 57792 0 57848 400 6 o_ext_rs1[12]
+rlabel metal2 s 60480 0 60536 400 6 o_ext_rs1[10]
 port 179 nsew signal output
-rlabel metal2 s 58464 0 58520 400 6 o_ext_rs1[13]
+rlabel metal2 s 59136 0 59192 400 6 o_ext_rs1[11]
 port 180 nsew signal output
-rlabel metal2 s 57120 0 57176 400 6 o_ext_rs1[14]
+rlabel metal2 s 57792 0 57848 400 6 o_ext_rs1[12]
 port 181 nsew signal output
-rlabel metal2 s 56112 0 56168 400 6 o_ext_rs1[15]
+rlabel metal2 s 58464 0 58520 400 6 o_ext_rs1[13]
 port 182 nsew signal output
-rlabel metal2 s 55440 0 55496 400 6 o_ext_rs1[16]
+rlabel metal2 s 57120 0 57176 400 6 o_ext_rs1[14]
 port 183 nsew signal output
-rlabel metal2 s 54432 0 54488 400 6 o_ext_rs1[17]
+rlabel metal2 s 56112 0 56168 400 6 o_ext_rs1[15]
 port 184 nsew signal output
-rlabel metal2 s 52752 0 52808 400 6 o_ext_rs1[18]
+rlabel metal2 s 55440 0 55496 400 6 o_ext_rs1[16]
 port 185 nsew signal output
-rlabel metal2 s 53424 0 53480 400 6 o_ext_rs1[19]
+rlabel metal2 s 54432 0 54488 400 6 o_ext_rs1[17]
 port 186 nsew signal output
-rlabel metal3 s 75170 11088 75570 11144 6 o_ext_rs1[1]
+rlabel metal2 s 52752 0 52808 400 6 o_ext_rs1[18]
 port 187 nsew signal output
-rlabel metal2 s 54096 0 54152 400 6 o_ext_rs1[20]
+rlabel metal2 s 53424 0 53480 400 6 o_ext_rs1[19]
 port 188 nsew signal output
-rlabel metal2 s 53760 0 53816 400 6 o_ext_rs1[21]
+rlabel metal3 s 75170 11088 75570 11144 6 o_ext_rs1[1]
 port 189 nsew signal output
-rlabel metal2 s 52080 0 52136 400 6 o_ext_rs1[22]
+rlabel metal2 s 54096 0 54152 400 6 o_ext_rs1[20]
 port 190 nsew signal output
-rlabel metal2 s 51072 0 51128 400 6 o_ext_rs1[23]
+rlabel metal2 s 53760 0 53816 400 6 o_ext_rs1[21]
 port 191 nsew signal output
-rlabel metal2 s 50736 0 50792 400 6 o_ext_rs1[24]
+rlabel metal2 s 52080 0 52136 400 6 o_ext_rs1[22]
 port 192 nsew signal output
-rlabel metal2 s 51408 0 51464 400 6 o_ext_rs1[25]
+rlabel metal2 s 51072 0 51128 400 6 o_ext_rs1[23]
 port 193 nsew signal output
-rlabel metal2 s 53088 0 53144 400 6 o_ext_rs1[26]
+rlabel metal2 s 50736 0 50792 400 6 o_ext_rs1[24]
 port 194 nsew signal output
-rlabel metal2 s 54768 0 54824 400 6 o_ext_rs1[27]
+rlabel metal2 s 51408 0 51464 400 6 o_ext_rs1[25]
 port 195 nsew signal output
-rlabel metal2 s 55776 0 55832 400 6 o_ext_rs1[28]
+rlabel metal2 s 53088 0 53144 400 6 o_ext_rs1[26]
 port 196 nsew signal output
-rlabel metal2 s 56448 0 56504 400 6 o_ext_rs1[29]
+rlabel metal2 s 54768 0 54824 400 6 o_ext_rs1[27]
 port 197 nsew signal output
-rlabel metal3 s 75170 672 75570 728 6 o_ext_rs1[2]
+rlabel metal2 s 55776 0 55832 400 6 o_ext_rs1[28]
 port 198 nsew signal output
-rlabel metal2 s 58128 0 58184 400 6 o_ext_rs1[30]
+rlabel metal2 s 56448 0 56504 400 6 o_ext_rs1[29]
 port 199 nsew signal output
-rlabel metal2 s 59472 0 59528 400 6 o_ext_rs1[31]
+rlabel metal3 s 75170 672 75570 728 6 o_ext_rs1[2]
 port 200 nsew signal output
-rlabel metal3 s 75170 8064 75570 8120 6 o_ext_rs1[3]
+rlabel metal2 s 58128 0 58184 400 6 o_ext_rs1[30]
 port 201 nsew signal output
-rlabel metal2 s 61488 0 61544 400 6 o_ext_rs1[4]
+rlabel metal2 s 59472 0 59528 400 6 o_ext_rs1[31]
 port 202 nsew signal output
-rlabel metal2 s 60144 0 60200 400 6 o_ext_rs1[5]
+rlabel metal3 s 75170 8064 75570 8120 6 o_ext_rs1[3]
 port 203 nsew signal output
-rlabel metal2 s 60816 0 60872 400 6 o_ext_rs1[6]
+rlabel metal2 s 61488 0 61544 400 6 o_ext_rs1[4]
 port 204 nsew signal output
-rlabel metal2 s 62832 0 62888 400 6 o_ext_rs1[7]
+rlabel metal2 s 60144 0 60200 400 6 o_ext_rs1[5]
 port 205 nsew signal output
-rlabel metal2 s 63168 0 63224 400 6 o_ext_rs1[8]
+rlabel metal2 s 60816 0 60872 400 6 o_ext_rs1[6]
 port 206 nsew signal output
-rlabel metal2 s 62496 0 62552 400 6 o_ext_rs1[9]
+rlabel metal2 s 62832 0 62888 400 6 o_ext_rs1[7]
 port 207 nsew signal output
-rlabel metal3 s 75170 12768 75570 12824 6 o_ext_rs2[0]
+rlabel metal2 s 63168 0 63224 400 6 o_ext_rs1[8]
 port 208 nsew signal output
-rlabel metal3 s 75170 33936 75570 33992 6 o_ext_rs2[10]
+rlabel metal2 s 62496 0 62552 400 6 o_ext_rs1[9]
 port 209 nsew signal output
-rlabel metal3 s 75170 50064 75570 50120 6 o_ext_rs2[11]
+rlabel metal3 s 75170 12768 75570 12824 6 o_ext_rs2[0]
 port 210 nsew signal output
-rlabel metal3 s 75170 40656 75570 40712 6 o_ext_rs2[12]
+rlabel metal3 s 75170 33936 75570 33992 6 o_ext_rs2[10]
 port 211 nsew signal output
-rlabel metal3 s 75170 36624 75570 36680 6 o_ext_rs2[13]
+rlabel metal3 s 75170 50064 75570 50120 6 o_ext_rs2[11]
 port 212 nsew signal output
-rlabel metal3 s 75170 45024 75570 45080 6 o_ext_rs2[14]
+rlabel metal3 s 75170 40656 75570 40712 6 o_ext_rs2[12]
 port 213 nsew signal output
-rlabel metal3 s 75170 45696 75570 45752 6 o_ext_rs2[15]
+rlabel metal3 s 75170 36624 75570 36680 6 o_ext_rs2[13]
 port 214 nsew signal output
-rlabel metal3 s 75170 26544 75570 26600 6 o_ext_rs2[16]
+rlabel metal3 s 75170 45024 75570 45080 6 o_ext_rs2[14]
 port 215 nsew signal output
-rlabel metal3 s 75170 46368 75570 46424 6 o_ext_rs2[17]
+rlabel metal3 s 75170 45696 75570 45752 6 o_ext_rs2[15]
 port 216 nsew signal output
-rlabel metal3 s 75170 49392 75570 49448 6 o_ext_rs2[18]
+rlabel metal3 s 75170 26544 75570 26600 6 o_ext_rs2[16]
 port 217 nsew signal output
-rlabel metal3 s 75170 42336 75570 42392 6 o_ext_rs2[19]
+rlabel metal3 s 75170 46368 75570 46424 6 o_ext_rs2[17]
 port 218 nsew signal output
-rlabel metal3 s 75170 27216 75570 27272 6 o_ext_rs2[1]
+rlabel metal3 s 75170 49392 75570 49448 6 o_ext_rs2[18]
 port 219 nsew signal output
-rlabel metal3 s 75170 39984 75570 40040 6 o_ext_rs2[20]
+rlabel metal3 s 75170 42336 75570 42392 6 o_ext_rs2[19]
 port 220 nsew signal output
-rlabel metal3 s 75170 51744 75570 51800 6 o_ext_rs2[21]
+rlabel metal3 s 75170 27216 75570 27272 6 o_ext_rs2[1]
 port 221 nsew signal output
-rlabel metal3 s 75170 44016 75570 44072 6 o_ext_rs2[22]
+rlabel metal3 s 75170 39984 75570 40040 6 o_ext_rs2[20]
 port 222 nsew signal output
-rlabel metal3 s 75170 44352 75570 44408 6 o_ext_rs2[23]
+rlabel metal3 s 75170 51744 75570 51800 6 o_ext_rs2[21]
 port 223 nsew signal output
-rlabel metal3 s 75170 49056 75570 49112 6 o_ext_rs2[24]
+rlabel metal3 s 75170 44016 75570 44072 6 o_ext_rs2[22]
 port 224 nsew signal output
-rlabel metal3 s 75170 46032 75570 46088 6 o_ext_rs2[25]
+rlabel metal3 s 75170 44352 75570 44408 6 o_ext_rs2[23]
 port 225 nsew signal output
-rlabel metal3 s 75170 53088 75570 53144 6 o_ext_rs2[26]
+rlabel metal3 s 75170 49056 75570 49112 6 o_ext_rs2[24]
 port 226 nsew signal output
-rlabel metal3 s 75170 54096 75570 54152 6 o_ext_rs2[27]
+rlabel metal3 s 75170 46032 75570 46088 6 o_ext_rs2[25]
 port 227 nsew signal output
-rlabel metal3 s 75170 52752 75570 52808 6 o_ext_rs2[28]
+rlabel metal3 s 75170 53088 75570 53144 6 o_ext_rs2[26]
 port 228 nsew signal output
-rlabel metal3 s 75170 28224 75570 28280 6 o_ext_rs2[29]
+rlabel metal3 s 75170 54096 75570 54152 6 o_ext_rs2[27]
 port 229 nsew signal output
-rlabel metal3 s 75170 49728 75570 49784 6 o_ext_rs2[2]
+rlabel metal3 s 75170 52752 75570 52808 6 o_ext_rs2[28]
 port 230 nsew signal output
-rlabel metal3 s 75170 37296 75570 37352 6 o_ext_rs2[30]
+rlabel metal3 s 75170 28224 75570 28280 6 o_ext_rs2[29]
 port 231 nsew signal output
-rlabel metal3 s 75170 53424 75570 53480 6 o_ext_rs2[31]
+rlabel metal3 s 75170 49728 75570 49784 6 o_ext_rs2[2]
 port 232 nsew signal output
-rlabel metal3 s 75170 15120 75570 15176 6 o_ext_rs2[3]
+rlabel metal3 s 75170 37296 75570 37352 6 o_ext_rs2[30]
 port 233 nsew signal output
-rlabel metal3 s 75170 16800 75570 16856 6 o_ext_rs2[4]
+rlabel metal3 s 75170 53424 75570 53480 6 o_ext_rs2[31]
 port 234 nsew signal output
-rlabel metal3 s 75170 17808 75570 17864 6 o_ext_rs2[5]
+rlabel metal3 s 75170 15120 75570 15176 6 o_ext_rs2[3]
 port 235 nsew signal output
-rlabel metal3 s 75170 30576 75570 30632 6 o_ext_rs2[6]
+rlabel metal3 s 75170 16800 75570 16856 6 o_ext_rs2[4]
 port 236 nsew signal output
-rlabel metal3 s 75170 48384 75570 48440 6 o_ext_rs2[7]
+rlabel metal3 s 75170 17808 75570 17864 6 o_ext_rs2[5]
 port 237 nsew signal output
-rlabel metal3 s 75170 29904 75570 29960 6 o_ext_rs2[8]
+rlabel metal3 s 75170 30576 75570 30632 6 o_ext_rs2[6]
 port 238 nsew signal output
-rlabel metal3 s 75170 30912 75570 30968 6 o_ext_rs2[9]
+rlabel metal3 s 75170 48384 75570 48440 6 o_ext_rs2[7]
 port 239 nsew signal output
-rlabel metal3 s 75170 9408 75570 9464 6 o_ibus_adr[0]
+rlabel metal3 s 75170 29904 75570 29960 6 o_ext_rs2[8]
 port 240 nsew signal output
-rlabel metal3 s 75170 2352 75570 2408 6 o_ibus_adr[10]
+rlabel metal3 s 75170 30912 75570 30968 6 o_ext_rs2[9]
 port 241 nsew signal output
-rlabel metal3 s 75170 2688 75570 2744 6 o_ibus_adr[11]
+rlabel metal3 s 75170 9408 75570 9464 6 o_ibus_adr[0]
 port 242 nsew signal output
-rlabel metal3 s 75170 3024 75570 3080 6 o_ibus_adr[12]
+rlabel metal3 s 75170 2352 75570 2408 6 o_ibus_adr[10]
 port 243 nsew signal output
-rlabel metal3 s 75170 3360 75570 3416 6 o_ibus_adr[13]
+rlabel metal3 s 75170 2688 75570 2744 6 o_ibus_adr[11]
 port 244 nsew signal output
-rlabel metal3 s 75170 3696 75570 3752 6 o_ibus_adr[14]
+rlabel metal3 s 75170 3024 75570 3080 6 o_ibus_adr[12]
 port 245 nsew signal output
-rlabel metal3 s 75170 4032 75570 4088 6 o_ibus_adr[15]
+rlabel metal3 s 75170 3360 75570 3416 6 o_ibus_adr[13]
 port 246 nsew signal output
-rlabel metal3 s 75170 4704 75570 4760 6 o_ibus_adr[16]
+rlabel metal3 s 75170 3696 75570 3752 6 o_ibus_adr[14]
 port 247 nsew signal output
-rlabel metal3 s 75170 5376 75570 5432 6 o_ibus_adr[17]
+rlabel metal3 s 75170 4032 75570 4088 6 o_ibus_adr[15]
 port 248 nsew signal output
-rlabel metal3 s 75170 6384 75570 6440 6 o_ibus_adr[18]
+rlabel metal3 s 75170 4704 75570 4760 6 o_ibus_adr[16]
 port 249 nsew signal output
-rlabel metal3 s 75170 7392 75570 7448 6 o_ibus_adr[19]
+rlabel metal3 s 75170 5376 75570 5432 6 o_ibus_adr[17]
 port 250 nsew signal output
-rlabel metal3 s 75170 7728 75570 7784 6 o_ibus_adr[1]
+rlabel metal3 s 75170 6384 75570 6440 6 o_ibus_adr[18]
 port 251 nsew signal output
-rlabel metal3 s 75170 2016 75570 2072 6 o_ibus_adr[20]
+rlabel metal3 s 75170 7392 75570 7448 6 o_ibus_adr[19]
 port 252 nsew signal output
-rlabel metal3 s 75170 7056 75570 7112 6 o_ibus_adr[21]
+rlabel metal3 s 75170 7728 75570 7784 6 o_ibus_adr[1]
 port 253 nsew signal output
-rlabel metal3 s 75170 1680 75570 1736 6 o_ibus_adr[22]
+rlabel metal3 s 75170 2016 75570 2072 6 o_ibus_adr[20]
 port 254 nsew signal output
-rlabel metal3 s 75170 8400 75570 8456 6 o_ibus_adr[23]
+rlabel metal3 s 75170 7056 75570 7112 6 o_ibus_adr[21]
 port 255 nsew signal output
-rlabel metal3 s 75170 9744 75570 9800 6 o_ibus_adr[24]
+rlabel metal3 s 75170 1680 75570 1736 6 o_ibus_adr[22]
 port 256 nsew signal output
-rlabel metal3 s 75170 336 75570 392 6 o_ibus_adr[25]
+rlabel metal3 s 75170 8400 75570 8456 6 o_ibus_adr[23]
 port 257 nsew signal output
-rlabel metal3 s 75170 10752 75570 10808 6 o_ibus_adr[26]
+rlabel metal3 s 75170 9744 75570 9800 6 o_ibus_adr[24]
 port 258 nsew signal output
-rlabel metal3 s 75170 10416 75570 10472 6 o_ibus_adr[27]
+rlabel metal3 s 75170 336 75570 392 6 o_ibus_adr[25]
 port 259 nsew signal output
-rlabel metal3 s 75170 10080 75570 10136 6 o_ibus_adr[28]
+rlabel metal3 s 75170 10752 75570 10808 6 o_ibus_adr[26]
 port 260 nsew signal output
-rlabel metal3 s 75170 1008 75570 1064 6 o_ibus_adr[29]
+rlabel metal3 s 75170 10416 75570 10472 6 o_ibus_adr[27]
 port 261 nsew signal output
-rlabel metal3 s 75170 6720 75570 6776 6 o_ibus_adr[2]
+rlabel metal3 s 75170 10080 75570 10136 6 o_ibus_adr[28]
 port 262 nsew signal output
-rlabel metal3 s 75170 9072 75570 9128 6 o_ibus_adr[30]
+rlabel metal3 s 75170 1008 75570 1064 6 o_ibus_adr[29]
 port 263 nsew signal output
-rlabel metal3 s 75170 8736 75570 8792 6 o_ibus_adr[31]
+rlabel metal3 s 75170 6720 75570 6776 6 o_ibus_adr[2]
 port 264 nsew signal output
-rlabel metal3 s 75170 5712 75570 5768 6 o_ibus_adr[3]
+rlabel metal3 s 75170 9072 75570 9128 6 o_ibus_adr[30]
 port 265 nsew signal output
-rlabel metal2 s 64848 0 64904 400 6 o_ibus_adr[4]
+rlabel metal3 s 75170 8736 75570 8792 6 o_ibus_adr[31]
 port 266 nsew signal output
-rlabel metal2 s 65184 0 65240 400 6 o_ibus_adr[5]
+rlabel metal3 s 75170 5712 75570 5768 6 o_ibus_adr[3]
 port 267 nsew signal output
-rlabel metal2 s 65520 0 65576 400 6 o_ibus_adr[6]
+rlabel metal2 s 64848 0 64904 400 6 o_ibus_adr[4]
 port 268 nsew signal output
-rlabel metal3 s 75170 4368 75570 4424 6 o_ibus_adr[7]
+rlabel metal2 s 65184 0 65240 400 6 o_ibus_adr[5]
 port 269 nsew signal output
-rlabel metal3 s 75170 5040 75570 5096 6 o_ibus_adr[8]
+rlabel metal2 s 65520 0 65576 400 6 o_ibus_adr[6]
 port 270 nsew signal output
-rlabel metal3 s 75170 6048 75570 6104 6 o_ibus_adr[9]
+rlabel metal3 s 75170 4368 75570 4424 6 o_ibus_adr[7]
 port 271 nsew signal output
-rlabel metal3 s 75170 11760 75570 11816 6 o_ibus_cyc
+rlabel metal3 s 75170 5040 75570 5096 6 o_ibus_adr[8]
 port 272 nsew signal output
-rlabel metal2 s 57120 76962 57176 77362 6 o_mdu_valid
+rlabel metal3 s 75170 6048 75570 6104 6 o_ibus_adr[9]
 port 273 nsew signal output
-rlabel metal4 s 2224 1538 2384 75686 6 vdd
-port 274 nsew power bidirectional
-rlabel metal4 s 17584 1538 17744 75686 6 vdd
-port 274 nsew power bidirectional
-rlabel metal4 s 32944 1538 33104 75686 6 vdd
-port 274 nsew power bidirectional
-rlabel metal4 s 48304 1538 48464 75686 6 vdd
-port 274 nsew power bidirectional
-rlabel metal4 s 63664 1538 63824 75686 6 vdd
-port 274 nsew power bidirectional
-rlabel metal4 s 9904 1538 10064 75686 6 vss
-port 275 nsew ground bidirectional
-rlabel metal4 s 25264 1538 25424 75686 6 vss
-port 275 nsew ground bidirectional
-rlabel metal4 s 40624 1538 40784 75686 6 vss
-port 275 nsew ground bidirectional
-rlabel metal4 s 55984 1538 56144 75686 6 vss
-port 275 nsew ground bidirectional
-rlabel metal4 s 71344 1538 71504 75686 6 vss
-port 275 nsew ground bidirectional
+rlabel metal3 s 75170 11760 75570 11816 6 o_ibus_cyc
+port 274 nsew signal output
+rlabel metal2 s 57120 76962 57176 77362 6 o_mdu_valid
+port 275 nsew signal output
 << properties >>
 string FIXED_BBOX 0 0 75570 77362
 string LEFclass BLOCK
 string LEFview TRUE
 string GDS_END 15383850
-string GDS_FILE /home/farag/carvel_riscv_soc/gf180mcu_riscv_soc/openlane/serv_riscv/runs/23_11_02_16_56/results/signoff/serv_rf_top.magic.gds
+string GDS_FILE /home/farag/carvel_riscv_soc/gf180mcu_riscv_soc/openlane/serv_rf_top/runs/23_11_05_08_52/results/signoff/serv_rf_top.magic.gds
 string GDS_START 468030
 << end >>
 
