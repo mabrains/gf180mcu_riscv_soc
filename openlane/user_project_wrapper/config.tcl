@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText
+# SPDX-FileCopyrightText: 2023 Mabrains Company
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -36,10 +36,8 @@ set ::env(EXTRA_SPEFS) [list "serv_rf_top" "$::env(DESIGN_DIR)/../../spef/multic
 
 set ::env(PDK) "gf180mcuD"
 set ::env(PROCESS) "180"
-set ::env(PDKPATH) "/home/farag/open_design_environment/foundry/pdks/GF180/gf180mcuD"
 set ::env(STD_CELL_LIBRARY) "gf180mcu_fd_sc_mcu7t5v0"
 set ::env(STD_CELL_LIBRARY_OPT) "gf180mcu_fd_sc_mcu7t5v0"
-set ::env(SCLPATH) "/home/farag/open_design_environment/foundry/pdks/GF180/gf180mcuD/gf180mcu_fd_sc_mcu7t5v0"
 
 ## =========================== CLK ===========================
 
