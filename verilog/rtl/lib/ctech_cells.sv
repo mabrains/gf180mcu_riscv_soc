@@ -23,7 +23,7 @@ module ctech_mux2x1_2 #(parameter WB = 1) (
 	output logic [WB-1:0] X);
 
 `ifndef SYNTHESIS
-assign X = (S) ? A1 : A0;
+    assign X = (S) ? A1 : A0;
 `else 
     generate
        if (WB > 1)
@@ -37,7 +37,6 @@ assign X = (S) ? A1 : A0;
        end
     endgenerate
 `endif
-
 endmodule
 
 // ======= ctech_mux2x1_4 =======
@@ -48,7 +47,7 @@ module ctech_mux2x1_4 #(parameter WB = 1) (
 	output logic [WB-1:0] X);
 
 `ifndef SYNTHESIS
-assign X = (S) ? A1 : A0;
+    assign X = (S) ? A1 : A0;
 `else 
     generate
        if (WB > 1)
@@ -62,7 +61,6 @@ assign X = (S) ? A1 : A0;
        end
     endgenerate
 `endif
-
 endmodule
 
 // ======= ctech_clk_buf =======
@@ -71,11 +69,10 @@ module ctech_clk_buf (
 	output logic X);
 
 `ifndef SYNTHESIS
-assign X = A;
+    assign X = A;
 `else
     gf180mcu_fd_sc_mcu7t5v0__clkbuf_8 u_buf  (.I(A),.Z(X));
 `endif
-
 endmodule
 
 // ======= ctech_delay_clkbuf =======
@@ -88,32 +85,24 @@ wire X1,X2,X3;
     assign X = A;
 `else
      gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 u_dly0 (.Z(X1),.I(A));
-     gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 u_dly1 (.Z(X2),.I(X1));
-     gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 u_dly2 (.Z(X3),.I(X2));
-     gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 u_dly3 (.Z(X), .I(X3));
+     gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 u_dly1 (.Z(X),.I(X1));
+    //  gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 u_dly2 (.Z(X3),.I(X2));
+    //  gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 u_dly3 (.Z(X), .I(X3));     
 `endif
-
 endmodule
 
+// ======= ctech_buf =======
+module ctech_buf (
+	input  logic A,
+	output logic X);
 
+`ifndef SYNTHESIS
+    assign X = A;
+`else
+    gf180mcu_fd_sc_mcu7t5v0__buf_8 u_buf  (.I(A),.Z(X));
+`endif
+endmodule
 
-
-
-
-// module ctech_buf (
-// 	input  logic A,
-// 	output logic X);
-
-// `ifndef SYNTHESIS
-// assign X = A;
-// `else
-//     sky130_fd_sc_hd__bufbuf_8 u_buf  (.A(A),.X(X));
-// `endif
-
-// endmodule
-
-
-// endmodule
 
 // module ctech_delay_buf (
 // 	input  logic A,
