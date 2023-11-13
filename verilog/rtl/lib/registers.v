@@ -373,13 +373,13 @@ endmodule
 ***********************************************************************/
 module  gen_32b_reg2	(
 	      //List of Inputs
-          rst_in,
+        rst_in,
 	      cs,
 	      we,		 
 	      data_in,
 	      reset_n,
 	      clk,
-	      
+
 	      //List of Outs
 	      data_out
 	      );
@@ -395,7 +395,7 @@ module  gen_32b_reg2	(
 
   reg [31:0]    data_out;
 
-always @ (posedge clk) begin 
+always @ (negedge clk) begin 
   if (reset_n == 1'b0) begin
     data_out  <= rst_in ;
   end
@@ -406,6 +406,5 @@ always @ (posedge clk) begin
     if(cs && we[3]) data_out[31:24] <= data_in[31:24];
   end
 end
-
 
 endmodule

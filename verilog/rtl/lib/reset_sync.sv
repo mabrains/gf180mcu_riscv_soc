@@ -70,8 +70,6 @@ module reset_sync   (
               srst_n 
           );
 
-parameter WIDTH = 1;
-
 input    scan_mode  ; // test mode
 input    dclk       ; // Destination clock
 input    arst_n     ; // Async Reset
