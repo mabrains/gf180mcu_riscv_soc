@@ -159,8 +159,6 @@ clk_in, sel, clk_out);
   ctech_delay_clkbuf clkbuf_15 (.A(clk_d14),   .X(clk_d15));
 
 
-   
-
   // Tap point selection
   ctech_clk_buf u_tap_0  (.A(clk_inbuf),  .X(in0));
   ctech_clk_buf u_tap_1  (.A(clk_d1),  .X(in1));

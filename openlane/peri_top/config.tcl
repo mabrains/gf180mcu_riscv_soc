@@ -30,18 +30,10 @@ set ::env(VERILOG_FILES) "\
      $::env(DESIGN_DIR)/../../verilog/rtl/rtc/rtc_core.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/rtc/rtc_reg.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/peripheral/peri_top.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/dig2ana/dig2ana_reg.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/ctech_cells.sv     \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/reset_sync.sv     \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/async_reg_bus.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/registers.v \
-     $::env(DESIGN_DIR)/../../verilog/rtl/nec_ir/nec_ir_rx.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/nec_ir/nec_ir_frame_decoder.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/nec_ir/nec_ir_event_catcher.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/nec_ir/nec_ir_regs.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/nec_ir/nec_div8.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/nec_ir/nec_ir_tx.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/nec_ir/nec_ir_top.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/sm_ctrl/sm_ctrl.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/sync_fifo_occ.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/prescaler.v \
@@ -58,7 +50,7 @@ set ::env(STD_CELL_LIBRARY_OPT) "gf180mcu_fd_sc_mcu7t5v0"
 
 ## =========================== CLK ===========================
 
-set ::env(CLOCK_PERIOD) "25"
+set ::env(CLOCK_PERIOD) "100"
 set ::env(CLOCK_PORT) "mclk rtc_clk"
 
 ## =========================== SDC ===========================
@@ -115,9 +107,6 @@ set ::env(FP_PDN_HPITCH) "100"
 
 set ::env(FP_PDN_CHECK_NODES) "0"
 set ::env(FP_PDN_ENABLE_GLOBAL_CONNECTIONS) "1"
-
-# set ::env(FP_IO_VEXTEND) 2
-# set ::env(FP_IO_HEXTEND) 2
 
 ## =========================== PL & Rotute ===========================
 

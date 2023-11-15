@@ -1,12 +1,12 @@
 ###############################################################################
 # Created by write_sdc
-# Tue Nov  7 11:28:34 2023
+# Wed Nov 15 16:45:06 2023
 ###############################################################################
 current_design uart_i2c_usb_spi_top
 ###############################################################################
 # Timing Constraints
 ###############################################################################
-create_clock -name app_clk -period 20.0000 [get_ports {app_clk}]
+create_clock -name app_clk -period 100.0000 [get_ports {app_clk}]
 set_clock_transition 0.1500 [get_clocks {app_clk}]
 set_clock_uncertainty -setup 0.4000 app_clk
 set_clock_uncertainty -hold 0.1000 app_clk
@@ -202,7 +202,6 @@ set_load -pin_load 0.0729 [get_ports {usb_intr_o}]
 set_load -pin_load 0.0729 [get_ports {usb_out_dn}]
 set_load -pin_load 0.0729 [get_ports {usb_out_dp}]
 set_load -pin_load 0.0729 [get_ports {usb_out_tx_oen}]
-set_load -pin_load 0.0729 [get_ports {wbd_clk_uart}]
 set_load -pin_load 0.0729 [get_ports {reg_rdata[31]}]
 set_load -pin_load 0.0729 [get_ports {reg_rdata[30]}]
 set_load -pin_load 0.0729 [get_ports {reg_rdata[29]}]
@@ -253,11 +252,6 @@ set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_trans
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {usb_in_dn}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {usb_in_dp}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {usb_rstn}]
-set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {wbd_clk_int}]
-set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {cfg_cska_uart[3]}]
-set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {cfg_cska_uart[2]}]
-set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {cfg_cska_uart[1]}]
-set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {cfg_cska_uart[0]}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {reg_addr[8]}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {reg_addr[7]}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {reg_addr[6]}]
@@ -307,15 +301,11 @@ set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_trans
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {uart_rstn[0]}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {uart_rxd[1]}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_8 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {uart_rxd[0]}]
-set_case_analysis 0 [get_ports {cfg_cska_uart[0]}]
-set_case_analysis 0 [get_ports {cfg_cska_uart[1]}]
-set_case_analysis 0 [get_ports {cfg_cska_uart[2]}]
-set_case_analysis 0 [get_ports {cfg_cska_uart[3]}]
 set_timing_derate -early 0.9500
 set_timing_derate -late 1.0500
 ###############################################################################
 # Design Rules
 ###############################################################################
-set_max_transition 1.0000 [current_design]
-set_max_capacitance 0.2000 [current_design]
+set_max_transition 2.0000 [current_design]
+set_max_capacitance 0.5000 [current_design]
 set_max_fanout 20.0000 [current_design]

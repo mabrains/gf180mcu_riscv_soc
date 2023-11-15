@@ -8,8 +8,8 @@ parameter CHIP_RELEASE_DATE = 32'h1406_2023;
 // Software Reg-2: Poject Revison 5.1 = 0005200
 parameter CHIP_REVISION   = 32'h0006_1200;
 
-// parameter CLK_SKEW1_RESET_VAL = 32'b0110_0000_0011_0110_0101_1000_1101_1100;
-// parameter CLK_SKEW2_RESET_VAL = 32'b0010_1000_1000_1000_0111_0110_1011_1101;
+parameter CLK_SKEW1_RESET_VAL = 32'b0110_0000_0011_0110_0101_1000_1101_1100;
+parameter CLK_SKEW2_RESET_VAL = 32'b0010_1000_1000_1000_0111_0110_1011_1101;
 
 parameter PSTRAP_DEFAULT_VALUE = 15'b000_0011_1010_0000;
 
@@ -116,13 +116,6 @@ system strap decoding
                  1 - Invert
 
      bit [15]    -  Soft Reboot Request
-     bit [17:16] -  cfg_cska_wi Skew selection      
-     bit [19:18] -  cfg_cska_wh Skew selection        
-     bit [21:20] -  cfg_cska_riscv Skew selection      
-     bit [23:22] -  cfg_cska_qspi  Skew selection      
-     bit [25:24] -  cfg_cska_uart  Skew selection       
-     bit [27:26] -  cfg_cska_pinmux Skew selection     
-     bit [29:28] -  cfg_cska_qspi_co Skew selection    
 
 
 ********************************************************/

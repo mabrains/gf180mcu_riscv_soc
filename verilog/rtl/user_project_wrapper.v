@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Efabless Corporation
+// SPDX-FileCopyrightText: 2023 Mabrains Company
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,95 +29,297 @@
  *-------------------------------------------------------------
  */
 
-module user_project_wrapper #(
-    parameter BITS = 32
-) (
+`include "user_params.svh"
+
+module user_project_wrapper (
 `ifdef USE_POWER_PINS
     inout VDD,		// User area 5.0V supply
     inout VSS,		// User area ground
 `endif
 
-    // Wishbone Slave ports (WB MI A)
-    input wb_clk_i,
-    input wb_rst_i,
-    input wbs_stb_i,
-    input wbs_cyc_i,
-    input wbs_we_i,
-    input [3:0] wbs_sel_i,
-    input [31:0] wbs_dat_i,
-    input [31:0] wbs_adr_i,
-    output wbs_ack_o,
-    output [31:0] wbs_dat_o,
+   // =======================================================
+   // ------------------- WB Slave ports --------------------
+   // =======================================================    
+   input   wire                 wb_clk_i        ,  // System clock
+   input   wire                 wb_rst_i        ,  // Regular Reset signal
+   input   wire                 wbs_stb_i       ,  // strobe/request
+   input   wire                 wbs_cyc_i       ,  // strobe/request
+   input   wire                 wbs_we_i        ,  // write enable
+   input   wire [3:0]           wbs_sel_i       ,  // byte enable
+   input   wire [WB_WIDTH-1:0]  wbs_dat_i       ,  // data in
+   input   wire [WB_WIDTH-1:0]  wbs_adr_i       ,  // address
 
-    // Logic Analyzer Signals
-    input  [63:0] la_data_in,
-    output [63:0] la_data_out,
-    input  [63:0] la_oenb,
+   output  wire                 wbs_ack_o       ,  // acknowlegement
+   output  wire [WB_WIDTH-1:0]  wbs_dat_o       ,  // data out
 
-    // IOs
-    input  [`MPRJ_IO_PADS-1:0] io_in,
-    output [`MPRJ_IO_PADS-1:0] io_out,
-    output [`MPRJ_IO_PADS-1:0] io_oeb,
+   // =======================================================
+   // --------------- Logic Analyzer Signals ----------------
+   // =======================================================
+   input  [63:0] la_data_in,
+   output [63:0] la_data_out,
+   input  [63:0] la_oenb,
+
+   // ======================================================
+   // -------------------- I/O Signals ---------------------
+   // ======================================================
+   input  [`MPRJ_IO_PADS-1:0] io_in,
+   output [`MPRJ_IO_PADS-1:0] io_out,
+   output [`MPRJ_IO_PADS-1:0] io_oeb,
 
     // Independent clock (on independent integer divider)
-    input   user_clock2,
+    input  wire  user_clock2,  // user Clock
 
     // User maskable interrupt signals
     output [2:0] user_irq
 );
 
-/*--------------------------------------*/
-/* User project is instantiated  here   */
-/*--------------------------------------*/
+//---------------------------------------------------
+// Local Parameter Declaration
+// --------------------------------------------------
+parameter     WB_WIDTH      = 32; // WB ADDRESS/DARA WIDTH
 
-serv_rf_top serv_rf_top(
+// ==========================================================
+// --------------------- SYSYEM SIGNALS ---------------------
+// ==========================================================
+
+wire       sspim_rst_n    ;
+wire [1:0] uart_rst_n     ;
+wire       i2c_rst_n      ;
+wire       usb_rst_n      ;
+wire       rtc_clk        ;
+wire       usb_clk        ;
+wire       pulse1m_mclk   ;
+
+// ====================================================================
+// -------------------- UART-I2C-USB-SPI SLAVE I/F --------------------
+// ====================================================================
+
+// USB I/F
+wire                usb_dp_o          ;
+wire                usb_dn_o          ;
+wire                usb_oen           ;
+wire                usb_dp_i          ;
+wire                usb_dn_i          ;
+
+// UART I/F   
+wire       [1:0]    uart_txd          ;
+wire       [1:0]    uart_rxd          ;
+
+// I2CM I/F   
+wire                i2cm_clk_o        ;
+wire                i2cm_clk_i        ;
+wire                i2cm_clk_oen      ;
+wire                i2cm_data_oen     ;
+wire                i2cm_data_o       ;
+wire                i2cm_data_i       ;
+
+// SPIM I/F   
+wire                sspim_sck         ; // clock out
+wire                sspim_so          ; // serial data out
+wire                sspim_si          ; // serial data in
+wire    [3:0]       sspim_ssn         ; // cs_n
+
+wire                usb_intr_o        ;
+wire                i2cm_intr_o       ;
+
+// ============================================================
+// -------------------- Peripheral Reg I/F --------------------
+// ============================================================
+wire                reg_peri_cs        ;
+wire                reg_peri_wr        ;
+wire [10:0]         reg_peri_addr      ;
+wire [31:0]         reg_peri_wdata     ;
+wire [3:0]          reg_peri_be        ;
+
+wire [31:0]         reg_peri_rdata     ;
+wire                reg_peri_ack       ;
+
+wire                rtc_intr           ; // RTC interrupt
+
+// ==============================================================
+// ---------------- UART-I2C-USB-SPI CONNECTIONS ----------------
+// ==============================================================
+
+uart_i2c_usb_spi_top   u_uart_i2c_usb_spi (
 `ifdef USE_POWER_PINS
-	.VDD(VDD),	// // User area 5.0V supply
-	.VSS(VSS),	// User area ground
+    inout VDD,		// User area 5.0V supply
+    inout VSS,		// User area ground
+`endif
+        // System Signals
+        .uart_rstn          (uart_rst_n         ),
+        .i2c_rstn           (i2c_rst_n          ),
+        .usb_rstn           (usb_rst_n          ),
+        .spi_rstn           (sspim_rst_n        ),
+        .app_clk            (wb_clk_i           ),
+        .usb_clk            (usb_clk            ),
+
+        // Reg Bus Interface Signal
+        .reg_cs             (wbs_stb_i          ),
+        .reg_wr             (wbs_we_i           ),
+        .reg_addr           (wbs_adr_i[8:0]     ),
+        .reg_wdata          (wbs_dat_i          ),
+        .reg_be             (wbs_sel_i          ),
+
+       // Outputs
+        .reg_rdata          (wbs_dat_o          ),
+        .reg_ack            (wbs_ack_o          ),
+
+       // Pad interface
+        .scl_pad_i          (i2cm_clk_i         ),
+        .scl_pad_o          (i2cm_clk_o         ),
+        .scl_pad_oen_o      (i2cm_clk_oen       ),
+
+        .sda_pad_i          (i2cm_data_i        ),
+        .sda_pad_o          (i2cm_data_o        ),
+        .sda_padoen_o       (i2cm_data_oen      ),
+    
+        .i2cm_intr_o        (i2cm_intr_o        ),
+
+        // UART
+        .uart_rxd           (uart_rxd           ),
+        .uart_txd           (uart_txd           ),
+
+        // USB
+        .usb_in_dp          (usb_dp_i           ),
+        .usb_in_dn          (usb_dn_i           ),
+
+        .usb_out_dp         (usb_dp_o           ),
+        .usb_out_dn         (usb_dn_o           ),
+        .usb_out_tx_oen     (usb_oen            ),
+    
+        .usb_intr_o         (usb_intr_o         ),
+
+        // SPI
+        .sspim_sck          (sspim_sck          ), 
+        .sspim_so           (sspim_so           ),  
+        .sspim_si           (sspim_si           ),  
+        .sspim_ssn          (sspim_ssn          )  
+    );
+
+// ============================================================
+// -------------------- PINMUX CONNECTIONS --------------------
+// ============================================================
+
+pinmux_top u_pinmux(
+`ifdef USE_POWER_PINS
+    inout VDD,		// User area 5.0V supply
+    inout VSS,		// User area ground
+`endif
+        // System Signals
+        .mclk               (wb_clk_i              ),
+        .e_reset_n          (wb_rst_i              ),
+        .p_reset_n          (wb_rst_i              ),
+        .s_reset_n          (wb_rst_i              ),
+
+        .user_clock1        (wb_clk_i              ),
+        .user_clock2        (user_clock2           ),
+
+        .rtc_clk            (rtc_clk              ),
+        .usb_clk            (usb_clk              ),
+
+        .cfg_strap_pad_ctrl (!wb_rst_i             ),
+
+        // Reset Control
+        .sspim_rst_n        (sspim_rst_n           ),
+        .uart_rst_n         (uart_rst_n            ),
+        .i2cm_rst_n         (i2c_rst_n             ),
+        .usb_rst_n          (usb_rst_n             ),
+
+
+        // Risc configuration
+        .user_irq           (user_irq              ),
+        .usb_intr           (usb_intr_o            ),
+        .i2cm_intr          (i2cm_intr_o           ),
+        .rtc_intr           (rtc_intr              ),
+
+        // Reg Bus Interface Signal
+        .reg_cs             (wbs_stb_i           ),
+        .reg_wr             (wbs_we_i            ),
+        .reg_addr           (wbs_adr_i[10:0]     ),
+        .reg_wdata          (wbs_dat_i           ),
+        .reg_be             (wbs_sel_i           ),
+
+        // Outputs
+        .reg_rdata          (wbs_dat_o           ),
+        .reg_ack            (wbs_ack_o           ),
+
+        // Digital IO
+        .digital_io_out     (io_out                ),
+        .digital_io_oen     (io_oeb                ),
+        .digital_io_in      (io_in                 ),
+
+        // USB I/F
+        .usb_dp_o           (usb_dp_o              ),
+        .usb_dn_o           (usb_dn_o              ),
+        .usb_oen            (usb_oen               ),
+        .usb_dp_i           (usb_dp_i              ),
+        .usb_dn_i           (usb_dn_i              ),
+
+        // UART I/F
+        .uart_txd           (uart_txd              ),
+        .uart_rxd           (uart_rxd              ),
+
+        // I2CM I/F
+        .i2cm_clk_o         (i2cm_clk_o            ),
+        .i2cm_clk_i         (i2cm_clk_i            ),
+        .i2cm_clk_oen       (i2cm_clk_oen          ),
+        .i2cm_data_oen      (i2cm_data_oen         ),
+        .i2cm_data_o        (i2cm_data_o           ),
+        .i2cm_data_i        (i2cm_data_i           ),
+
+        // SPI MASTER
+        .spim_sck           (sspim_sck             ),
+        .spim_ssn           (sspim_ssn             ),
+        .spim_miso          (sspim_so              ),
+        .spim_mosi          (sspim_si              ),
+    
+        // timer
+        .pulse1m_mclk       (pulse1m_mclk          ),    
+
+    // Peripheral Reg Bus Interface Signal
+        .reg_peri_cs        (reg_peri_cs           ),
+        .reg_peri_wr        (reg_peri_wr           ),
+        .reg_peri_addr      (reg_peri_addr         ),
+        .reg_peri_wdata     (reg_peri_wdata        ),
+        .reg_peri_be        (reg_peri_be           ),
+
+    // Outputs
+        .reg_peri_rdata     (reg_peri_rdata        ),
+        .reg_peri_ack       (reg_peri_ack          )
+
+    );
+
+// ================================================================
+// -------------------- Peripheral CONNECTIONS --------------------
+// ================================================================
+
+peri_top u_peri(
+`ifdef USE_POWER_PINS
+    inout VDD,		// User area 5.0V supply
+    inout VSS,		// User area ground
 `endif
 
-    // ================================= Main signals =================================
-    .clk(wb_clk_i),                         // clk        : Clock signal
-    .i_rst(wb_rst_i),                       // i_rst      : Synchronous reset
+        // System Signals
+        // Inputs
+          .mclk                    (wb_clk_i           ),
+          .s_reset_n               (wb_rst_i           ),
 
-    // ================================= Wishbone Slave =================================
-    // .wbs_cyc_i(wbs_cyc_i),
-    // .wbs_stb_i(wbs_stb_i),
-    // .wbs_we_i(wbs_we_i),
-    // .wbs_sel_i(wbs_sel_i),
-    // .wbs_adr_i(wbs_adr_i),
-    // .wbs_dat_i(wbs_dat_i),
-    // .wbs_ack_o(wbs_ack_o),
+        // Peripheral Reg Bus Interface Signal
+          .reg_cs                  (reg_peri_cs        ),
+          .reg_wr                  (reg_peri_wr        ),
+          .reg_addr                (reg_peri_addr      ),
+          .reg_wdata               (reg_peri_wdata     ),
+          .reg_be                  (reg_peri_be        ),
 
-    .o_dbus_dat(wbs_dat_o),                     // o_dbus_dat:  Data bus write data                   === OUT === 32 bit
+       // Outputs
+          .reg_rdata               (reg_peri_rdata     ),
+          .reg_ack                 (reg_peri_ack       ),
 
-    // ================================= Logic Analyzer =================================
-    .o_ibus_adr(la_data_out[31:0]),             // o_ibus_adr:  Instruction bus address               === OUT === 32 bit
-    .o_dbus_adr(la_data_out[63:32]),            // o_dbus_adr:  Data bus address                      === OUT === 32 bit
+          // RTC clock domain
+          .rtc_clk                 (rtc_clk            ),
+          .rtc_intr                (rtc_intr           )
 
-    .i_ibus_rdt(la_data_in[31:0]),              // i_ibus_rdt:  Instruction bus read data             === IN  === 32 bit
-    .i_dbus_rdt(la_data_in[63:32]),             // i_dbus_rdt:  Data bus return data                  === IN  === 32 bit
+   );
 
-    .i_timer_irq (la_oenb[0]),                  // i_timer_irq: Timer interrupt                       === IN  === 1  bit
-    .i_ibus_ack (la_oenb[1]),                   // i_ibus_ack : Instruction bus cycle ack             === IN  === 1  bit
-    .i_dbus_ack (la_oenb[2]),                   // i_dbus_ack : Data bus return data valid            === IN  === 1  bit
-    .i_ext_ready (la_oenb[3]),                  // i_ext_ready: Extension interface RD contents valid === IN  === 1  bit
-    .i_ext_rd (la_oenb[35:4]),                  // i_ext_rd   : Extension interface RD contents       === IN  === 32 bit
+endmodule : user_project_wrapper
 
-    // ================================= IO Pads =================================
-
-    .o_ibus_cyc(io_out[0]),                     // o_ibus_cyc : Instruction bus active cycle          === OUT === 1  bit
-    .o_dbus_sel(io_out[4:1]),                   // o_dbus_sel : Data bus write data byte select mask  === OUT === 4  bit
-    .o_dbus_we(io_out[5]),                      // o_dbus_we  : Data bus write transaction            === OUT === 1  bit
-    .o_ext_rs1(io_out[37:6]),                   // o_ext_rs1  : Extension interface RS1 contents      === OUT === 32 bit
-
-    .o_ext_rs2(io_oeb[31:0]),                   // o_ext_rs2  : Extension interface RS2 contents      === OUT === 32 bit
-    .o_ext_funct3(io_oeb[34:32]),               // o_ext_func3: Extension interface funct3 contents   === OUT === 3  bit
-    .o_mdu_valid(io_oeb[35]),                   // o_mdu_valid: MDU request                           === OUT === 1  bit
-    .o_dbus_cyc(io_oeb[36])                     // o_dbus_cyc : Data bus active cycle                 === OUT === 1  bit
-
-);
-
-endmodule	// user_project_wrapper
-
-`default_nettype wire

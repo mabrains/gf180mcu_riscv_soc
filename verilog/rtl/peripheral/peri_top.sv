@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////
-// SPDX-FileCopyrightText: 2021 , Dinesh Annayya                          
+// SPDX-FileCopyrightText: 2023 , Mabrains Company
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
-// SPDX-FileContributor: Created by Dinesh Annayya <dinesha@opencores.org>
 //
 //////////////////////////////////////////////////////////////////////
 ////                                                              ////
@@ -47,10 +46,6 @@ module peri_top (
                        input logic             VDD, // User area 5V supply
                        input logic             VSS, // User area ground
                     `endif
-                        // clock skew adjust
-                       input logic [3:0]       cfg_cska_peri,
-                       input logic	           wbd_clk_int,
-                       output logic	           wbd_clk_peri,
 
                        // System Signals
                        // Inputs
@@ -70,36 +65,11 @@ module peri_top (
 
                        // RTC Clock Domain
                        input  logic            rtc_clk,
-                       output logic            rtc_intr,
-
-                       output logic            inc_time_s,
-                       output logic            inc_date_d,
-
-                       // IR Receiver I/F
-                       input  logic            ir_rx,
-                       output logic            ir_tx,
-                       output logic            ir_intr,
-               
-                      // DAC Config
-                       output logic [7:0]      cfg_dac0_mux_sel,
-                       output logic [7:0]      cfg_dac1_mux_sel,
-                       output logic [7:0]      cfg_dac2_mux_sel,
-                       output logic [7:0]      cfg_dac3_mux_sel,     
-
-                      //------------------------------
-                      // Stepper Motor Variable
-                      //------------------------------
-                      output logic              sm_a1,  
-                      output logic              sm_a2,  
-                      output logic              sm_b1,  
-                      output logic              sm_b2  
-
+                       output logic            rtc_intr
+ 
    ); 
 
-
-
 logic         s_reset_ssn;  // Sync Reset
-
 
 //----------------------------------------
 //  Register Response Path Mux
@@ -137,18 +107,6 @@ assign reg_ir_cs  = (reg_addr[10:7] == `SEL_IR)  ? reg_cs : 1'b0;
 assign reg_sm_cs  = (reg_addr[10:7] == `SEL_SM)  ? reg_cs : 1'b0;
 
 
-// peri clock skew control
-clk_skew_adjust u_skew_peri
-       (
-`ifdef USE_POWER_PINS
-               .VDD      (VDD                      ),// User area 5V supply
-               .VSS      (VSS                      ),// User area ground
-`endif
-	           .clk_in     (wbd_clk_int                ), 
-	           .sel        (cfg_cska_peri              ), 
-	           .clk_out    (wbd_clk_peri               ) 
-       );
-
 reset_sync  u_rst_sync (
 	  .scan_mode  (1'b0           ),
           .dclk       (mclk           ), // Destination clock domain
@@ -156,32 +114,6 @@ reset_sync  u_rst_sync (
           .srst_n     (s_reset_ssn    )
           );
 
-
-//-----------------------------------------------------------------------
-// Digital To Analog Register
-//-----------------------------------------------------------------------
-dig2ana_reg  u_d2a(
-              // System Signals
-              // Inputs
-              .mclk                     ( mclk                      ),
-              .h_reset_n                (s_reset_ssn                ),
-
-		      // Reg Bus Interface Signal
-              .reg_cs                   (reg_d2a_cs                 ),
-              .reg_wr                   (reg_wr                     ),
-              .reg_addr                 (reg_addr[5:2]              ),
-              .reg_wdata                (reg_wdata[31:0]            ),
-              .reg_be                   (reg_be[3:0]                ),
-
-              // Outputs
-              .reg_rdata                (reg_d2a_rdata              ),
-              .reg_ack                  (reg_d2a_ack                ),
-
-              .cfg_dac0_mux_sel         (cfg_dac0_mux_sel           ),
-              .cfg_dac1_mux_sel         (cfg_dac1_mux_sel           ),
-              .cfg_dac2_mux_sel         (cfg_dac2_mux_sel           ),
-              .cfg_dac3_mux_sel         (cfg_dac3_mux_sel           )
-         );
 
 //-----------------------------------------------------------------------
 // RTC
@@ -210,61 +142,6 @@ rtc_top  u_rtc(
               .inc_time_s               (inc_time_s                 )
 
          );
-
-//--------------------------------------------------------------------------
-// IR Receiver
-//--------------------------------------------------------------------------
-
-nec_ir_top i_ir (
-
-              .rst_n                    (s_reset_ssn                ), 
-              .clk                      (mclk                       ), 
-
-              // Wishbone bus
-              .wbs_cyc_i                (reg_ir_cs                  ), 
-              .wbs_stb_i                (reg_ir_cs                  ), 
-              .wbs_adr_i                (reg_addr[4:0]              ),
-              .wbs_we_i                 (reg_wr                     ),
-              .wbs_dat_i                (reg_wdata                  ),
-              .wbs_sel_i                (reg_be                     ),
-              .wbs_dat_o                (reg_ir_rdata               ),
-              .wbs_ack_o                (reg_ir_ack                 ),
-
-              .ir_rx                    (ir_rx                      ),
-              .ir_tx                    (ir_tx                      ),
-
-              .irq                      (ir_intr                    )  
-
-);
-
-
-//-------------------------------------------------------
-// Stepper Motor Controller
-//-------------------------------------------------------
-
-sm_ctrl u_sm (
-
-          .rst_n              (s_reset_ssn        ),            
-          .clk                (mclk               ),            
-
-  // Wishbone bus
-          .wbs_cyc_i          (reg_sm_cs          ),            
-          .wbs_stb_i          (reg_sm_cs          ),            
-          .wbs_adr_i          (reg_addr[4:0]      ), 
-          .wbs_we_i           (reg_wr             ), 
-          .wbs_dat_i          (reg_wdata          ), 
-          .wbs_sel_i          (reg_be             ), 
-          .wbs_dat_o          (reg_sm_rdata       ), 
-          .wbs_ack_o          (reg_sm_ack         ), 
-
-  // Motor outputs
-          .motor_a1           (sm_a1              ),  
-          .motor_a2           (sm_a2              ),  
-          .motor_b1           (sm_b1              ),  
-          .motor_b2           (sm_b2              )   
-
-);
-
 
 endmodule 
 
