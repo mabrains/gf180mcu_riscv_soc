@@ -80,7 +80,6 @@ module rtc_top(
     input  logic        rst_n, 
     input  logic        sys_clk, 
 
-
     input  logic        reg_cs, 
     input  logic [4:0]  reg_addr, 
     input  logic [31:0] reg_wdata, 
@@ -128,7 +127,7 @@ logic [31:0] cfg_date         ;
 // Increment Pulse
 //----------------------------------------
 
-input logic       inc_time_s      ; // increment second
+logic             inc_time_s      ; // increment second
 logic             inc_time_ts     ; // increment tenth second
 logic             inc_time_m      ; // increment minute
 logic             inc_time_tm     ; // increment tenth minute

@@ -55,7 +55,6 @@ module gpio_top  (
                        output logic [31:0]   reg_rdata,
                        output logic          reg_ack,
 
-                       output logic  [31:0]  cfg_gpio_out_type ,// GPIO Type, 1 - ws281x
                        output  logic [31:0]  cfg_gpio_dir_sel, 
                        input   logic [31:0]  pad_gpio_in,
                        output  logic [31:0]  pad_gpio_out,
@@ -128,7 +127,6 @@ gpio_reg  u_reg (
             // GPIO config pins
                .cfg_gpio_out_data            (cfg_gpio_out_data       ),
                .cfg_gpio_dir_sel             (cfg_gpio_dir_sel        ),
-               .cfg_gpio_out_type            (cfg_gpio_out_type       ),
                .cfg_gpio_posedge_int_sel     (cfg_gpio_posedge_int_sel),
                .cfg_gpio_negedge_int_sel     (cfg_gpio_negedge_int_sel),
                .cfg_multi_func_sel           (cfg_multi_func_sel      ),

@@ -63,16 +63,6 @@ MACRO pinmux_top
         RECT 867.040 15.380 868.640 984.220 ;
     END
   END VSS
-  PIN cfg_strap_pad_ctrl
-    DIRECTION INPUT ;
-    USE SIGNAL ;
-    ANTENNAGATEAREA 1.102000 ;
-    ANTENNADIFFAREA 0.410400 ;
-    PORT
-      LAYER Metal3 ;
-        RECT 0.000 45.920 4.000 46.480 ;
-    END
-  END cfg_strap_pad_ctrl
   PIN digital_io_in[0]
     DIRECTION INPUT ;
     USE SIGNAL ;
@@ -86,7 +76,7 @@ MACRO pinmux_top
   PIN digital_io_in[10]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.396000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
@@ -116,7 +106,7 @@ MACRO pinmux_top
   PIN digital_io_in[13]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 0.396000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
@@ -126,7 +116,7 @@ MACRO pinmux_top
   PIN digital_io_in[14]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 0.726000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
@@ -176,7 +166,7 @@ MACRO pinmux_top
   PIN digital_io_in[19]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 0.726000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -226,7 +216,7 @@ MACRO pinmux_top
   PIN digital_io_in[23]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.396000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -266,7 +256,7 @@ MACRO pinmux_top
   PIN digital_io_in[27]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 1.102000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -386,7 +376,7 @@ MACRO pinmux_top
   PIN digital_io_in[5]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.726000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
@@ -463,7 +453,7 @@ MACRO pinmux_top
   PIN digital_io_oen[12]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
         RECT 896.000 840.000 900.000 840.560 ;
@@ -517,7 +507,7 @@ MACRO pinmux_top
   PIN digital_io_oen[18]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
         RECT 824.320 996.000 824.880 1000.000 ;
@@ -733,7 +723,7 @@ MACRO pinmux_top
   PIN digital_io_oen[5]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
         RECT 896.000 393.120 900.000 393.680 ;
@@ -787,7 +777,7 @@ MACRO pinmux_top
   PIN digital_io_out[10]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
         RECT 896.000 691.040 900.000 691.600 ;
@@ -805,7 +795,7 @@ MACRO pinmux_top
   PIN digital_io_out[12]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
         RECT 896.000 818.720 900.000 819.280 ;
@@ -841,7 +831,7 @@ MACRO pinmux_top
   PIN digital_io_out[16]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
         RECT 852.320 996.000 852.880 1000.000 ;
@@ -1048,7 +1038,7 @@ MACRO pinmux_top
   PIN digital_io_out[37]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 0.897600 ;
     PORT
       LAYER Metal2 ;
         RECT 29.120 996.000 29.680 1000.000 ;
@@ -1075,7 +1065,7 @@ MACRO pinmux_top
   PIN digital_io_out[5]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
         RECT 896.000 371.840 900.000 372.400 ;
@@ -1102,7 +1092,7 @@ MACRO pinmux_top
   PIN digital_io_out[8]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
         RECT 896.000 563.360 900.000 563.920 ;
@@ -1120,11 +1110,9 @@ MACRO pinmux_top
   PIN e_reset_n
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
-    ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 34.720 4.000 35.280 ;
+        RECT 0.000 40.320 4.000 40.880 ;
     END
   END e_reset_n
   PIN i2cm_clk_i
@@ -1133,17 +1121,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 449.120 0.000 449.680 4.000 ;
+        RECT 437.920 0.000 438.480 4.000 ;
     END
   END i2cm_clk_i
   PIN i2cm_clk_o
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 1.102000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 425.600 0.000 426.160 4.000 ;
+        RECT 414.400 0.000 414.960 4.000 ;
     END
   END i2cm_clk_o
   PIN i2cm_clk_oen
@@ -1153,7 +1141,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 472.640 0.000 473.200 4.000 ;
+        RECT 461.440 0.000 462.000 4.000 ;
     END
   END i2cm_clk_oen
   PIN i2cm_data_i
@@ -1162,7 +1150,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 543.200 0.000 543.760 4.000 ;
+        RECT 532.000 0.000 532.560 4.000 ;
     END
   END i2cm_data_i
   PIN i2cm_data_o
@@ -1172,7 +1160,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 519.680 0.000 520.240 4.000 ;
+        RECT 508.480 0.000 509.040 4.000 ;
     END
   END i2cm_data_o
   PIN i2cm_data_oen
@@ -1182,7 +1170,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 496.160 0.000 496.720 4.000 ;
+        RECT 484.960 0.000 485.520 4.000 ;
     END
   END i2cm_data_oen
   PIN i2cm_intr
@@ -1192,7 +1180,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 754.880 0.000 755.440 4.000 ;
+        RECT 743.680 0.000 744.240 4.000 ;
     END
   END i2cm_intr
   PIN i2cm_rst_n
@@ -1201,7 +1189,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 4.731200 ;
     PORT
       LAYER Metal2 ;
-        RECT 96.320 0.000 96.880 4.000 ;
+        RECT 85.120 0.000 85.680 4.000 ;
     END
   END i2cm_rst_n
   PIN mclk
@@ -1211,7 +1199,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 57.120 4.000 57.680 ;
+        RECT 0.000 51.520 4.000 52.080 ;
     END
   END mclk
   PIN p_reset_n
@@ -1221,7 +1209,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 23.520 4.000 24.080 ;
+        RECT 0.000 29.120 4.000 29.680 ;
     END
   END p_reset_n
   PIN pulse1m_mclk
@@ -1230,7 +1218,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 731.360 0.000 731.920 4.000 ;
+        RECT 720.160 0.000 720.720 4.000 ;
     END
   END pulse1m_mclk
   PIN reg_ack
@@ -1239,7 +1227,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 975.520 4.000 976.080 ;
+        RECT 0.000 969.920 4.000 970.480 ;
     END
   END reg_ack
   PIN reg_addr[0]
@@ -1249,17 +1237,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 202.720 4.000 203.280 ;
+        RECT 0.000 197.120 4.000 197.680 ;
     END
   END reg_addr[0]
   PIN reg_addr[10]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 4.408000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 90.720 4.000 91.280 ;
+        RECT 0.000 85.120 4.000 85.680 ;
     END
   END reg_addr[10]
   PIN reg_addr[1]
@@ -1269,17 +1257,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 191.520 4.000 192.080 ;
+        RECT 0.000 185.920 4.000 186.480 ;
     END
   END reg_addr[1]
   PIN reg_addr[2]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 4.408000 ;
+    ANTENNAGATEAREA 2.204000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 180.320 4.000 180.880 ;
+        RECT 0.000 174.720 4.000 175.280 ;
     END
   END reg_addr[2]
   PIN reg_addr[3]
@@ -1289,7 +1277,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 169.120 4.000 169.680 ;
+        RECT 0.000 163.520 4.000 164.080 ;
     END
   END reg_addr[3]
   PIN reg_addr[4]
@@ -1299,7 +1287,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 157.920 4.000 158.480 ;
+        RECT 0.000 152.320 4.000 152.880 ;
     END
   END reg_addr[4]
   PIN reg_addr[5]
@@ -1309,7 +1297,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 146.720 4.000 147.280 ;
+        RECT 0.000 141.120 4.000 141.680 ;
     END
   END reg_addr[5]
   PIN reg_addr[6]
@@ -1319,47 +1307,47 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 135.520 4.000 136.080 ;
+        RECT 0.000 129.920 4.000 130.480 ;
     END
   END reg_addr[6]
   PIN reg_addr[7]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.396000 ;
+    ANTENNAGATEAREA 2.204000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 124.320 4.000 124.880 ;
+        RECT 0.000 118.720 4.000 119.280 ;
     END
   END reg_addr[7]
   PIN reg_addr[8]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.396000 ;
+    ANTENNAGATEAREA 2.204000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 113.120 4.000 113.680 ;
+        RECT 0.000 107.520 4.000 108.080 ;
     END
   END reg_addr[8]
   PIN reg_addr[9]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 4.408000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 101.920 4.000 102.480 ;
+        RECT 0.000 96.320 4.000 96.880 ;
     END
   END reg_addr[9]
   PIN reg_be[0]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 4.408000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 247.520 4.000 248.080 ;
+        RECT 0.000 241.920 4.000 242.480 ;
     END
   END reg_be[0]
   PIN reg_be[1]
@@ -1369,7 +1357,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 236.320 4.000 236.880 ;
+        RECT 0.000 230.720 4.000 231.280 ;
     END
   END reg_be[1]
   PIN reg_be[2]
@@ -1379,7 +1367,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 225.120 4.000 225.680 ;
+        RECT 0.000 219.520 4.000 220.080 ;
     END
   END reg_be[2]
   PIN reg_be[3]
@@ -1389,7 +1377,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 213.920 4.000 214.480 ;
+        RECT 0.000 208.320 4.000 208.880 ;
     END
   END reg_be[3]
   PIN reg_cs
@@ -1399,7 +1387,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 68.320 4.000 68.880 ;
+        RECT 0.000 62.720 4.000 63.280 ;
     END
   END reg_cs
   PIN reg_peri_ack
@@ -1559,7 +1547,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[0]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.498500 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1719,7 +1707,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[24]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.726000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1729,7 +1717,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[25]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.726000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1739,7 +1727,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[26]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.726000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1749,7 +1737,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[27]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.726000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1759,7 +1747,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[28]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.726000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1769,7 +1757,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[29]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.498500 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1789,7 +1777,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[30]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.498500 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1799,7 +1787,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[31]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.726000 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1819,7 +1807,7 @@ MACRO pinmux_top
   PIN reg_peri_rdata[4]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.498500 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
@@ -1942,7 +1930,7 @@ MACRO pinmux_top
   PIN reg_peri_wdata[16]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal2 ;
         RECT 449.120 996.000 449.680 1000.000 ;
@@ -2176,46 +2164,46 @@ MACRO pinmux_top
   PIN reg_rdata[0]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 964.320 4.000 964.880 ;
+        RECT 0.000 958.720 4.000 959.280 ;
     END
   END reg_rdata[0]
   PIN reg_rdata[10]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 852.320 4.000 852.880 ;
+        RECT 0.000 846.720 4.000 847.280 ;
     END
   END reg_rdata[10]
   PIN reg_rdata[11]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 841.120 4.000 841.680 ;
+        RECT 0.000 835.520 4.000 836.080 ;
     END
   END reg_rdata[11]
   PIN reg_rdata[12]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 829.920 4.000 830.480 ;
+        RECT 0.000 824.320 4.000 824.880 ;
     END
   END reg_rdata[12]
   PIN reg_rdata[13]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 818.720 4.000 819.280 ;
+        RECT 0.000 813.120 4.000 813.680 ;
     END
   END reg_rdata[13]
   PIN reg_rdata[14]
@@ -2224,7 +2212,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 807.520 4.000 808.080 ;
+        RECT 0.000 801.920 4.000 802.480 ;
     END
   END reg_rdata[14]
   PIN reg_rdata[15]
@@ -2233,7 +2221,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 796.320 4.000 796.880 ;
+        RECT 0.000 790.720 4.000 791.280 ;
     END
   END reg_rdata[15]
   PIN reg_rdata[16]
@@ -2242,7 +2230,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 785.120 4.000 785.680 ;
+        RECT 0.000 779.520 4.000 780.080 ;
     END
   END reg_rdata[16]
   PIN reg_rdata[17]
@@ -2251,16 +2239,16 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 773.920 4.000 774.480 ;
+        RECT 0.000 768.320 4.000 768.880 ;
     END
   END reg_rdata[17]
   PIN reg_rdata[18]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 762.720 4.000 763.280 ;
+        RECT 0.000 757.120 4.000 757.680 ;
     END
   END reg_rdata[18]
   PIN reg_rdata[19]
@@ -2269,25 +2257,25 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 751.520 4.000 752.080 ;
+        RECT 0.000 745.920 4.000 746.480 ;
     END
   END reg_rdata[19]
   PIN reg_rdata[1]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 953.120 4.000 953.680 ;
+        RECT 0.000 947.520 4.000 948.080 ;
     END
   END reg_rdata[1]
   PIN reg_rdata[20]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 740.320 4.000 740.880 ;
+        RECT 0.000 734.720 4.000 735.280 ;
     END
   END reg_rdata[20]
   PIN reg_rdata[21]
@@ -2296,16 +2284,16 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 729.120 4.000 729.680 ;
+        RECT 0.000 723.520 4.000 724.080 ;
     END
   END reg_rdata[21]
   PIN reg_rdata[22]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 717.920 4.000 718.480 ;
+        RECT 0.000 712.320 4.000 712.880 ;
     END
   END reg_rdata[22]
   PIN reg_rdata[23]
@@ -2314,16 +2302,16 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 706.720 4.000 707.280 ;
+        RECT 0.000 701.120 4.000 701.680 ;
     END
   END reg_rdata[23]
   PIN reg_rdata[24]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 695.520 4.000 696.080 ;
+        RECT 0.000 689.920 4.000 690.480 ;
     END
   END reg_rdata[24]
   PIN reg_rdata[25]
@@ -2332,7 +2320,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 684.320 4.000 684.880 ;
+        RECT 0.000 678.720 4.000 679.280 ;
     END
   END reg_rdata[25]
   PIN reg_rdata[26]
@@ -2341,16 +2329,16 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 673.120 4.000 673.680 ;
+        RECT 0.000 667.520 4.000 668.080 ;
     END
   END reg_rdata[26]
   PIN reg_rdata[27]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 661.920 4.000 662.480 ;
+        RECT 0.000 656.320 4.000 656.880 ;
     END
   END reg_rdata[27]
   PIN reg_rdata[28]
@@ -2359,16 +2347,16 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 650.720 4.000 651.280 ;
+        RECT 0.000 645.120 4.000 645.680 ;
     END
   END reg_rdata[28]
   PIN reg_rdata[29]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 639.520 4.000 640.080 ;
+        RECT 0.000 633.920 4.000 634.480 ;
     END
   END reg_rdata[29]
   PIN reg_rdata[2]
@@ -2377,43 +2365,43 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 941.920 4.000 942.480 ;
+        RECT 0.000 936.320 4.000 936.880 ;
     END
   END reg_rdata[2]
   PIN reg_rdata[30]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 628.320 4.000 628.880 ;
+        RECT 0.000 622.720 4.000 623.280 ;
     END
   END reg_rdata[30]
   PIN reg_rdata[31]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 617.120 4.000 617.680 ;
+        RECT 0.000 611.520 4.000 612.080 ;
     END
   END reg_rdata[31]
   PIN reg_rdata[3]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 930.720 4.000 931.280 ;
+        RECT 0.000 925.120 4.000 925.680 ;
     END
   END reg_rdata[3]
   PIN reg_rdata[4]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 919.520 4.000 920.080 ;
+        RECT 0.000 913.920 4.000 914.480 ;
     END
   END reg_rdata[4]
   PIN reg_rdata[5]
@@ -2422,16 +2410,16 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 908.320 4.000 908.880 ;
+        RECT 0.000 902.720 4.000 903.280 ;
     END
   END reg_rdata[5]
   PIN reg_rdata[6]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 897.120 4.000 897.680 ;
+        RECT 0.000 891.520 4.000 892.080 ;
     END
   END reg_rdata[6]
   PIN reg_rdata[7]
@@ -2440,7 +2428,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 885.920 4.000 886.480 ;
+        RECT 0.000 880.320 4.000 880.880 ;
     END
   END reg_rdata[7]
   PIN reg_rdata[8]
@@ -2449,16 +2437,16 @@ MACRO pinmux_top
     ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 874.720 4.000 875.280 ;
+        RECT 0.000 869.120 4.000 869.680 ;
     END
   END reg_rdata[8]
   PIN reg_rdata[9]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 863.520 4.000 864.080 ;
+        RECT 0.000 857.920 4.000 858.480 ;
     END
   END reg_rdata[9]
   PIN reg_wdata[0]
@@ -2468,7 +2456,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 605.920 4.000 606.480 ;
+        RECT 0.000 600.320 4.000 600.880 ;
     END
   END reg_wdata[0]
   PIN reg_wdata[10]
@@ -2478,7 +2466,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 493.920 4.000 494.480 ;
+        RECT 0.000 488.320 4.000 488.880 ;
     END
   END reg_wdata[10]
   PIN reg_wdata[11]
@@ -2488,7 +2476,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 482.720 4.000 483.280 ;
+        RECT 0.000 477.120 4.000 477.680 ;
     END
   END reg_wdata[11]
   PIN reg_wdata[12]
@@ -2498,7 +2486,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 471.520 4.000 472.080 ;
+        RECT 0.000 465.920 4.000 466.480 ;
     END
   END reg_wdata[12]
   PIN reg_wdata[13]
@@ -2508,7 +2496,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 460.320 4.000 460.880 ;
+        RECT 0.000 454.720 4.000 455.280 ;
     END
   END reg_wdata[13]
   PIN reg_wdata[14]
@@ -2518,37 +2506,37 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 449.120 4.000 449.680 ;
+        RECT 0.000 443.520 4.000 444.080 ;
     END
   END reg_wdata[14]
   PIN reg_wdata[15]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 0.396000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 437.920 4.000 438.480 ;
+        RECT 0.000 432.320 4.000 432.880 ;
     END
   END reg_wdata[15]
   PIN reg_wdata[16]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 0.396000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 426.720 4.000 427.280 ;
+        RECT 0.000 421.120 4.000 421.680 ;
     END
   END reg_wdata[16]
   PIN reg_wdata[17]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 1.102000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 415.520 4.000 416.080 ;
+        RECT 0.000 409.920 4.000 410.480 ;
     END
   END reg_wdata[17]
   PIN reg_wdata[18]
@@ -2558,17 +2546,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 404.320 4.000 404.880 ;
+        RECT 0.000 398.720 4.000 399.280 ;
     END
   END reg_wdata[18]
   PIN reg_wdata[19]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.498500 ;
+    ANTENNAGATEAREA 1.102000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 393.120 4.000 393.680 ;
+        RECT 0.000 387.520 4.000 388.080 ;
     END
   END reg_wdata[19]
   PIN reg_wdata[1]
@@ -2578,7 +2566,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 594.720 4.000 595.280 ;
+        RECT 0.000 589.120 4.000 589.680 ;
     END
   END reg_wdata[1]
   PIN reg_wdata[20]
@@ -2588,7 +2576,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 381.920 4.000 382.480 ;
+        RECT 0.000 376.320 4.000 376.880 ;
     END
   END reg_wdata[20]
   PIN reg_wdata[21]
@@ -2598,17 +2586,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 370.720 4.000 371.280 ;
+        RECT 0.000 365.120 4.000 365.680 ;
     END
   END reg_wdata[21]
   PIN reg_wdata[22]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.396000 ;
+    ANTENNAGATEAREA 1.102000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 359.520 4.000 360.080 ;
+        RECT 0.000 353.920 4.000 354.480 ;
     END
   END reg_wdata[22]
   PIN reg_wdata[23]
@@ -2618,67 +2606,67 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 348.320 4.000 348.880 ;
+        RECT 0.000 342.720 4.000 343.280 ;
     END
   END reg_wdata[23]
   PIN reg_wdata[24]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 1.102000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 337.120 4.000 337.680 ;
+        RECT 0.000 331.520 4.000 332.080 ;
     END
   END reg_wdata[24]
   PIN reg_wdata[25]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.396000 ;
+    ANTENNAGATEAREA 2.204000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 325.920 4.000 326.480 ;
+        RECT 0.000 320.320 4.000 320.880 ;
     END
   END reg_wdata[25]
   PIN reg_wdata[26]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 1.183000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 314.720 4.000 315.280 ;
+        RECT 0.000 309.120 4.000 309.680 ;
     END
   END reg_wdata[26]
   PIN reg_wdata[27]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 0.726000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 303.520 4.000 304.080 ;
+        RECT 0.000 297.920 4.000 298.480 ;
     END
   END reg_wdata[27]
   PIN reg_wdata[28]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 0.726000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 292.320 4.000 292.880 ;
+        RECT 0.000 286.720 4.000 287.280 ;
     END
   END reg_wdata[28]
   PIN reg_wdata[29]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 2.204000 ;
+    ANTENNAGATEAREA 0.726000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 281.120 4.000 281.680 ;
+        RECT 0.000 275.520 4.000 276.080 ;
     END
   END reg_wdata[29]
   PIN reg_wdata[2]
@@ -2688,27 +2676,27 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 583.520 4.000 584.080 ;
+        RECT 0.000 577.920 4.000 578.480 ;
     END
   END reg_wdata[2]
   PIN reg_wdata[30]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.726000 ;
+    ANTENNADIFFAREA 0.410400 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 264.320 4.000 264.880 ;
+    END
+  END reg_wdata[30]
+  PIN reg_wdata[31]
     DIRECTION INPUT ;
     USE SIGNAL ;
     ANTENNAGATEAREA 2.204000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 269.920 4.000 270.480 ;
-    END
-  END reg_wdata[30]
-  PIN reg_wdata[31]
-    DIRECTION INPUT ;
-    USE SIGNAL ;
-    ANTENNAGATEAREA 1.102000 ;
-    ANTENNADIFFAREA 0.410400 ;
-    PORT
-      LAYER Metal3 ;
-        RECT 0.000 258.720 4.000 259.280 ;
+        RECT 0.000 253.120 4.000 253.680 ;
     END
   END reg_wdata[31]
   PIN reg_wdata[3]
@@ -2718,7 +2706,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 572.320 4.000 572.880 ;
+        RECT 0.000 566.720 4.000 567.280 ;
     END
   END reg_wdata[3]
   PIN reg_wdata[4]
@@ -2728,7 +2716,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 561.120 4.000 561.680 ;
+        RECT 0.000 555.520 4.000 556.080 ;
     END
   END reg_wdata[4]
   PIN reg_wdata[5]
@@ -2738,7 +2726,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 549.920 4.000 550.480 ;
+        RECT 0.000 544.320 4.000 544.880 ;
     END
   END reg_wdata[5]
   PIN reg_wdata[6]
@@ -2748,7 +2736,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 538.720 4.000 539.280 ;
+        RECT 0.000 533.120 4.000 533.680 ;
     END
   END reg_wdata[6]
   PIN reg_wdata[7]
@@ -2758,37 +2746,37 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 527.520 4.000 528.080 ;
+        RECT 0.000 521.920 4.000 522.480 ;
     END
   END reg_wdata[7]
   PIN reg_wdata[8]
-    DIRECTION INPUT ;
-    USE SIGNAL ;
-    ANTENNAGATEAREA 0.396000 ;
-    ANTENNADIFFAREA 0.410400 ;
-    PORT
-      LAYER Metal3 ;
-        RECT 0.000 516.320 4.000 516.880 ;
-    END
-  END reg_wdata[8]
-  PIN reg_wdata[9]
-    DIRECTION INPUT ;
-    USE SIGNAL ;
-    ANTENNAGATEAREA 0.396000 ;
-    ANTENNADIFFAREA 0.410400 ;
-    PORT
-      LAYER Metal3 ;
-        RECT 0.000 505.120 4.000 505.680 ;
-    END
-  END reg_wdata[9]
-  PIN reg_wr
     DIRECTION INPUT ;
     USE SIGNAL ;
     ANTENNAGATEAREA 2.204000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 79.520 4.000 80.080 ;
+        RECT 0.000 510.720 4.000 511.280 ;
+    END
+  END reg_wdata[8]
+  PIN reg_wdata[9]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 2.204000 ;
+    ANTENNADIFFAREA 0.410400 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 499.520 4.000 500.080 ;
+    END
+  END reg_wdata[9]
+  PIN reg_wr
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.741000 ;
+    ANTENNADIFFAREA 0.410400 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 73.920 4.000 74.480 ;
     END
   END reg_wr
   PIN rtc_clk
@@ -2817,17 +2805,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 848.960 0.000 849.520 4.000 ;
+        RECT 861.280 0.000 861.840 4.000 ;
     END
   END s_reset_n
   PIN spim_miso
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 1.102000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 684.320 0.000 684.880 4.000 ;
+        RECT 673.120 0.000 673.680 4.000 ;
     END
   END spim_miso
   PIN spim_mosi
@@ -2836,17 +2824,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 707.840 0.000 708.400 4.000 ;
+        RECT 696.640 0.000 697.200 4.000 ;
     END
   END spim_mosi
   PIN spim_sck
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 1.102000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 566.720 0.000 567.280 4.000 ;
+        RECT 555.520 0.000 556.080 4.000 ;
     END
   END spim_sck
   PIN spim_ssn[0]
@@ -2856,7 +2844,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 660.800 0.000 661.360 4.000 ;
+        RECT 649.600 0.000 650.160 4.000 ;
     END
   END spim_ssn[0]
   PIN spim_ssn[1]
@@ -2866,7 +2854,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 637.280 0.000 637.840 4.000 ;
+        RECT 626.080 0.000 626.640 4.000 ;
     END
   END spim_ssn[1]
   PIN spim_ssn[2]
@@ -2876,7 +2864,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 613.760 0.000 614.320 4.000 ;
+        RECT 602.560 0.000 603.120 4.000 ;
     END
   END spim_ssn[2]
   PIN spim_ssn[3]
@@ -2886,7 +2874,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 590.240 0.000 590.800 4.000 ;
+        RECT 579.040 0.000 579.600 4.000 ;
     END
   END spim_ssn[3]
   PIN sspim_rst_n
@@ -2895,7 +2883,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 4.731200 ;
     PORT
       LAYER Metal2 ;
-        RECT 25.760 0.000 26.320 4.000 ;
+        RECT 14.560 0.000 15.120 4.000 ;
     END
   END sspim_rst_n
   PIN uart_rst_n[0]
@@ -2904,7 +2892,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.897600 ;
     PORT
       LAYER Metal2 ;
-        RECT 72.800 0.000 73.360 4.000 ;
+        RECT 61.600 0.000 62.160 4.000 ;
     END
   END uart_rst_n[0]
   PIN uart_rst_n[1]
@@ -2913,7 +2901,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.897600 ;
     PORT
       LAYER Metal2 ;
-        RECT 49.280 0.000 49.840 4.000 ;
+        RECT 38.080 0.000 38.640 4.000 ;
     END
   END uart_rst_n[1]
   PIN uart_rxd[0]
@@ -2922,7 +2910,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 402.080 0.000 402.640 4.000 ;
+        RECT 390.880 0.000 391.440 4.000 ;
     END
   END uart_rxd[0]
   PIN uart_rxd[1]
@@ -2931,17 +2919,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 355.040 0.000 355.600 4.000 ;
+        RECT 343.840 0.000 344.400 4.000 ;
     END
   END uart_rxd[1]
   PIN uart_txd[0]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.726000 ;
+    ANTENNAGATEAREA 1.102000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 378.560 0.000 379.120 4.000 ;
+        RECT 367.360 0.000 367.920 4.000 ;
     END
   END uart_txd[0]
   PIN uart_txd[1]
@@ -2951,7 +2939,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 331.520 0.000 332.080 4.000 ;
+        RECT 320.320 0.000 320.880 4.000 ;
     END
   END uart_txd[1]
   PIN usb_clk
@@ -2960,7 +2948,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 872.480 0.000 873.040 4.000 ;
+        RECT 884.800 0.000 885.360 4.000 ;
     END
   END usb_clk
   PIN usb_dn_i
@@ -2969,17 +2957,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 308.000 0.000 308.560 4.000 ;
+        RECT 296.800 0.000 297.360 4.000 ;
     END
   END usb_dn_i
   PIN usb_dn_o
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 0.726000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 237.440 0.000 238.000 4.000 ;
+        RECT 226.240 0.000 226.800 4.000 ;
     END
   END usb_dn_o
   PIN usb_dp_i
@@ -2988,7 +2976,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 284.480 0.000 285.040 4.000 ;
+        RECT 273.280 0.000 273.840 4.000 ;
     END
   END usb_dp_i
   PIN usb_dp_o
@@ -2998,7 +2986,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 213.920 0.000 214.480 4.000 ;
+        RECT 202.720 0.000 203.280 4.000 ;
     END
   END usb_dp_o
   PIN usb_intr
@@ -3008,17 +2996,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 778.400 0.000 778.960 4.000 ;
+        RECT 767.200 0.000 767.760 4.000 ;
     END
   END usb_intr
   PIN usb_oen
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 1.102000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 260.960 0.000 261.520 4.000 ;
+        RECT 249.760 0.000 250.320 4.000 ;
     END
   END usb_oen
   PIN usb_rst_n
@@ -3027,7 +3015,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 4.731200 ;
     PORT
       LAYER Metal2 ;
-        RECT 119.840 0.000 120.400 4.000 ;
+        RECT 108.640 0.000 109.200 4.000 ;
     END
   END usb_rst_n
   PIN user_clock1
@@ -3037,17 +3025,17 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 801.920 0.000 802.480 4.000 ;
+        RECT 790.720 0.000 791.280 4.000 ;
     END
   END user_clock1
   PIN user_clock2
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 0.498500 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 825.440 0.000 826.000 4.000 ;
+        RECT 814.240 0.000 814.800 4.000 ;
     END
   END user_clock2
   PIN user_irq[0]
@@ -3056,7 +3044,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.897600 ;
     PORT
       LAYER Metal2 ;
-        RECT 143.360 0.000 143.920 4.000 ;
+        RECT 132.160 0.000 132.720 4.000 ;
     END
   END user_irq[0]
   PIN user_irq[1]
@@ -3065,7 +3053,7 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.897600 ;
     PORT
       LAYER Metal2 ;
-        RECT 166.880 0.000 167.440 4.000 ;
+        RECT 155.680 0.000 156.240 4.000 ;
     END
   END user_irq[1]
   PIN user_irq[2]
@@ -3074,12 +3062,21 @@ MACRO pinmux_top
     ANTENNADIFFAREA 0.897600 ;
     PORT
       LAYER Metal2 ;
-        RECT 190.400 0.000 190.960 4.000 ;
+        RECT 179.200 0.000 179.760 4.000 ;
     END
   END user_irq[2]
+  PIN xtal_clk
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 2.080400 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 837.760 0.000 838.320 4.000 ;
+    END
+  END xtal_clk
   OBS
       LAYER Metal1 ;
-        RECT 6.720 15.380 893.200 984.890 ;
+        RECT 6.720 15.380 893.200 989.370 ;
       LAYER Metal2 ;
         RECT 7.980 995.700 23.220 996.660 ;
         RECT 24.380 995.700 28.820 996.660 ;
@@ -3234,318 +3231,315 @@ MACRO pinmux_top
         RECT 858.780 995.700 863.220 996.660 ;
         RECT 864.380 995.700 868.820 996.660 ;
         RECT 869.980 995.700 874.420 996.660 ;
-        RECT 875.580 995.700 891.940 996.660 ;
-        RECT 7.980 4.300 891.940 995.700 ;
-        RECT 7.980 3.500 25.460 4.300 ;
-        RECT 26.620 3.500 48.980 4.300 ;
-        RECT 50.140 3.500 72.500 4.300 ;
-        RECT 73.660 3.500 96.020 4.300 ;
-        RECT 97.180 3.500 119.540 4.300 ;
-        RECT 120.700 3.500 143.060 4.300 ;
-        RECT 144.220 3.500 166.580 4.300 ;
-        RECT 167.740 3.500 190.100 4.300 ;
-        RECT 191.260 3.500 213.620 4.300 ;
-        RECT 214.780 3.500 237.140 4.300 ;
-        RECT 238.300 3.500 260.660 4.300 ;
-        RECT 261.820 3.500 284.180 4.300 ;
-        RECT 285.340 3.500 307.700 4.300 ;
-        RECT 308.860 3.500 331.220 4.300 ;
-        RECT 332.380 3.500 354.740 4.300 ;
-        RECT 355.900 3.500 378.260 4.300 ;
-        RECT 379.420 3.500 401.780 4.300 ;
-        RECT 402.940 3.500 425.300 4.300 ;
-        RECT 426.460 3.500 448.820 4.300 ;
-        RECT 449.980 3.500 472.340 4.300 ;
-        RECT 473.500 3.500 495.860 4.300 ;
-        RECT 497.020 3.500 519.380 4.300 ;
-        RECT 520.540 3.500 542.900 4.300 ;
-        RECT 544.060 3.500 566.420 4.300 ;
-        RECT 567.580 3.500 589.940 4.300 ;
-        RECT 591.100 3.500 613.460 4.300 ;
-        RECT 614.620 3.500 636.980 4.300 ;
-        RECT 638.140 3.500 660.500 4.300 ;
-        RECT 661.660 3.500 684.020 4.300 ;
-        RECT 685.180 3.500 707.540 4.300 ;
-        RECT 708.700 3.500 731.060 4.300 ;
-        RECT 732.220 3.500 754.580 4.300 ;
-        RECT 755.740 3.500 778.100 4.300 ;
-        RECT 779.260 3.500 801.620 4.300 ;
-        RECT 802.780 3.500 825.140 4.300 ;
-        RECT 826.300 3.500 848.660 4.300 ;
-        RECT 849.820 3.500 872.180 4.300 ;
-        RECT 873.340 3.500 891.940 4.300 ;
+        RECT 875.580 995.700 892.500 996.660 ;
+        RECT 7.980 4.300 892.500 995.700 ;
+        RECT 7.980 3.500 14.260 4.300 ;
+        RECT 15.420 3.500 37.780 4.300 ;
+        RECT 38.940 3.500 61.300 4.300 ;
+        RECT 62.460 3.500 84.820 4.300 ;
+        RECT 85.980 3.500 108.340 4.300 ;
+        RECT 109.500 3.500 131.860 4.300 ;
+        RECT 133.020 3.500 155.380 4.300 ;
+        RECT 156.540 3.500 178.900 4.300 ;
+        RECT 180.060 3.500 202.420 4.300 ;
+        RECT 203.580 3.500 225.940 4.300 ;
+        RECT 227.100 3.500 249.460 4.300 ;
+        RECT 250.620 3.500 272.980 4.300 ;
+        RECT 274.140 3.500 296.500 4.300 ;
+        RECT 297.660 3.500 320.020 4.300 ;
+        RECT 321.180 3.500 343.540 4.300 ;
+        RECT 344.700 3.500 367.060 4.300 ;
+        RECT 368.220 3.500 390.580 4.300 ;
+        RECT 391.740 3.500 414.100 4.300 ;
+        RECT 415.260 3.500 437.620 4.300 ;
+        RECT 438.780 3.500 461.140 4.300 ;
+        RECT 462.300 3.500 484.660 4.300 ;
+        RECT 485.820 3.500 508.180 4.300 ;
+        RECT 509.340 3.500 531.700 4.300 ;
+        RECT 532.860 3.500 555.220 4.300 ;
+        RECT 556.380 3.500 578.740 4.300 ;
+        RECT 579.900 3.500 602.260 4.300 ;
+        RECT 603.420 3.500 625.780 4.300 ;
+        RECT 626.940 3.500 649.300 4.300 ;
+        RECT 650.460 3.500 672.820 4.300 ;
+        RECT 673.980 3.500 696.340 4.300 ;
+        RECT 697.500 3.500 719.860 4.300 ;
+        RECT 721.020 3.500 743.380 4.300 ;
+        RECT 744.540 3.500 766.900 4.300 ;
+        RECT 768.060 3.500 790.420 4.300 ;
+        RECT 791.580 3.500 813.940 4.300 ;
+        RECT 815.100 3.500 837.460 4.300 ;
+        RECT 838.620 3.500 860.980 4.300 ;
+        RECT 862.140 3.500 884.500 4.300 ;
+        RECT 885.660 3.500 892.500 4.300 ;
       LAYER Metal3 ;
-        RECT 3.500 976.380 896.000 984.060 ;
-        RECT 4.300 975.220 896.000 976.380 ;
-        RECT 3.500 968.540 896.000 975.220 ;
-        RECT 3.500 967.380 895.700 968.540 ;
-        RECT 3.500 965.180 896.000 967.380 ;
-        RECT 4.300 964.020 896.000 965.180 ;
-        RECT 3.500 953.980 896.000 964.020 ;
-        RECT 4.300 952.820 896.000 953.980 ;
-        RECT 3.500 947.260 896.000 952.820 ;
-        RECT 3.500 946.100 895.700 947.260 ;
-        RECT 3.500 942.780 896.000 946.100 ;
-        RECT 4.300 941.620 896.000 942.780 ;
-        RECT 3.500 931.580 896.000 941.620 ;
-        RECT 4.300 930.420 896.000 931.580 ;
-        RECT 3.500 925.980 896.000 930.420 ;
-        RECT 3.500 924.820 895.700 925.980 ;
-        RECT 3.500 920.380 896.000 924.820 ;
-        RECT 4.300 919.220 896.000 920.380 ;
-        RECT 3.500 909.180 896.000 919.220 ;
-        RECT 4.300 908.020 896.000 909.180 ;
-        RECT 3.500 904.700 896.000 908.020 ;
-        RECT 3.500 903.540 895.700 904.700 ;
-        RECT 3.500 897.980 896.000 903.540 ;
-        RECT 4.300 896.820 896.000 897.980 ;
-        RECT 3.500 886.780 896.000 896.820 ;
-        RECT 4.300 885.620 896.000 886.780 ;
-        RECT 3.500 883.420 896.000 885.620 ;
-        RECT 3.500 882.260 895.700 883.420 ;
-        RECT 3.500 875.580 896.000 882.260 ;
-        RECT 4.300 874.420 896.000 875.580 ;
-        RECT 3.500 864.380 896.000 874.420 ;
-        RECT 4.300 863.220 896.000 864.380 ;
-        RECT 3.500 862.140 896.000 863.220 ;
-        RECT 3.500 860.980 895.700 862.140 ;
-        RECT 3.500 853.180 896.000 860.980 ;
-        RECT 4.300 852.020 896.000 853.180 ;
-        RECT 3.500 841.980 896.000 852.020 ;
-        RECT 4.300 840.860 896.000 841.980 ;
-        RECT 4.300 840.820 895.700 840.860 ;
-        RECT 3.500 839.700 895.700 840.820 ;
-        RECT 3.500 830.780 896.000 839.700 ;
-        RECT 4.300 829.620 896.000 830.780 ;
-        RECT 3.500 819.580 896.000 829.620 ;
-        RECT 4.300 818.420 895.700 819.580 ;
-        RECT 3.500 808.380 896.000 818.420 ;
-        RECT 4.300 807.220 896.000 808.380 ;
-        RECT 3.500 798.300 896.000 807.220 ;
-        RECT 3.500 797.180 895.700 798.300 ;
-        RECT 4.300 797.140 895.700 797.180 ;
-        RECT 4.300 796.020 896.000 797.140 ;
-        RECT 3.500 785.980 896.000 796.020 ;
-        RECT 4.300 784.820 896.000 785.980 ;
-        RECT 3.500 777.020 896.000 784.820 ;
-        RECT 3.500 775.860 895.700 777.020 ;
-        RECT 3.500 774.780 896.000 775.860 ;
-        RECT 4.300 773.620 896.000 774.780 ;
-        RECT 3.500 763.580 896.000 773.620 ;
-        RECT 4.300 762.420 896.000 763.580 ;
-        RECT 3.500 755.740 896.000 762.420 ;
-        RECT 3.500 754.580 895.700 755.740 ;
-        RECT 3.500 752.380 896.000 754.580 ;
-        RECT 4.300 751.220 896.000 752.380 ;
-        RECT 3.500 741.180 896.000 751.220 ;
-        RECT 4.300 740.020 896.000 741.180 ;
-        RECT 3.500 734.460 896.000 740.020 ;
-        RECT 3.500 733.300 895.700 734.460 ;
-        RECT 3.500 729.980 896.000 733.300 ;
-        RECT 4.300 728.820 896.000 729.980 ;
-        RECT 3.500 718.780 896.000 728.820 ;
-        RECT 4.300 717.620 896.000 718.780 ;
-        RECT 3.500 713.180 896.000 717.620 ;
-        RECT 3.500 712.020 895.700 713.180 ;
-        RECT 3.500 707.580 896.000 712.020 ;
-        RECT 4.300 706.420 896.000 707.580 ;
-        RECT 3.500 696.380 896.000 706.420 ;
-        RECT 4.300 695.220 896.000 696.380 ;
-        RECT 3.500 691.900 896.000 695.220 ;
-        RECT 3.500 690.740 895.700 691.900 ;
-        RECT 3.500 685.180 896.000 690.740 ;
-        RECT 4.300 684.020 896.000 685.180 ;
-        RECT 3.500 673.980 896.000 684.020 ;
-        RECT 4.300 672.820 896.000 673.980 ;
-        RECT 3.500 670.620 896.000 672.820 ;
-        RECT 3.500 669.460 895.700 670.620 ;
-        RECT 3.500 662.780 896.000 669.460 ;
-        RECT 4.300 661.620 896.000 662.780 ;
-        RECT 3.500 651.580 896.000 661.620 ;
-        RECT 4.300 650.420 896.000 651.580 ;
-        RECT 3.500 649.340 896.000 650.420 ;
-        RECT 3.500 648.180 895.700 649.340 ;
-        RECT 3.500 640.380 896.000 648.180 ;
-        RECT 4.300 639.220 896.000 640.380 ;
-        RECT 3.500 629.180 896.000 639.220 ;
-        RECT 4.300 628.060 896.000 629.180 ;
-        RECT 4.300 628.020 895.700 628.060 ;
-        RECT 3.500 626.900 895.700 628.020 ;
-        RECT 3.500 617.980 896.000 626.900 ;
-        RECT 4.300 616.820 896.000 617.980 ;
-        RECT 3.500 606.780 896.000 616.820 ;
-        RECT 4.300 605.620 895.700 606.780 ;
-        RECT 3.500 595.580 896.000 605.620 ;
-        RECT 4.300 594.420 896.000 595.580 ;
-        RECT 3.500 585.500 896.000 594.420 ;
-        RECT 3.500 584.380 895.700 585.500 ;
-        RECT 4.300 584.340 895.700 584.380 ;
-        RECT 4.300 583.220 896.000 584.340 ;
-        RECT 3.500 573.180 896.000 583.220 ;
-        RECT 4.300 572.020 896.000 573.180 ;
-        RECT 3.500 564.220 896.000 572.020 ;
-        RECT 3.500 563.060 895.700 564.220 ;
-        RECT 3.500 561.980 896.000 563.060 ;
-        RECT 4.300 560.820 896.000 561.980 ;
-        RECT 3.500 550.780 896.000 560.820 ;
-        RECT 4.300 549.620 896.000 550.780 ;
-        RECT 3.500 542.940 896.000 549.620 ;
-        RECT 3.500 541.780 895.700 542.940 ;
-        RECT 3.500 539.580 896.000 541.780 ;
-        RECT 4.300 538.420 896.000 539.580 ;
-        RECT 3.500 528.380 896.000 538.420 ;
-        RECT 4.300 527.220 896.000 528.380 ;
-        RECT 3.500 521.660 896.000 527.220 ;
-        RECT 3.500 520.500 895.700 521.660 ;
-        RECT 3.500 517.180 896.000 520.500 ;
-        RECT 4.300 516.020 896.000 517.180 ;
-        RECT 3.500 505.980 896.000 516.020 ;
-        RECT 4.300 504.820 896.000 505.980 ;
-        RECT 3.500 500.380 896.000 504.820 ;
-        RECT 3.500 499.220 895.700 500.380 ;
-        RECT 3.500 494.780 896.000 499.220 ;
-        RECT 4.300 493.620 896.000 494.780 ;
-        RECT 3.500 483.580 896.000 493.620 ;
-        RECT 4.300 482.420 896.000 483.580 ;
-        RECT 3.500 479.100 896.000 482.420 ;
-        RECT 3.500 477.940 895.700 479.100 ;
-        RECT 3.500 472.380 896.000 477.940 ;
-        RECT 4.300 471.220 896.000 472.380 ;
-        RECT 3.500 461.180 896.000 471.220 ;
-        RECT 4.300 460.020 896.000 461.180 ;
-        RECT 3.500 457.820 896.000 460.020 ;
-        RECT 3.500 456.660 895.700 457.820 ;
-        RECT 3.500 449.980 896.000 456.660 ;
-        RECT 4.300 448.820 896.000 449.980 ;
-        RECT 3.500 438.780 896.000 448.820 ;
-        RECT 4.300 437.620 896.000 438.780 ;
-        RECT 3.500 436.540 896.000 437.620 ;
-        RECT 3.500 435.380 895.700 436.540 ;
-        RECT 3.500 427.580 896.000 435.380 ;
-        RECT 4.300 426.420 896.000 427.580 ;
-        RECT 3.500 416.380 896.000 426.420 ;
-        RECT 4.300 415.260 896.000 416.380 ;
-        RECT 4.300 415.220 895.700 415.260 ;
-        RECT 3.500 414.100 895.700 415.220 ;
-        RECT 3.500 405.180 896.000 414.100 ;
-        RECT 4.300 404.020 896.000 405.180 ;
-        RECT 3.500 393.980 896.000 404.020 ;
-        RECT 4.300 392.820 895.700 393.980 ;
-        RECT 3.500 382.780 896.000 392.820 ;
-        RECT 4.300 381.620 896.000 382.780 ;
-        RECT 3.500 372.700 896.000 381.620 ;
-        RECT 3.500 371.580 895.700 372.700 ;
-        RECT 4.300 371.540 895.700 371.580 ;
-        RECT 4.300 370.420 896.000 371.540 ;
-        RECT 3.500 360.380 896.000 370.420 ;
-        RECT 4.300 359.220 896.000 360.380 ;
-        RECT 3.500 351.420 896.000 359.220 ;
-        RECT 3.500 350.260 895.700 351.420 ;
-        RECT 3.500 349.180 896.000 350.260 ;
-        RECT 4.300 348.020 896.000 349.180 ;
-        RECT 3.500 337.980 896.000 348.020 ;
-        RECT 4.300 336.820 896.000 337.980 ;
-        RECT 3.500 330.140 896.000 336.820 ;
-        RECT 3.500 328.980 895.700 330.140 ;
-        RECT 3.500 326.780 896.000 328.980 ;
-        RECT 4.300 325.620 896.000 326.780 ;
-        RECT 3.500 315.580 896.000 325.620 ;
-        RECT 4.300 314.420 896.000 315.580 ;
-        RECT 3.500 308.860 896.000 314.420 ;
-        RECT 3.500 307.700 895.700 308.860 ;
-        RECT 3.500 304.380 896.000 307.700 ;
-        RECT 4.300 303.220 896.000 304.380 ;
-        RECT 3.500 293.180 896.000 303.220 ;
-        RECT 4.300 292.020 896.000 293.180 ;
-        RECT 3.500 287.580 896.000 292.020 ;
-        RECT 3.500 286.420 895.700 287.580 ;
-        RECT 3.500 281.980 896.000 286.420 ;
-        RECT 4.300 280.820 896.000 281.980 ;
-        RECT 3.500 270.780 896.000 280.820 ;
-        RECT 4.300 269.620 896.000 270.780 ;
-        RECT 3.500 266.300 896.000 269.620 ;
-        RECT 3.500 265.140 895.700 266.300 ;
-        RECT 3.500 259.580 896.000 265.140 ;
-        RECT 4.300 258.420 896.000 259.580 ;
-        RECT 3.500 248.380 896.000 258.420 ;
-        RECT 4.300 247.220 896.000 248.380 ;
-        RECT 3.500 245.020 896.000 247.220 ;
-        RECT 3.500 243.860 895.700 245.020 ;
-        RECT 3.500 237.180 896.000 243.860 ;
-        RECT 4.300 236.020 896.000 237.180 ;
-        RECT 3.500 225.980 896.000 236.020 ;
-        RECT 4.300 224.820 896.000 225.980 ;
-        RECT 3.500 223.740 896.000 224.820 ;
-        RECT 3.500 222.580 895.700 223.740 ;
-        RECT 3.500 214.780 896.000 222.580 ;
-        RECT 4.300 213.620 896.000 214.780 ;
-        RECT 3.500 203.580 896.000 213.620 ;
-        RECT 4.300 202.460 896.000 203.580 ;
-        RECT 4.300 202.420 895.700 202.460 ;
-        RECT 3.500 201.300 895.700 202.420 ;
-        RECT 3.500 192.380 896.000 201.300 ;
-        RECT 4.300 191.220 896.000 192.380 ;
-        RECT 3.500 181.180 896.000 191.220 ;
-        RECT 4.300 180.020 895.700 181.180 ;
-        RECT 3.500 169.980 896.000 180.020 ;
-        RECT 4.300 168.820 896.000 169.980 ;
-        RECT 3.500 159.900 896.000 168.820 ;
-        RECT 3.500 158.780 895.700 159.900 ;
-        RECT 4.300 158.740 895.700 158.780 ;
-        RECT 4.300 157.620 896.000 158.740 ;
-        RECT 3.500 147.580 896.000 157.620 ;
-        RECT 4.300 146.420 896.000 147.580 ;
-        RECT 3.500 138.620 896.000 146.420 ;
-        RECT 3.500 137.460 895.700 138.620 ;
-        RECT 3.500 136.380 896.000 137.460 ;
-        RECT 4.300 135.220 896.000 136.380 ;
-        RECT 3.500 125.180 896.000 135.220 ;
-        RECT 4.300 124.020 896.000 125.180 ;
-        RECT 3.500 117.340 896.000 124.020 ;
-        RECT 3.500 116.180 895.700 117.340 ;
-        RECT 3.500 113.980 896.000 116.180 ;
-        RECT 4.300 112.820 896.000 113.980 ;
-        RECT 3.500 102.780 896.000 112.820 ;
-        RECT 4.300 101.620 896.000 102.780 ;
-        RECT 3.500 96.060 896.000 101.620 ;
-        RECT 3.500 94.900 895.700 96.060 ;
-        RECT 3.500 91.580 896.000 94.900 ;
-        RECT 4.300 90.420 896.000 91.580 ;
-        RECT 3.500 80.380 896.000 90.420 ;
-        RECT 4.300 79.220 896.000 80.380 ;
-        RECT 3.500 74.780 896.000 79.220 ;
-        RECT 3.500 73.620 895.700 74.780 ;
-        RECT 3.500 69.180 896.000 73.620 ;
-        RECT 4.300 68.020 896.000 69.180 ;
-        RECT 3.500 57.980 896.000 68.020 ;
-        RECT 4.300 56.820 896.000 57.980 ;
-        RECT 3.500 53.500 896.000 56.820 ;
-        RECT 3.500 52.340 895.700 53.500 ;
-        RECT 3.500 46.780 896.000 52.340 ;
-        RECT 4.300 45.620 896.000 46.780 ;
-        RECT 3.500 35.580 896.000 45.620 ;
-        RECT 4.300 34.420 896.000 35.580 ;
-        RECT 3.500 32.220 896.000 34.420 ;
-        RECT 3.500 31.060 895.700 32.220 ;
-        RECT 3.500 24.380 896.000 31.060 ;
-        RECT 4.300 23.220 896.000 24.380 ;
-        RECT 3.500 15.540 896.000 23.220 ;
+        RECT 4.000 970.780 896.000 984.060 ;
+        RECT 4.300 969.620 896.000 970.780 ;
+        RECT 4.000 968.540 896.000 969.620 ;
+        RECT 4.000 967.380 895.700 968.540 ;
+        RECT 4.000 959.580 896.000 967.380 ;
+        RECT 4.300 958.420 896.000 959.580 ;
+        RECT 4.000 948.380 896.000 958.420 ;
+        RECT 4.300 947.260 896.000 948.380 ;
+        RECT 4.300 947.220 895.700 947.260 ;
+        RECT 4.000 946.100 895.700 947.220 ;
+        RECT 4.000 937.180 896.000 946.100 ;
+        RECT 4.300 936.020 896.000 937.180 ;
+        RECT 4.000 925.980 896.000 936.020 ;
+        RECT 4.300 924.820 895.700 925.980 ;
+        RECT 4.000 914.780 896.000 924.820 ;
+        RECT 4.300 913.620 896.000 914.780 ;
+        RECT 4.000 904.700 896.000 913.620 ;
+        RECT 4.000 903.580 895.700 904.700 ;
+        RECT 4.300 903.540 895.700 903.580 ;
+        RECT 4.300 902.420 896.000 903.540 ;
+        RECT 4.000 892.380 896.000 902.420 ;
+        RECT 4.300 891.220 896.000 892.380 ;
+        RECT 4.000 883.420 896.000 891.220 ;
+        RECT 4.000 882.260 895.700 883.420 ;
+        RECT 4.000 881.180 896.000 882.260 ;
+        RECT 4.300 880.020 896.000 881.180 ;
+        RECT 4.000 869.980 896.000 880.020 ;
+        RECT 4.300 868.820 896.000 869.980 ;
+        RECT 4.000 862.140 896.000 868.820 ;
+        RECT 4.000 860.980 895.700 862.140 ;
+        RECT 4.000 858.780 896.000 860.980 ;
+        RECT 4.300 857.620 896.000 858.780 ;
+        RECT 4.000 847.580 896.000 857.620 ;
+        RECT 4.300 846.420 896.000 847.580 ;
+        RECT 4.000 840.860 896.000 846.420 ;
+        RECT 4.000 839.700 895.700 840.860 ;
+        RECT 4.000 836.380 896.000 839.700 ;
+        RECT 4.300 835.220 896.000 836.380 ;
+        RECT 4.000 825.180 896.000 835.220 ;
+        RECT 4.300 824.020 896.000 825.180 ;
+        RECT 4.000 819.580 896.000 824.020 ;
+        RECT 4.000 818.420 895.700 819.580 ;
+        RECT 4.000 813.980 896.000 818.420 ;
+        RECT 4.300 812.820 896.000 813.980 ;
+        RECT 4.000 802.780 896.000 812.820 ;
+        RECT 4.300 801.620 896.000 802.780 ;
+        RECT 4.000 798.300 896.000 801.620 ;
+        RECT 4.000 797.140 895.700 798.300 ;
+        RECT 4.000 791.580 896.000 797.140 ;
+        RECT 4.300 790.420 896.000 791.580 ;
+        RECT 4.000 780.380 896.000 790.420 ;
+        RECT 4.300 779.220 896.000 780.380 ;
+        RECT 4.000 777.020 896.000 779.220 ;
+        RECT 4.000 775.860 895.700 777.020 ;
+        RECT 4.000 769.180 896.000 775.860 ;
+        RECT 4.300 768.020 896.000 769.180 ;
+        RECT 4.000 757.980 896.000 768.020 ;
+        RECT 4.300 756.820 896.000 757.980 ;
+        RECT 4.000 755.740 896.000 756.820 ;
+        RECT 4.000 754.580 895.700 755.740 ;
+        RECT 4.000 746.780 896.000 754.580 ;
+        RECT 4.300 745.620 896.000 746.780 ;
+        RECT 4.000 735.580 896.000 745.620 ;
+        RECT 4.300 734.460 896.000 735.580 ;
+        RECT 4.300 734.420 895.700 734.460 ;
+        RECT 4.000 733.300 895.700 734.420 ;
+        RECT 4.000 724.380 896.000 733.300 ;
+        RECT 4.300 723.220 896.000 724.380 ;
+        RECT 4.000 713.180 896.000 723.220 ;
+        RECT 4.300 712.020 895.700 713.180 ;
+        RECT 4.000 701.980 896.000 712.020 ;
+        RECT 4.300 700.820 896.000 701.980 ;
+        RECT 4.000 691.900 896.000 700.820 ;
+        RECT 4.000 690.780 895.700 691.900 ;
+        RECT 4.300 690.740 895.700 690.780 ;
+        RECT 4.300 689.620 896.000 690.740 ;
+        RECT 4.000 679.580 896.000 689.620 ;
+        RECT 4.300 678.420 896.000 679.580 ;
+        RECT 4.000 670.620 896.000 678.420 ;
+        RECT 4.000 669.460 895.700 670.620 ;
+        RECT 4.000 668.380 896.000 669.460 ;
+        RECT 4.300 667.220 896.000 668.380 ;
+        RECT 4.000 657.180 896.000 667.220 ;
+        RECT 4.300 656.020 896.000 657.180 ;
+        RECT 4.000 649.340 896.000 656.020 ;
+        RECT 4.000 648.180 895.700 649.340 ;
+        RECT 4.000 645.980 896.000 648.180 ;
+        RECT 4.300 644.820 896.000 645.980 ;
+        RECT 4.000 634.780 896.000 644.820 ;
+        RECT 4.300 633.620 896.000 634.780 ;
+        RECT 4.000 628.060 896.000 633.620 ;
+        RECT 4.000 626.900 895.700 628.060 ;
+        RECT 4.000 623.580 896.000 626.900 ;
+        RECT 4.300 622.420 896.000 623.580 ;
+        RECT 4.000 612.380 896.000 622.420 ;
+        RECT 4.300 611.220 896.000 612.380 ;
+        RECT 4.000 606.780 896.000 611.220 ;
+        RECT 4.000 605.620 895.700 606.780 ;
+        RECT 4.000 601.180 896.000 605.620 ;
+        RECT 4.300 600.020 896.000 601.180 ;
+        RECT 4.000 589.980 896.000 600.020 ;
+        RECT 4.300 588.820 896.000 589.980 ;
+        RECT 4.000 585.500 896.000 588.820 ;
+        RECT 4.000 584.340 895.700 585.500 ;
+        RECT 4.000 578.780 896.000 584.340 ;
+        RECT 4.300 577.620 896.000 578.780 ;
+        RECT 4.000 567.580 896.000 577.620 ;
+        RECT 4.300 566.420 896.000 567.580 ;
+        RECT 4.000 564.220 896.000 566.420 ;
+        RECT 4.000 563.060 895.700 564.220 ;
+        RECT 4.000 556.380 896.000 563.060 ;
+        RECT 4.300 555.220 896.000 556.380 ;
+        RECT 4.000 545.180 896.000 555.220 ;
+        RECT 4.300 544.020 896.000 545.180 ;
+        RECT 4.000 542.940 896.000 544.020 ;
+        RECT 4.000 541.780 895.700 542.940 ;
+        RECT 4.000 533.980 896.000 541.780 ;
+        RECT 4.300 532.820 896.000 533.980 ;
+        RECT 4.000 522.780 896.000 532.820 ;
+        RECT 4.300 521.660 896.000 522.780 ;
+        RECT 4.300 521.620 895.700 521.660 ;
+        RECT 4.000 520.500 895.700 521.620 ;
+        RECT 4.000 511.580 896.000 520.500 ;
+        RECT 4.300 510.420 896.000 511.580 ;
+        RECT 4.000 500.380 896.000 510.420 ;
+        RECT 4.300 499.220 895.700 500.380 ;
+        RECT 4.000 489.180 896.000 499.220 ;
+        RECT 4.300 488.020 896.000 489.180 ;
+        RECT 4.000 479.100 896.000 488.020 ;
+        RECT 4.000 477.980 895.700 479.100 ;
+        RECT 4.300 477.940 895.700 477.980 ;
+        RECT 4.300 476.820 896.000 477.940 ;
+        RECT 4.000 466.780 896.000 476.820 ;
+        RECT 4.300 465.620 896.000 466.780 ;
+        RECT 4.000 457.820 896.000 465.620 ;
+        RECT 4.000 456.660 895.700 457.820 ;
+        RECT 4.000 455.580 896.000 456.660 ;
+        RECT 4.300 454.420 896.000 455.580 ;
+        RECT 4.000 444.380 896.000 454.420 ;
+        RECT 4.300 443.220 896.000 444.380 ;
+        RECT 4.000 436.540 896.000 443.220 ;
+        RECT 4.000 435.380 895.700 436.540 ;
+        RECT 4.000 433.180 896.000 435.380 ;
+        RECT 4.300 432.020 896.000 433.180 ;
+        RECT 4.000 421.980 896.000 432.020 ;
+        RECT 4.300 420.820 896.000 421.980 ;
+        RECT 4.000 415.260 896.000 420.820 ;
+        RECT 4.000 414.100 895.700 415.260 ;
+        RECT 4.000 410.780 896.000 414.100 ;
+        RECT 4.300 409.620 896.000 410.780 ;
+        RECT 4.000 399.580 896.000 409.620 ;
+        RECT 4.300 398.420 896.000 399.580 ;
+        RECT 4.000 393.980 896.000 398.420 ;
+        RECT 4.000 392.820 895.700 393.980 ;
+        RECT 4.000 388.380 896.000 392.820 ;
+        RECT 4.300 387.220 896.000 388.380 ;
+        RECT 4.000 377.180 896.000 387.220 ;
+        RECT 4.300 376.020 896.000 377.180 ;
+        RECT 4.000 372.700 896.000 376.020 ;
+        RECT 4.000 371.540 895.700 372.700 ;
+        RECT 4.000 365.980 896.000 371.540 ;
+        RECT 4.300 364.820 896.000 365.980 ;
+        RECT 4.000 354.780 896.000 364.820 ;
+        RECT 4.300 353.620 896.000 354.780 ;
+        RECT 4.000 351.420 896.000 353.620 ;
+        RECT 4.000 350.260 895.700 351.420 ;
+        RECT 4.000 343.580 896.000 350.260 ;
+        RECT 4.300 342.420 896.000 343.580 ;
+        RECT 4.000 332.380 896.000 342.420 ;
+        RECT 4.300 331.220 896.000 332.380 ;
+        RECT 4.000 330.140 896.000 331.220 ;
+        RECT 4.000 328.980 895.700 330.140 ;
+        RECT 4.000 321.180 896.000 328.980 ;
+        RECT 4.300 320.020 896.000 321.180 ;
+        RECT 4.000 309.980 896.000 320.020 ;
+        RECT 4.300 308.860 896.000 309.980 ;
+        RECT 4.300 308.820 895.700 308.860 ;
+        RECT 4.000 307.700 895.700 308.820 ;
+        RECT 4.000 298.780 896.000 307.700 ;
+        RECT 4.300 297.620 896.000 298.780 ;
+        RECT 4.000 287.580 896.000 297.620 ;
+        RECT 4.300 286.420 895.700 287.580 ;
+        RECT 4.000 276.380 896.000 286.420 ;
+        RECT 4.300 275.220 896.000 276.380 ;
+        RECT 4.000 266.300 896.000 275.220 ;
+        RECT 4.000 265.180 895.700 266.300 ;
+        RECT 4.300 265.140 895.700 265.180 ;
+        RECT 4.300 264.020 896.000 265.140 ;
+        RECT 4.000 253.980 896.000 264.020 ;
+        RECT 4.300 252.820 896.000 253.980 ;
+        RECT 4.000 245.020 896.000 252.820 ;
+        RECT 4.000 243.860 895.700 245.020 ;
+        RECT 4.000 242.780 896.000 243.860 ;
+        RECT 4.300 241.620 896.000 242.780 ;
+        RECT 4.000 231.580 896.000 241.620 ;
+        RECT 4.300 230.420 896.000 231.580 ;
+        RECT 4.000 223.740 896.000 230.420 ;
+        RECT 4.000 222.580 895.700 223.740 ;
+        RECT 4.000 220.380 896.000 222.580 ;
+        RECT 4.300 219.220 896.000 220.380 ;
+        RECT 4.000 209.180 896.000 219.220 ;
+        RECT 4.300 208.020 896.000 209.180 ;
+        RECT 4.000 202.460 896.000 208.020 ;
+        RECT 4.000 201.300 895.700 202.460 ;
+        RECT 4.000 197.980 896.000 201.300 ;
+        RECT 4.300 196.820 896.000 197.980 ;
+        RECT 4.000 186.780 896.000 196.820 ;
+        RECT 4.300 185.620 896.000 186.780 ;
+        RECT 4.000 181.180 896.000 185.620 ;
+        RECT 4.000 180.020 895.700 181.180 ;
+        RECT 4.000 175.580 896.000 180.020 ;
+        RECT 4.300 174.420 896.000 175.580 ;
+        RECT 4.000 164.380 896.000 174.420 ;
+        RECT 4.300 163.220 896.000 164.380 ;
+        RECT 4.000 159.900 896.000 163.220 ;
+        RECT 4.000 158.740 895.700 159.900 ;
+        RECT 4.000 153.180 896.000 158.740 ;
+        RECT 4.300 152.020 896.000 153.180 ;
+        RECT 4.000 141.980 896.000 152.020 ;
+        RECT 4.300 140.820 896.000 141.980 ;
+        RECT 4.000 138.620 896.000 140.820 ;
+        RECT 4.000 137.460 895.700 138.620 ;
+        RECT 4.000 130.780 896.000 137.460 ;
+        RECT 4.300 129.620 896.000 130.780 ;
+        RECT 4.000 119.580 896.000 129.620 ;
+        RECT 4.300 118.420 896.000 119.580 ;
+        RECT 4.000 117.340 896.000 118.420 ;
+        RECT 4.000 116.180 895.700 117.340 ;
+        RECT 4.000 108.380 896.000 116.180 ;
+        RECT 4.300 107.220 896.000 108.380 ;
+        RECT 4.000 97.180 896.000 107.220 ;
+        RECT 4.300 96.060 896.000 97.180 ;
+        RECT 4.300 96.020 895.700 96.060 ;
+        RECT 4.000 94.900 895.700 96.020 ;
+        RECT 4.000 85.980 896.000 94.900 ;
+        RECT 4.300 84.820 896.000 85.980 ;
+        RECT 4.000 74.780 896.000 84.820 ;
+        RECT 4.300 73.620 895.700 74.780 ;
+        RECT 4.000 63.580 896.000 73.620 ;
+        RECT 4.300 62.420 896.000 63.580 ;
+        RECT 4.000 53.500 896.000 62.420 ;
+        RECT 4.000 52.380 895.700 53.500 ;
+        RECT 4.300 52.340 895.700 52.380 ;
+        RECT 4.300 51.220 896.000 52.340 ;
+        RECT 4.000 41.180 896.000 51.220 ;
+        RECT 4.300 40.020 896.000 41.180 ;
+        RECT 4.000 32.220 896.000 40.020 ;
+        RECT 4.000 31.060 895.700 32.220 ;
+        RECT 4.000 29.980 896.000 31.060 ;
+        RECT 4.300 28.820 896.000 29.980 ;
+        RECT 4.000 15.540 896.000 28.820 ;
       LAYER Metal4 ;
-        RECT 16.940 24.730 21.940 982.150 ;
-        RECT 24.140 24.730 98.740 982.150 ;
-        RECT 100.940 24.730 175.540 982.150 ;
-        RECT 177.740 24.730 252.340 982.150 ;
-        RECT 254.540 24.730 329.140 982.150 ;
-        RECT 331.340 24.730 405.940 982.150 ;
-        RECT 408.140 24.730 482.740 982.150 ;
-        RECT 484.940 24.730 559.540 982.150 ;
-        RECT 561.740 24.730 636.340 982.150 ;
-        RECT 638.540 24.730 713.140 982.150 ;
-        RECT 715.340 24.730 789.940 982.150 ;
-        RECT 792.140 24.730 866.740 982.150 ;
-        RECT 868.940 24.730 888.020 982.150 ;
+        RECT 11.340 18.010 21.940 981.030 ;
+        RECT 24.140 18.010 98.740 981.030 ;
+        RECT 100.940 18.010 175.540 981.030 ;
+        RECT 177.740 18.010 252.340 981.030 ;
+        RECT 254.540 18.010 329.140 981.030 ;
+        RECT 331.340 18.010 405.940 981.030 ;
+        RECT 408.140 18.010 482.740 981.030 ;
+        RECT 484.940 18.010 559.540 981.030 ;
+        RECT 561.740 18.010 636.340 981.030 ;
+        RECT 638.540 18.010 713.140 981.030 ;
+        RECT 715.340 18.010 789.940 981.030 ;
+        RECT 792.140 18.010 866.740 981.030 ;
+        RECT 868.940 18.010 888.020 981.030 ;
       LAYER Metal5 ;
-        RECT 24.700 216.230 812.500 981.670 ;
+        RECT 11.260 130.730 860.100 978.070 ;
   END
 END pinmux_top
 END LIBRARY

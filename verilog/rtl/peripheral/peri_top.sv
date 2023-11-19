@@ -136,13 +136,7 @@ rtc_top  u_rtc(
               .reg_ack                  (reg_rtc_ack                ),
 
               .rtc_clk                  (rtc_clk                    ),
-              .rtc_intr                 (rtc_intr                   ),
-
-              .inc_date_d               (inc_date_d                 ),
-              .inc_time_s               (inc_time_s                 )
-
+              .rtc_intr                 (rtc_intr                   )
          );
 
 endmodule 
-
-

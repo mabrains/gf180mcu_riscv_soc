@@ -34,12 +34,6 @@ set_clock_transition  0.1500 [all_clocks]
 set_clock_uncertainty 0.2500 [all_clocks]
 set_propagated_clock [all_clocks]
 
-## ======== CLK Skew Adjust ========
-set_case_analysis 0 [get_ports {cfg_cska_peri[0]}]
-set_case_analysis 0 [get_ports {cfg_cska_peri[1]}]
-set_case_analysis 0 [get_ports {cfg_cska_peri[2]}]
-set_case_analysis 0 [get_ports {cfg_cska_peri[3]}]
-
 # set_dont_touch { u_skew_peri.* }
 
 ## ======== IO delay ========
@@ -65,24 +59,8 @@ set_output_delay -max 4.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {r
 set_output_delay -min 1.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {reg_ack}]
 set_output_delay -min 1.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {reg_rdata[*]}]
 
-### DAC I/F
-set_output_delay -max 4.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {cfg_dac0_mux_sel[*]}]
-set_output_delay -max 4.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {cfg_dac1_mux_sel[*]}]
-set_output_delay -max 4.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {cfg_dac2_mux_sel[*]}]
-set_output_delay -max 4.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {cfg_dac3_mux_sel[*]}]
-
-set_output_delay -min 1.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {cfg_dac0_mux_sel[*]}]
-set_output_delay -min 1.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {cfg_dac1_mux_sel[*]}]
-set_output_delay -min 1.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {cfg_dac2_mux_sel[*]}]
-set_output_delay -min 1.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {cfg_dac3_mux_sel[*]}]
-
 ### RTC clock domain
-set_output_delay -max 4.0000 -clock [get_clocks {rtc_clk}] -add_delay [get_ports {inc_date_d}]
-set_output_delay -max 4.0000 -clock [get_clocks {rtc_clk}] -add_delay [get_ports {inc_time_s}]
 set_output_delay -max 4.0000 -clock [get_clocks {rtc_clk}] -add_delay [get_ports {rtc_intr}]
-
-set_output_delay -min 1.0000 -clock [get_clocks {rtc_clk}] -add_delay [get_ports {inc_date_d}]
-set_output_delay -min 1.0000 -clock [get_clocks {rtc_clk}] -add_delay [get_ports {inc_time_s}]
 set_output_delay -min 1.0000 -clock [get_clocks {rtc_clk}] -add_delay [get_ports {rtc_intr}]
 
 ## ======== DRIVE/FANOUT ========

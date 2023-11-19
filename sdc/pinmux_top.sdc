@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Wed Nov 15 16:51:07 2023
+# Thu Nov 16 10:39:57 2023
 ###############################################################################
 current_design pinmux_top
 ###############################################################################
@@ -10,7 +10,6 @@ create_clock -name mclk -period 100.0000 [get_ports {mclk}]
 set_clock_transition 0.1500 [get_clocks {mclk}]
 set_clock_uncertainty 0.2500 mclk
 set_propagated_clock [get_clocks {mclk}]
-set_input_delay 5.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {cfg_strap_pad_ctrl}]
 set_input_delay 5.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {digital_io_in[0]}]
 set_input_delay 5.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {digital_io_in[10]}]
 set_input_delay 5.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {digital_io_in[11]}]
@@ -330,6 +329,7 @@ set_output_delay 5.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {usb_rs
 set_output_delay 5.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {user_irq[0]}]
 set_output_delay 5.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {user_irq[1]}]
 set_output_delay 5.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {user_irq[2]}]
+set_output_delay 5.0000 -clock [get_clocks {mclk}] -add_delay [get_ports {xtal_clk}]
 ###############################################################################
 # Environment
 ###############################################################################
@@ -347,6 +347,7 @@ set_load -pin_load 0.0729 [get_ports {usb_clk}]
 set_load -pin_load 0.0729 [get_ports {usb_dn_i}]
 set_load -pin_load 0.0729 [get_ports {usb_dp_i}]
 set_load -pin_load 0.0729 [get_ports {usb_rst_n}]
+set_load -pin_load 0.0729 [get_ports {xtal_clk}]
 set_load -pin_load 0.0729 [get_ports {digital_io_oen[37]}]
 set_load -pin_load 0.0729 [get_ports {digital_io_oen[36]}]
 set_load -pin_load 0.0729 [get_ports {digital_io_oen[35]}]
@@ -509,7 +510,6 @@ set_load -pin_load 0.0729 [get_ports {uart_rxd[0]}]
 set_load -pin_load 0.0729 [get_ports {user_irq[2]}]
 set_load -pin_load 0.0729 [get_ports {user_irq[1]}]
 set_load -pin_load 0.0729 [get_ports {user_irq[0]}]
-set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_1 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {cfg_strap_pad_ctrl}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_1 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {e_reset_n}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_1 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {i2cm_clk_o}]
 set_driving_cell -lib_cell gf180mcu_fd_sc_mcu7t5v0__inv_1 -pin {ZN} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {i2cm_clk_oen}]

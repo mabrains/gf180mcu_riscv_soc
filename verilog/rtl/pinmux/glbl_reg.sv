@@ -49,8 +49,6 @@ module glbl_reg (
 	                   input logic             p_reset_n              ,  // power-on reset
                        input logic             s_reset_n              ,  // soft reset
 
-                       input logic [15:0]      pad_strap_in           , // strap from pad
-
                        input logic            user_clock1            ,
                        input logic            user_clock2            ,
                        input logic            xtal_clk               ,
@@ -75,8 +73,6 @@ module glbl_reg (
                        output logic [31:0]     reg_rdata              ,
                        output logic            reg_ack                ,
 
-		            //    input  logic [1:0]      ext_intr_in            ,
-
 		      // Risc configuration
                        output logic [2:0]      user_irq               ,
 		               input  logic            usb_intr               ,
@@ -90,7 +86,6 @@ module glbl_reg (
 		               input   logic [2:0]      timer_intr            ,
 		               input   logic [31:0]     gpio_intr             ,
 
-                       output logic          dbg_clk_mon        ,
                        output logic          cfg_gpio_dgmode    
    ); 
 
@@ -659,31 +654,5 @@ clk_ctl #(4) u_usbclk (
        .reset_n       (s_reset_n        ), 
        .clk_div_ratio (cfg_usb_clk_ratio)
    );
-
-
-// Debug clock monitor optin
-wire  dbg_clk_ref        = (cfg_mon_sel == 4'b0000) ? user_clock1   :
-	                       (cfg_mon_sel == 4'b0001) ? user_clock2   :
-	                       (cfg_mon_sel == 4'b0010) ? xtal_clk      :
-	                       (cfg_mon_sel == 4'b0100) ? mclk          : 
-	                       (cfg_mon_sel == 4'b0110) ? usb_clk       : 
-	                       (cfg_mon_sel == 4'b0111) ? rtc_clk       : 1'b0;
-
-wire dbg_clk_ref_buf;
-ctech_clk_buf u_clkbuf_dbg_ref (.A (dbg_clk_ref), . X(dbg_clk_ref_buf));
-
-//  DIv16 to debug monitor purpose
-logic dbg_clk_div16;
-
-clk_ctl #(3) u_dbgclk (
-   // Outputs
-       .clk_o         (dbg_clk_div16    ),
-   // Inputs
-       .mclk          (dbg_clk_ref_buf  ),
-       .reset_n       (e_reset_n        ), 
-       .clk_div_ratio (4'hE             )
-   );
-
-ctech_clk_buf u_clkbuf_dbg (.A (dbg_clk_div16), . X(dbg_clk_mon));
 
 endmodule                       

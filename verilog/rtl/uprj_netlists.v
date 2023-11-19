@@ -21,8 +21,12 @@
     // Assume default net type to be wire because GL netlists don't have the wire definitions
     `default_nettype wire
     `include "gl/user_project_wrapper.v"
-    `include "gl/serv_rf_top.v"
+    `include "uart_i2c_usb_spi_top.v"
+    `include "pinmux_top.v"
+    `include "peri_top.v"
 `else
     `include "user_project_wrapper.v"
-    `include "serv_riscv/serv_rf_top.v"
+    `include "uart_i2c_usb_spi_top.v"
+    `include "pinmux_top.v"
+    `include "peri_top.v"
 `endif

@@ -13,21 +13,43 @@
 // limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
 
+/*********************************************************************
+    Reserved addr Map: [https://caravel-harness.readthedocs.io/en/latest/memory-mapped-io-summary.html]
+        Address (bytes)    Function
+        0x0000_0000 to 0x0000_3fff  - SRAM (4k words)
+        0x1000_0000                   Flash SPI start of program block.
+        0x10ff_ffff to 0x1fff_ffff  - SPI flash addressable space      
+        0x2000_0000 to 0x2000_0008  - UART MGMT
+        0x2100_0000 to 0x2100_000c  - GPIO_MEM_ADR [GPIO input/output, output enable, pullup enable, pulldown enable]
+        0x2200_0000 to 0x2300_0008  - Counter/Timer
+        0x2400_0000 to 0x2400_0008  - SPI controller configuration
+        0x2500_0000 to 0x2500_000c  - Logic Analyzer Data
+        0x2500_0010 to 0x2500_001c  - Logic Analyzer Enable
+        0x2600_0000 to 0x2600_0008  - User project area GPIO data
+        0x2600_000c to 0x2600_00a0  - GPIO_BASE_ADR [User project area GPIO mprj_io[0]: mprj_io[37]]
+        0x2600_00a4 to 0x2600_00b4  - GPIO_BASE_ADR [User project area GPIO power[0]: power[3]]
+        0x2d00_0000                 - QSPI controller config (reg_spictrl)
+        0x2f00_0000                 - PLL clock output destination (reg_pll_out_dest)
+        0x2f00_0004                 - Trap output destination (reg_trap_out_dest)
+        0x2f00_0008                 - IRQ 7 input source (reg_irq7_source)
+        0x8000_0000                 - QSPI controller
+        0x9000_0000                 - Storage area SRAM [If external mem added in user area]
+        0x3000_0000 to 0x300F_FFFF  - caravel user space.
+
+
+/*********************************************************************
+    Peri Map:
+       0x3000_0000 to 0x3000_0008  - wb_buttons_leds [For WB testing]
+       0x3001_0000 to 0x3001_003F  - UART0
+       0x3001_0040 to 0x3001_007F  - I2C
+       0x3001_0080 to 0x3001_00BF  - USB
+       0x3001_00C0 to 0x3001_00FF  - SSPIM
+       0x3001_0100 to 0x3001_013F  - UART1
+       0x3002_0000 to 0x3002_00FF  - PINMUX
+
+***********************************************************************/
+
 `default_nettype none
-/*
- *-------------------------------------------------------------
- *
- * user_project_wrapper
- *
- * This wrapper enumerates all of the pins available to the
- * user for the user project.
- *
- * An example user project is provided in this wrapper.  The
- * example should be removed and replaced with the actual
- * user project.
- *
- *-------------------------------------------------------------
- */
 
 `include "user_params.svh"
 
@@ -217,8 +239,6 @@ pinmux_top u_pinmux(
         .rtc_clk            (rtc_clk              ),
         .usb_clk            (usb_clk              ),
 
-        .cfg_strap_pad_ctrl (!wb_rst_i             ),
-
         // Reset Control
         .sspim_rst_n        (sspim_rst_n           ),
         .uart_rst_n         (uart_rst_n            ),
@@ -320,6 +340,56 @@ peri_top u_peri(
           .rtc_intr                (rtc_intr           )
 
    );
+
+// ================================================================
+// ------------------WB-BUTTONS_LEDS CONNECTIONS ------------------
+// ================================================================
+
+wb_buttons_leds wb_buttons_leds (
+`ifdef USE_POWER_PINS
+    inout VDD,		// User area 5.0V supply
+    inout VSS,		// User area ground
+`endif
+    // clock & reset
+    .clk(wb_clk_i),
+    .reset(wb_rst_i),
+
+    // wishbone
+    .i_wb_cyc   (wbs_cyc_i),
+    .i_wb_stb   (wbs_stb_i),
+    .i_wb_we    (wbs_we_i),
+    .i_wb_addr  (wbs_adr_i),
+    .i_wb_data  (wbs_dat_i[1:0]),
+    .o_wb_ack   (wbs_ack_o),
+    .o_wb_data  (wbs_dat_o),
+
+    // buttons & leds
+    .buttons    (io_in[37:36]),
+    .leds       (io_out[37:36]),
+    .led_enb    (io_oeb[37:36])
+
+);
+
+
+// =============================================================
+// ------------------ TEMP SENSOR CONNECTIONS ------------------
+// =============================================================
+
+temp_sensor temp_sensor(
+`ifdef USE_POWER_PINS
+    inout VDD,		// User area 5.0V supply
+    inout VSS,		// User area ground
+`endif
+    // clock & reset
+    .io_in[0](wb_clk_i),
+    .io_in[1](wb_rst_i),
+
+    // buttons & leds
+    .io_in[7:2](io_in[33:28]),
+    .io_out(io_out[35:28]),
+    .io_out(io_oeb[35:28])
+
+);
 
 endmodule : user_project_wrapper
 

@@ -29,12 +29,10 @@ module pinmux_top (
          input logic             p_reset_n              ,  // power-on reset
          input logic             s_reset_n              ,  // soft reset  
 
-         // to/from Global Reset FSM
-         input  logic           cfg_strap_pad_ctrl     ,
-         
          input logic            user_clock1            ,
          input logic            user_clock2            ,
-
+         
+         output logic           xtal_clk               ,
          output logic           usb_clk                ,
          output logic           rtc_clk                ,    
 
@@ -103,13 +101,11 @@ module pinmux_top (
          input logic [31:0]       reg_peri_rdata,
          input logic              reg_peri_ack,
 
-         input logic              rtc_intr,
+         input logic              rtc_intr
    ); 
 
 logic         s_reset_ssn;  // Sync Reset
 logic         p_reset_ssn;  // Sync Reset
-logic [15:0]  pad_strap_in;
-logic         dbg_clk_mon;
 logic         cfg_gpio_dgmode; // gpio de-glitch mode
 logic         pwm_intr;   
 /* clock pulse */
@@ -134,26 +130,10 @@ logic [5:0]     pwm_wfm                 ;
 
 logic [31:0]  gpio_intr                ;
 wire  [31:0]  cfg_gpio_dir_sel         ;// decides on GPIO pin is I/P or O/P at pad level, 0 -> Input, 1 -> Output
-wire  [31:0]  cfg_gpio_out_type        ;// GPIO Type, Unused
 wire  [31:0]  cfg_multi_func_sel       ;// GPIO Multi function type
-
-
-// reg [7:0]     port_a_in;      // PORT A Data In
-// reg [7:0]     port_b_in;      // PORT B Data In
-// reg [7:0]     port_c_in;      // PORT C Data In
-// reg [7:0]     port_d_in;      // PORT D Data In
-
-// wire [7:0]    port_a_out;     // PORT A Data Out
-// wire [7:0]    port_b_out;     // PORT B Data Out
-// wire [7:0]    port_c_out;     // PORT C Data Out
-// wire [7:0]    port_d_out;     // PORT D Data Out
 
 wire [31:0]   pad_gpio_in;    // GPIO data input from PAD
 wire [31:0]   pad_gpio_out;   // GPIO Data out towards PAD
-
-// wire [31:0]   gpio_int_event; // GPIO Interrupt indication
-
-// reg [1:0]     ext_intr_in;    // External PAD level interrupt
 
 //----------------------------------------
 //  Register Response Path Mux
@@ -216,11 +196,10 @@ glbl_reg u_glbl_reg(
 	       .p_reset_n                    (p_reset_ssn             ),  // power-on reset
           .s_reset_n                    (s_reset_ssn             ),
 
-          .pad_strap_in                 (pad_strap_in            ),
-
           .user_clock1                  (user_clock1             ),
           .user_clock2                  (user_clock2             ),
 
+          .xtal_clk                     (xtal_clk                ),
           .usb_clk                      (usb_clk                 ),
           .rtc_clk                      (rtc_clk                 ),
 
@@ -233,25 +212,24 @@ glbl_reg u_glbl_reg(
 
 
       // Reg read/write Interface Inputs
-          .reg_cs                       (reg_glbl_cs             ),
-          .reg_wr                       (reg_wr                  ),
-          .reg_addr                     (reg_addr[6:2]           ),
-          .reg_wdata                    (reg_wdata               ),
-          .reg_be                       (reg_be                  ),
+         .reg_cs                       (reg_glbl_cs             ),
+         .reg_wr                       (reg_wr                  ),
+         .reg_addr                     (reg_addr[6:2]           ),
+         .reg_wdata                    (reg_wdata               ),
+         .reg_be                       (reg_be                  ),
 
-          .reg_rdata                    (reg_glbl_rdata          ),
-          .reg_ack                      (reg_glbl_ack            ),
+         .reg_rdata                    (reg_glbl_rdata          ),
+         .reg_ack                      (reg_glbl_ack            ),
 
-	      .user_irq                     (user_irq                ),
-          .usb_intr                     (usb_intr                ),
-          .i2cm_intr                    (i2cm_intr               ),
-          .pwm_intr                     (pwm_intr                ),
-          .rtc_intr                     (rtc_intr                ),
+         .user_irq                     (user_irq                ),
+         .usb_intr                     (usb_intr                ),
+         .i2cm_intr                    (i2cm_intr               ),
+         .pwm_intr                     (pwm_intr                ),
+         .rtc_intr                     (rtc_intr                ),
 
-          .timer_intr                   (timer_intr             ),
-          .gpio_intr                    (gpio_intr              ),
+         .timer_intr                   (timer_intr             ),
+         .gpio_intr                    (gpio_intr              ),
 
-         .dbg_clk_mon                   (dbg_clk_mon            ),
          .cfg_gpio_dgmode               (cfg_gpio_dgmode        )
 
 
@@ -281,7 +259,6 @@ gpio_top  u_gpio(
               .reg_ack                  (reg_gpio_ack               ),
 
 
-              .cfg_gpio_out_type        (cfg_gpio_out_type           ),
               .cfg_gpio_dir_sel         (cfg_gpio_dir_sel           ),
               .pad_gpio_in              (pad_gpio_in                ),
               .pad_gpio_out             (pad_gpio_out               ),
@@ -368,15 +345,15 @@ semaphore_reg  u_semaphore(
 //----------------------------------------------------------------------
 
 pinmux u_pinmux (
-            .cfg_strap_pad_ctrl      (cfg_strap_pad_ctrl  ),
-            .pad_strap_in            (pad_strap_in        ),
+
             // Digital IO
             .digital_io_out          (digital_io_out      ),
             .digital_io_oen          (digital_io_oen      ),
             .digital_io_in           (digital_io_in       ),
 
+            .xtal_clk                (xtal_clk            ),
+
             // Config
-            .cfg_gpio_out_type       (cfg_gpio_out_type   ),
             .cfg_gpio_dir_sel        (cfg_gpio_dir_sel    ),
             .cfg_multi_func_sel      (cfg_multi_func_sel  ),
 
@@ -410,10 +387,8 @@ pinmux u_pinmux (
             .spim_sck                (spim_sck            ),
             .spim_ssn                (spim_ssn            ),
             .spim_miso               (spim_miso           ),
-            .spim_mosi               (spim_mosi           ),
+            .spim_mosi               (spim_mosi           )
                                                 
-            .dbg_clk_mon             (dbg_clk_mon         )
-
    );
 
 
