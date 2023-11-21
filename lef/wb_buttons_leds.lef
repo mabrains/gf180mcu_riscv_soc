@@ -6,25 +6,25 @@ MACRO wb_buttons_leds
   CLASS BLOCK ;
   FOREIGN wb_buttons_leds ;
   ORIGIN 0.000 0.000 ;
-  SIZE 100.000 BY 100.000 ;
+  SIZE 100.000 BY 80.000 ;
   PIN VDD
     DIRECTION INOUT ;
     USE POWER ;
     PORT
       LAYER Metal4 ;
-        RECT 16.700 15.380 18.300 82.620 ;
+        RECT 16.700 15.380 18.300 63.020 ;
     END
     PORT
       LAYER Metal4 ;
-        RECT 38.260 15.380 39.860 82.620 ;
+        RECT 38.260 15.380 39.860 63.020 ;
     END
     PORT
       LAYER Metal4 ;
-        RECT 59.820 15.380 61.420 82.620 ;
+        RECT 59.820 15.380 61.420 63.020 ;
     END
     PORT
       LAYER Metal4 ;
-        RECT 81.380 15.380 82.980 82.620 ;
+        RECT 81.380 15.380 82.980 63.020 ;
     END
   END VDD
   PIN VSS
@@ -32,19 +32,19 @@ MACRO wb_buttons_leds
     USE GROUND ;
     PORT
       LAYER Metal4 ;
-        RECT 27.480 15.380 29.080 82.620 ;
+        RECT 27.480 15.380 29.080 63.020 ;
     END
     PORT
       LAYER Metal4 ;
-        RECT 49.040 15.380 50.640 82.620 ;
+        RECT 49.040 15.380 50.640 63.020 ;
     END
     PORT
       LAYER Metal4 ;
-        RECT 70.600 15.380 72.200 82.620 ;
+        RECT 70.600 15.380 72.200 63.020 ;
     END
     PORT
       LAYER Metal4 ;
-        RECT 92.160 15.380 93.760 82.620 ;
+        RECT 92.160 15.380 93.760 63.020 ;
     END
   END VSS
   PIN buttons[0]
@@ -54,7 +54,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 57.120 100.000 57.680 ;
+        RECT 96.000 19.040 100.000 19.600 ;
     END
   END buttons[0]
   PIN buttons[1]
@@ -64,7 +64,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 47.040 100.000 47.600 ;
+        RECT 96.000 59.360 100.000 59.920 ;
     END
   END buttons[1]
   PIN clk
@@ -73,8 +73,8 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 4.738000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 67.200 4.000 67.760 ;
+      LAYER Metal2 ;
+        RECT 89.600 0.000 90.160 4.000 ;
     END
   END clk
   PIN i_wb_addr[0]
@@ -84,7 +84,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 0.000 0.000 0.560 4.000 ;
+        RECT 13.440 0.000 14.000 4.000 ;
     END
   END i_wb_addr[0]
   PIN i_wb_addr[10]
@@ -94,7 +94,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 3.360 0.000 3.920 4.000 ;
+        RECT 40.320 0.000 40.880 4.000 ;
     END
   END i_wb_addr[10]
   PIN i_wb_addr[11]
@@ -104,7 +104,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 94.080 0.000 94.640 4.000 ;
+        RECT 42.560 0.000 43.120 4.000 ;
     END
   END i_wb_addr[11]
   PIN i_wb_addr[12]
@@ -114,7 +114,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 90.720 0.000 91.280 4.000 ;
+        RECT 44.800 0.000 45.360 4.000 ;
     END
   END i_wb_addr[12]
   PIN i_wb_addr[13]
@@ -124,7 +124,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 53.760 0.000 54.320 4.000 ;
+        RECT 47.040 0.000 47.600 4.000 ;
     END
   END i_wb_addr[13]
   PIN i_wb_addr[14]
@@ -134,7 +134,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 43.680 0.000 44.240 4.000 ;
+        RECT 49.280 0.000 49.840 4.000 ;
     END
   END i_wb_addr[14]
   PIN i_wb_addr[15]
@@ -144,7 +144,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 84.000 0.000 84.560 4.000 ;
+        RECT 51.520 0.000 52.080 4.000 ;
     END
   END i_wb_addr[15]
   PIN i_wb_addr[16]
@@ -154,7 +154,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 87.360 0.000 87.920 4.000 ;
+        RECT 53.760 0.000 54.320 4.000 ;
     END
   END i_wb_addr[16]
   PIN i_wb_addr[17]
@@ -164,7 +164,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 77.280 0.000 77.840 4.000 ;
+        RECT 56.000 0.000 56.560 4.000 ;
     END
   END i_wb_addr[17]
   PIN i_wb_addr[18]
@@ -174,7 +174,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 67.200 0.000 67.760 4.000 ;
+        RECT 58.240 0.000 58.800 4.000 ;
     END
   END i_wb_addr[18]
   PIN i_wb_addr[19]
@@ -184,7 +184,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 63.840 0.000 64.400 4.000 ;
+        RECT 60.480 0.000 61.040 4.000 ;
     END
   END i_wb_addr[19]
   PIN i_wb_addr[1]
@@ -194,7 +194,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 13.440 0.000 14.000 4.000 ;
+        RECT 17.920 0.000 18.480 4.000 ;
     END
   END i_wb_addr[1]
   PIN i_wb_addr[20]
@@ -204,7 +204,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 73.920 0.000 74.480 4.000 ;
+        RECT 62.720 0.000 63.280 4.000 ;
     END
   END i_wb_addr[20]
   PIN i_wb_addr[21]
@@ -214,7 +214,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 70.560 0.000 71.120 4.000 ;
+        RECT 64.960 0.000 65.520 4.000 ;
     END
   END i_wb_addr[21]
   PIN i_wb_addr[22]
@@ -224,7 +224,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 80.640 0.000 81.200 4.000 ;
+        RECT 67.200 0.000 67.760 4.000 ;
     END
   END i_wb_addr[22]
   PIN i_wb_addr[23]
@@ -234,7 +234,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 60.480 0.000 61.040 4.000 ;
+        RECT 69.440 0.000 70.000 4.000 ;
     END
   END i_wb_addr[23]
   PIN i_wb_addr[24]
@@ -243,8 +243,8 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 43.680 4.000 44.240 ;
+      LAYER Metal2 ;
+        RECT 71.680 0.000 72.240 4.000 ;
     END
   END i_wb_addr[24]
   PIN i_wb_addr[25]
@@ -253,8 +253,8 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 40.320 4.000 40.880 ;
+      LAYER Metal2 ;
+        RECT 73.920 0.000 74.480 4.000 ;
     END
   END i_wb_addr[25]
   PIN i_wb_addr[26]
@@ -263,8 +263,8 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 23.520 4.000 24.080 ;
+      LAYER Metal2 ;
+        RECT 76.160 0.000 76.720 4.000 ;
     END
   END i_wb_addr[26]
   PIN i_wb_addr[27]
@@ -273,28 +273,28 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 47.040 4.000 47.600 ;
+      LAYER Metal2 ;
+        RECT 78.400 0.000 78.960 4.000 ;
     END
   END i_wb_addr[27]
   PIN i_wb_addr[28]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 0.498500 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 26.880 4.000 27.440 ;
+      LAYER Metal2 ;
+        RECT 80.640 0.000 81.200 4.000 ;
     END
   END i_wb_addr[28]
   PIN i_wb_addr[29]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.741000 ;
+    ANTENNAGATEAREA 0.498500 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 36.960 4.000 37.520 ;
+      LAYER Metal2 ;
+        RECT 82.880 0.000 83.440 4.000 ;
     END
   END i_wb_addr[29]
   PIN i_wb_addr[2]
@@ -304,7 +304,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 16.800 0.000 17.360 4.000 ;
+        RECT 22.400 0.000 22.960 4.000 ;
     END
   END i_wb_addr[2]
   PIN i_wb_addr[30]
@@ -313,8 +313,8 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 33.600 4.000 34.160 ;
+      LAYER Metal2 ;
+        RECT 85.120 0.000 85.680 4.000 ;
     END
   END i_wb_addr[30]
   PIN i_wb_addr[31]
@@ -323,8 +323,8 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 30.240 4.000 30.800 ;
+      LAYER Metal2 ;
+        RECT 87.360 0.000 87.920 4.000 ;
     END
   END i_wb_addr[31]
   PIN i_wb_addr[3]
@@ -334,7 +334,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 33.600 0.000 34.160 4.000 ;
+        RECT 24.640 0.000 25.200 4.000 ;
     END
   END i_wb_addr[3]
   PIN i_wb_addr[4]
@@ -344,7 +344,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 6.720 0.000 7.280 4.000 ;
+        RECT 26.880 0.000 27.440 4.000 ;
     END
   END i_wb_addr[4]
   PIN i_wb_addr[5]
@@ -354,7 +354,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 40.320 0.000 40.880 4.000 ;
+        RECT 29.120 0.000 29.680 4.000 ;
     END
   END i_wb_addr[5]
   PIN i_wb_addr[6]
@@ -364,7 +364,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 10.080 0.000 10.640 4.000 ;
+        RECT 31.360 0.000 31.920 4.000 ;
     END
   END i_wb_addr[6]
   PIN i_wb_addr[7]
@@ -374,7 +374,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 36.960 0.000 37.520 4.000 ;
+        RECT 33.600 0.000 34.160 4.000 ;
     END
   END i_wb_addr[7]
   PIN i_wb_addr[8]
@@ -384,7 +384,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 47.040 0.000 47.600 4.000 ;
+        RECT 35.840 0.000 36.400 4.000 ;
     END
   END i_wb_addr[8]
   PIN i_wb_addr[9]
@@ -394,7 +394,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal2 ;
-        RECT 50.400 0.000 50.960 4.000 ;
+        RECT 38.080 0.000 38.640 4.000 ;
     END
   END i_wb_addr[9]
   PIN i_wb_cyc
@@ -403,8 +403,8 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 96.000 36.960 100.000 37.520 ;
+      LAYER Metal2 ;
+        RECT 6.720 0.000 7.280 4.000 ;
     END
   END i_wb_cyc
   PIN i_wb_data[0]
@@ -413,8 +413,8 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 63.840 4.000 64.400 ;
+      LAYER Metal2 ;
+        RECT 15.680 0.000 16.240 4.000 ;
     END
   END i_wb_data[0]
   PIN i_wb_data[1]
@@ -423,8 +423,8 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 50.400 4.000 50.960 ;
+      LAYER Metal2 ;
+        RECT 20.160 0.000 20.720 4.000 ;
     END
   END i_wb_data[1]
   PIN i_wb_stb
@@ -433,27 +433,45 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.498500 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 96.000 40.320 100.000 40.880 ;
+      LAYER Metal2 ;
+        RECT 8.960 0.000 9.520 4.000 ;
     END
   END i_wb_stb
   PIN i_wb_we
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.498500 ;
+    ANTENNAGATEAREA 0.726000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 96.000 43.680 100.000 44.240 ;
+      LAYER Metal2 ;
+        RECT 11.200 0.000 11.760 4.000 ;
     END
   END i_wb_we
+  PIN led_enb[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.360800 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 86.240 76.000 86.800 80.000 ;
+    END
+  END led_enb[0]
+  PIN led_enb[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.360800 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 36.960 76.000 37.520 80.000 ;
+    END
+  END led_enb[1]
   PIN leds[0]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal2 ;
-        RECT 40.320 96.000 40.880 100.000 ;
+        RECT 61.600 76.000 62.160 80.000 ;
     END
   END leds[0]
   PIN leds[1]
@@ -461,26 +479,26 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 1.986000 ;
     PORT
-      LAYER Metal3 ;
-        RECT 0.000 53.760 4.000 54.320 ;
+      LAYER Metal2 ;
+        RECT 12.320 76.000 12.880 80.000 ;
     END
   END leds[1]
   PIN o_wb_ack
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 53.760 100.000 54.320 ;
+        RECT 0.000 2.240 4.000 2.800 ;
     END
   END o_wb_ack
   PIN o_wb_data[0]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 63.840 100.000 64.400 ;
+        RECT 0.000 6.720 4.000 7.280 ;
     END
   END o_wb_data[0]
   PIN o_wb_data[10]
@@ -488,8 +506,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 20.160 0.000 20.720 4.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 29.120 4.000 29.680 ;
     END
   END o_wb_data[10]
   PIN o_wb_data[11]
@@ -498,7 +516,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 60.480 4.000 61.040 ;
+        RECT 0.000 31.360 4.000 31.920 ;
     END
   END o_wb_data[11]
   PIN o_wb_data[12]
@@ -507,7 +525,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 10.080 4.000 10.640 ;
+        RECT 0.000 33.600 4.000 34.160 ;
     END
   END o_wb_data[12]
   PIN o_wb_data[13]
@@ -516,7 +534,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 20.160 100.000 20.720 ;
+        RECT 0.000 35.840 4.000 36.400 ;
     END
   END o_wb_data[13]
   PIN o_wb_data[14]
@@ -524,8 +542,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 47.040 96.000 47.600 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 38.080 4.000 38.640 ;
     END
   END o_wb_data[14]
   PIN o_wb_data[15]
@@ -534,7 +552,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 84.000 4.000 84.560 ;
+        RECT 0.000 40.320 4.000 40.880 ;
     END
   END o_wb_data[15]
   PIN o_wb_data[16]
@@ -542,8 +560,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 30.240 96.000 30.800 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 42.560 4.000 43.120 ;
     END
   END o_wb_data[16]
   PIN o_wb_data[17]
@@ -551,8 +569,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 36.960 96.000 37.520 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 44.800 4.000 45.360 ;
     END
   END o_wb_data[17]
   PIN o_wb_data[18]
@@ -561,7 +579,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 73.920 4.000 74.480 ;
+        RECT 0.000 47.040 4.000 47.600 ;
     END
   END o_wb_data[18]
   PIN o_wb_data[19]
@@ -569,17 +587,17 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 30.240 0.000 30.800 4.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 49.280 4.000 49.840 ;
     END
   END o_wb_data[19]
   PIN o_wb_data[1]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 1.986000 ;
+    ANTENNADIFFAREA 2.080400 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 60.480 100.000 61.040 ;
+        RECT 0.000 8.960 4.000 9.520 ;
     END
   END o_wb_data[1]
   PIN o_wb_data[20]
@@ -588,7 +606,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 30.240 100.000 30.800 ;
+        RECT 0.000 51.520 4.000 52.080 ;
     END
   END o_wb_data[20]
   PIN o_wb_data[21]
@@ -596,8 +614,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 23.520 0.000 24.080 4.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 53.760 4.000 54.320 ;
     END
   END o_wb_data[21]
   PIN o_wb_data[22]
@@ -606,7 +624,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 77.280 100.000 77.840 ;
+        RECT 0.000 56.000 4.000 56.560 ;
     END
   END o_wb_data[22]
   PIN o_wb_data[23]
@@ -614,8 +632,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 73.920 96.000 74.480 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 58.240 4.000 58.800 ;
     END
   END o_wb_data[23]
   PIN o_wb_data[24]
@@ -624,7 +642,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 77.280 4.000 77.840 ;
+        RECT 0.000 60.480 4.000 61.040 ;
     END
   END o_wb_data[24]
   PIN o_wb_data[25]
@@ -632,8 +650,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 33.600 96.000 34.160 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 62.720 4.000 63.280 ;
     END
   END o_wb_data[25]
   PIN o_wb_data[26]
@@ -642,7 +660,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 73.920 100.000 74.480 ;
+        RECT 0.000 64.960 4.000 65.520 ;
     END
   END o_wb_data[26]
   PIN o_wb_data[27]
@@ -651,7 +669,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 13.440 4.000 14.000 ;
+        RECT 0.000 67.200 4.000 67.760 ;
     END
   END o_wb_data[27]
   PIN o_wb_data[28]
@@ -659,8 +677,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 57.120 0.000 57.680 4.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 69.440 4.000 70.000 ;
     END
   END o_wb_data[28]
   PIN o_wb_data[29]
@@ -669,7 +687,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 16.800 4.000 17.360 ;
+        RECT 0.000 71.680 4.000 72.240 ;
     END
   END o_wb_data[29]
   PIN o_wb_data[2]
@@ -677,8 +695,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 26.880 0.000 27.440 4.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 11.200 4.000 11.760 ;
     END
   END o_wb_data[2]
   PIN o_wb_data[30]
@@ -687,7 +705,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 96.000 70.560 100.000 71.120 ;
+        RECT 0.000 73.920 4.000 74.480 ;
     END
   END o_wb_data[30]
   PIN o_wb_data[31]
@@ -696,7 +714,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 20.160 4.000 20.720 ;
+        RECT 0.000 76.160 4.000 76.720 ;
     END
   END o_wb_data[31]
   PIN o_wb_data[3]
@@ -704,8 +722,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 53.760 96.000 54.320 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 13.440 4.000 14.000 ;
     END
   END o_wb_data[3]
   PIN o_wb_data[4]
@@ -713,8 +731,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 67.200 96.000 67.760 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 15.680 4.000 16.240 ;
     END
   END o_wb_data[4]
   PIN o_wb_data[5]
@@ -722,8 +740,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 70.560 96.000 71.120 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 17.920 4.000 18.480 ;
     END
   END o_wb_data[5]
   PIN o_wb_data[6]
@@ -732,7 +750,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 57.120 4.000 57.680 ;
+        RECT 0.000 20.160 4.000 20.720 ;
     END
   END o_wb_data[6]
   PIN o_wb_data[7]
@@ -741,7 +759,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 80.640 4.000 81.200 ;
+        RECT 0.000 22.400 4.000 22.960 ;
     END
   END o_wb_data[7]
   PIN o_wb_data[8]
@@ -750,7 +768,7 @@ MACRO wb_buttons_leds
     ANTENNADIFFAREA 0.360800 ;
     PORT
       LAYER Metal3 ;
-        RECT 0.000 70.560 4.000 71.120 ;
+        RECT 0.000 24.640 4.000 25.200 ;
     END
   END o_wb_data[8]
   PIN o_wb_data[9]
@@ -758,8 +776,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 57.120 96.000 57.680 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 26.880 4.000 27.440 ;
     END
   END o_wb_data[9]
   PIN o_wb_stall
@@ -767,8 +785,8 @@ MACRO wb_buttons_leds
     USE SIGNAL ;
     ANTENNADIFFAREA 0.360800 ;
     PORT
-      LAYER Metal2 ;
-        RECT 43.680 96.000 44.240 100.000 ;
+      LAYER Metal3 ;
+        RECT 0.000 4.480 4.000 5.040 ;
     END
   END o_wb_stall
   PIN reset
@@ -777,101 +795,142 @@ MACRO wb_buttons_leds
     ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
-      LAYER Metal3 ;
-        RECT 96.000 50.400 100.000 50.960 ;
+      LAYER Metal2 ;
+        RECT 91.840 0.000 92.400 4.000 ;
     END
   END reset
   OBS
       LAYER Metal1 ;
-        RECT 6.720 15.380 93.760 82.620 ;
+        RECT 6.720 13.590 97.350 63.690 ;
       LAYER Metal2 ;
-        RECT 0.140 95.700 29.940 96.000 ;
-        RECT 31.100 95.700 33.300 96.000 ;
-        RECT 34.460 95.700 36.660 96.000 ;
-        RECT 37.820 95.700 40.020 96.000 ;
-        RECT 41.180 95.700 43.380 96.000 ;
-        RECT 44.540 95.700 46.740 96.000 ;
-        RECT 47.900 95.700 53.460 96.000 ;
-        RECT 54.620 95.700 56.820 96.000 ;
-        RECT 57.980 95.700 66.900 96.000 ;
-        RECT 68.060 95.700 70.260 96.000 ;
-        RECT 71.420 95.700 73.620 96.000 ;
-        RECT 74.780 95.700 94.500 96.000 ;
-        RECT 0.140 4.300 94.500 95.700 ;
-        RECT 0.860 4.000 3.060 4.300 ;
-        RECT 4.220 4.000 6.420 4.300 ;
-        RECT 7.580 4.000 9.780 4.300 ;
-        RECT 10.940 4.000 13.140 4.300 ;
-        RECT 14.300 4.000 16.500 4.300 ;
-        RECT 17.660 4.000 19.860 4.300 ;
-        RECT 21.020 4.000 23.220 4.300 ;
-        RECT 24.380 4.000 26.580 4.300 ;
-        RECT 27.740 4.000 29.940 4.300 ;
-        RECT 31.100 4.000 33.300 4.300 ;
-        RECT 34.460 4.000 36.660 4.300 ;
-        RECT 37.820 4.000 40.020 4.300 ;
-        RECT 41.180 4.000 43.380 4.300 ;
-        RECT 44.540 4.000 46.740 4.300 ;
-        RECT 47.900 4.000 50.100 4.300 ;
-        RECT 51.260 4.000 53.460 4.300 ;
-        RECT 54.620 4.000 56.820 4.300 ;
-        RECT 57.980 4.000 60.180 4.300 ;
-        RECT 61.340 4.000 63.540 4.300 ;
-        RECT 64.700 4.000 66.900 4.300 ;
-        RECT 68.060 4.000 70.260 4.300 ;
-        RECT 71.420 4.000 73.620 4.300 ;
-        RECT 74.780 4.000 76.980 4.300 ;
-        RECT 78.140 4.000 80.340 4.300 ;
-        RECT 81.500 4.000 83.700 4.300 ;
-        RECT 84.860 4.000 87.060 4.300 ;
-        RECT 88.220 4.000 90.420 4.300 ;
-        RECT 91.580 4.000 93.780 4.300 ;
+        RECT 6.300 75.700 12.020 76.630 ;
+        RECT 13.180 75.700 36.660 76.630 ;
+        RECT 37.820 75.700 61.300 76.630 ;
+        RECT 62.460 75.700 85.940 76.630 ;
+        RECT 87.100 75.700 97.300 76.630 ;
+        RECT 6.300 4.300 97.300 75.700 ;
+        RECT 6.300 4.000 6.420 4.300 ;
+        RECT 7.580 4.000 8.660 4.300 ;
+        RECT 9.820 4.000 10.900 4.300 ;
+        RECT 12.060 4.000 13.140 4.300 ;
+        RECT 14.300 4.000 15.380 4.300 ;
+        RECT 16.540 4.000 17.620 4.300 ;
+        RECT 18.780 4.000 19.860 4.300 ;
+        RECT 21.020 4.000 22.100 4.300 ;
+        RECT 23.260 4.000 24.340 4.300 ;
+        RECT 25.500 4.000 26.580 4.300 ;
+        RECT 27.740 4.000 28.820 4.300 ;
+        RECT 29.980 4.000 31.060 4.300 ;
+        RECT 32.220 4.000 33.300 4.300 ;
+        RECT 34.460 4.000 35.540 4.300 ;
+        RECT 36.700 4.000 37.780 4.300 ;
+        RECT 38.940 4.000 40.020 4.300 ;
+        RECT 41.180 4.000 42.260 4.300 ;
+        RECT 43.420 4.000 44.500 4.300 ;
+        RECT 45.660 4.000 46.740 4.300 ;
+        RECT 47.900 4.000 48.980 4.300 ;
+        RECT 50.140 4.000 51.220 4.300 ;
+        RECT 52.380 4.000 53.460 4.300 ;
+        RECT 54.620 4.000 55.700 4.300 ;
+        RECT 56.860 4.000 57.940 4.300 ;
+        RECT 59.100 4.000 60.180 4.300 ;
+        RECT 61.340 4.000 62.420 4.300 ;
+        RECT 63.580 4.000 64.660 4.300 ;
+        RECT 65.820 4.000 66.900 4.300 ;
+        RECT 68.060 4.000 69.140 4.300 ;
+        RECT 70.300 4.000 71.380 4.300 ;
+        RECT 72.540 4.000 73.620 4.300 ;
+        RECT 74.780 4.000 75.860 4.300 ;
+        RECT 77.020 4.000 78.100 4.300 ;
+        RECT 79.260 4.000 80.340 4.300 ;
+        RECT 81.500 4.000 82.580 4.300 ;
+        RECT 83.740 4.000 84.820 4.300 ;
+        RECT 85.980 4.000 87.060 4.300 ;
+        RECT 88.220 4.000 89.300 4.300 ;
+        RECT 90.460 4.000 91.540 4.300 ;
+        RECT 92.700 4.000 97.300 4.300 ;
       LAYER Metal3 ;
-        RECT 4.300 83.700 96.000 84.420 ;
-        RECT 0.090 81.500 96.000 83.700 ;
-        RECT 4.300 80.340 96.000 81.500 ;
-        RECT 0.090 78.140 96.000 80.340 ;
-        RECT 4.300 76.980 95.700 78.140 ;
-        RECT 0.090 74.780 96.000 76.980 ;
-        RECT 4.300 73.620 95.700 74.780 ;
-        RECT 0.090 71.420 96.000 73.620 ;
-        RECT 4.300 70.260 95.700 71.420 ;
-        RECT 0.090 68.060 96.000 70.260 ;
-        RECT 4.300 66.900 96.000 68.060 ;
-        RECT 0.090 64.700 96.000 66.900 ;
-        RECT 4.300 63.540 95.700 64.700 ;
-        RECT 0.090 61.340 96.000 63.540 ;
-        RECT 4.300 60.180 95.700 61.340 ;
-        RECT 0.090 57.980 96.000 60.180 ;
-        RECT 4.300 56.820 95.700 57.980 ;
-        RECT 0.090 54.620 96.000 56.820 ;
-        RECT 4.300 53.460 95.700 54.620 ;
-        RECT 0.090 51.260 96.000 53.460 ;
-        RECT 4.300 50.100 95.700 51.260 ;
-        RECT 0.090 47.900 96.000 50.100 ;
-        RECT 4.300 46.740 95.700 47.900 ;
-        RECT 0.090 44.540 96.000 46.740 ;
-        RECT 4.300 43.380 95.700 44.540 ;
-        RECT 0.090 41.180 96.000 43.380 ;
-        RECT 4.300 40.020 95.700 41.180 ;
-        RECT 0.090 37.820 96.000 40.020 ;
-        RECT 4.300 36.660 95.700 37.820 ;
-        RECT 0.090 34.460 96.000 36.660 ;
-        RECT 4.300 33.300 96.000 34.460 ;
-        RECT 0.090 31.100 96.000 33.300 ;
-        RECT 4.300 29.940 95.700 31.100 ;
-        RECT 0.090 27.740 96.000 29.940 ;
-        RECT 4.300 26.580 96.000 27.740 ;
-        RECT 0.090 24.380 96.000 26.580 ;
-        RECT 4.300 23.220 96.000 24.380 ;
-        RECT 0.090 21.020 96.000 23.220 ;
-        RECT 4.300 19.860 95.700 21.020 ;
-        RECT 0.090 17.660 96.000 19.860 ;
-        RECT 4.300 16.500 96.000 17.660 ;
-        RECT 0.090 14.300 96.000 16.500 ;
-        RECT 4.300 13.140 96.000 14.300 ;
-        RECT 0.090 10.940 96.000 13.140 ;
-        RECT 4.300 10.220 96.000 10.940 ;
+        RECT 4.300 75.860 97.350 76.580 ;
+        RECT 4.000 74.780 97.350 75.860 ;
+        RECT 4.300 73.620 97.350 74.780 ;
+        RECT 4.000 72.540 97.350 73.620 ;
+        RECT 4.300 71.380 97.350 72.540 ;
+        RECT 4.000 70.300 97.350 71.380 ;
+        RECT 4.300 69.140 97.350 70.300 ;
+        RECT 4.000 68.060 97.350 69.140 ;
+        RECT 4.300 66.900 97.350 68.060 ;
+        RECT 4.000 65.820 97.350 66.900 ;
+        RECT 4.300 64.660 97.350 65.820 ;
+        RECT 4.000 63.580 97.350 64.660 ;
+        RECT 4.300 62.420 97.350 63.580 ;
+        RECT 4.000 61.340 97.350 62.420 ;
+        RECT 4.300 60.220 97.350 61.340 ;
+        RECT 4.300 60.180 95.700 60.220 ;
+        RECT 4.000 59.100 95.700 60.180 ;
+        RECT 4.300 59.060 95.700 59.100 ;
+        RECT 4.300 57.940 97.350 59.060 ;
+        RECT 4.000 56.860 97.350 57.940 ;
+        RECT 4.300 55.700 97.350 56.860 ;
+        RECT 4.000 54.620 97.350 55.700 ;
+        RECT 4.300 53.460 97.350 54.620 ;
+        RECT 4.000 52.380 97.350 53.460 ;
+        RECT 4.300 51.220 97.350 52.380 ;
+        RECT 4.000 50.140 97.350 51.220 ;
+        RECT 4.300 48.980 97.350 50.140 ;
+        RECT 4.000 47.900 97.350 48.980 ;
+        RECT 4.300 46.740 97.350 47.900 ;
+        RECT 4.000 45.660 97.350 46.740 ;
+        RECT 4.300 44.500 97.350 45.660 ;
+        RECT 4.000 43.420 97.350 44.500 ;
+        RECT 4.300 42.260 97.350 43.420 ;
+        RECT 4.000 41.180 97.350 42.260 ;
+        RECT 4.300 40.020 97.350 41.180 ;
+        RECT 4.000 38.940 97.350 40.020 ;
+        RECT 4.300 37.780 97.350 38.940 ;
+        RECT 4.000 36.700 97.350 37.780 ;
+        RECT 4.300 35.540 97.350 36.700 ;
+        RECT 4.000 34.460 97.350 35.540 ;
+        RECT 4.300 33.300 97.350 34.460 ;
+        RECT 4.000 32.220 97.350 33.300 ;
+        RECT 4.300 31.060 97.350 32.220 ;
+        RECT 4.000 29.980 97.350 31.060 ;
+        RECT 4.300 28.820 97.350 29.980 ;
+        RECT 4.000 27.740 97.350 28.820 ;
+        RECT 4.300 26.580 97.350 27.740 ;
+        RECT 4.000 25.500 97.350 26.580 ;
+        RECT 4.300 24.340 97.350 25.500 ;
+        RECT 4.000 23.260 97.350 24.340 ;
+        RECT 4.300 22.100 97.350 23.260 ;
+        RECT 4.000 21.020 97.350 22.100 ;
+        RECT 4.300 19.900 97.350 21.020 ;
+        RECT 4.300 19.860 95.700 19.900 ;
+        RECT 4.000 18.780 95.700 19.860 ;
+        RECT 4.300 18.740 95.700 18.780 ;
+        RECT 4.300 17.620 97.350 18.740 ;
+        RECT 4.000 16.540 97.350 17.620 ;
+        RECT 4.300 15.380 97.350 16.540 ;
+        RECT 4.000 14.300 97.350 15.380 ;
+        RECT 4.300 13.140 97.350 14.300 ;
+        RECT 4.000 12.060 97.350 13.140 ;
+        RECT 4.300 10.900 97.350 12.060 ;
+        RECT 4.000 9.820 97.350 10.900 ;
+        RECT 4.300 8.660 97.350 9.820 ;
+        RECT 4.000 7.580 97.350 8.660 ;
+        RECT 4.300 6.420 97.350 7.580 ;
+        RECT 4.000 5.340 97.350 6.420 ;
+        RECT 4.300 4.180 97.350 5.340 ;
+        RECT 4.000 3.100 97.350 4.180 ;
+        RECT 4.300 2.380 97.350 3.100 ;
+      LAYER Metal4 ;
+        RECT 9.100 15.080 16.400 56.470 ;
+        RECT 18.600 15.080 27.180 56.470 ;
+        RECT 29.380 15.080 37.960 56.470 ;
+        RECT 40.160 15.080 48.740 56.470 ;
+        RECT 50.940 15.080 59.520 56.470 ;
+        RECT 61.720 15.080 70.300 56.470 ;
+        RECT 72.500 15.080 81.080 56.470 ;
+        RECT 83.280 15.080 88.340 56.470 ;
+        RECT 9.100 4.570 88.340 15.080 ;
   END
 END wb_buttons_leds
 END LIBRARY

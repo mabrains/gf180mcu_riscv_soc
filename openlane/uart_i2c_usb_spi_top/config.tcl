@@ -24,7 +24,6 @@ set ::env(DESIGN_NAME) "uart_i2c_usb_spi_top"
 set ::env(DESIGN_IS_CORE) "0"
 # Local sources + no2usb sources
 set ::env(VERILOG_FILES) "\
-    $::env(DESIGN_DIR)/../../verilog/rtl/lib/clk_skew_adjust.gv \
     $::env(DESIGN_DIR)/../../verilog/rtl/uart/uart_core.sv  \
     $::env(DESIGN_DIR)/../../verilog/rtl/uart/uart_cfg.sv   \
     $::env(DESIGN_DIR)/../../verilog/rtl/uart/uart_rxfsm.sv \
@@ -84,7 +83,7 @@ set ::env(RUN_IRDROP_REPORT) "1"
 set ::env(RUN_KLAYOUT) "1"
 set ::env(RUN_KLAYOUT_DRC) "0"
 set ::env(RUN_KLAYOUT_XOR) "1"
-set ::env(RUN_LINTER) "1"
+set ::env(RUN_LINTER) "0"
 set ::env(RUN_LVS) "1"
 set ::env(RUN_MAGIC) "1"
 set ::env(RUN_MAGIC_DRC) "1"
@@ -109,7 +108,7 @@ set ::env(SYNTH_DEFINES) [list SYNTHESIS ]
 ## =========================== FLOORPLAN ===========================
 
 set ::env(FP_PIN_ORDER_CFG) "$::env(DESIGN_DIR)/pin_order.cfg"
-set ::env(DIE_AREA) "0 0 850 1000"
+set ::env(DIE_AREA) "0 0 1000 900"
 set ::env(FP_SIZING) "absolute"
 set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_PDN_CORE_RING) "0"

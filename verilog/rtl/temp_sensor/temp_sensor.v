@@ -1,38 +1,55 @@
-// SPDX-FileCopyrightText: 2023 Harald Pretl
-//	Licensed under the Apache License, Version 2.0 (the "License");
-//	you may not use this file except in compliance with the License.
-//	You may obtain a copy of the License at
+//////////////////////////////////////////////////////////////////////////////
+// SPDX-FileCopyrightText: 2023 , Mabrains Company
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
-//		http://www.apache.org/licenses/LICENSE-2.0
+//      http://www.apache.org/licenses/LICENSE-2.0
 //
-//	Unless required by applicable law or agreed to in writing, software
-//	distributed under the License is distributed on an "AS IS" BASIS,
-//	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//	See the License for the specific language governing permissions and
-//	limitations under the License.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
+//
 
-//	TODO
-//	- DONE Add LUT for result calibration
-//	- DONE Add more testmodes
-//	- DONE Simulate logic
-//	- Simulate mixed-signal
 
 `default_nettype none
 
 `include "tempsense.v"
 `include "seg7.v"
 `include "bin2dec.v"
+`include "../user_params.svh"
 
 module temp_sensor (
 `ifdef USE_POWER_PINS
     inout VDD,		// User area 5.0V supply
     inout VSS,		// User area ground
-`endif	
-	input  [7:0]	io_in,
-	output [7:0]	io_out
-);
-	
+`endif
+
+	input           clk,
+	input           reset,
+	input  [5:0]	io_in,
+	output [7:0]	io_out,
+	output [7:0]	io_oeb,
+
+    // wb interface
+    input wire          i_wb_cyc,       // wishbone transaction
+    input wire          i_wb_stb,       // strobe - data valid and accepted as long as !o_wb_stall
+    input wire          i_wb_we,        // write enable
+    input wire  [31:0]  i_wb_addr,      // address
+    output reg          o_wb_ack,       // request is completed 
+    output wire         o_wb_stall,     // cannot accept req
+    output reg  [7:0]   o_wb_data       // output data
+    );
+
+	// Init for req
+    assign o_wb_stall = 0;
+
+    assign io_oeb = 8'b0; // always enabled
+
 	// size the design with these constants
 	localparam N_VDAC = 6;
 	localparam N_LUT = 6;
@@ -77,12 +94,10 @@ module temp_sensor (
 	};
 
 	// definition of external inputs
-	wire clk = io_in[0];
-	wire reset = io_in[1];
-	wire cal_clk = io_in[2];
-	wire cal_dat = io_in[3];
-	wire cal_ena = io_in[4];
-	wire [2:0] en_dbg = io_in[7:5];
+	wire cal_clk = io_in[0];
+	wire cal_dat = io_in[1];
+	wire cal_ena = io_in[2];
+	wire [2:0] en_dbg = io_in[5:3];
 
 
 	// definition of external outputs
@@ -199,6 +214,30 @@ module temp_sensor (
 			cal_lut <= {cal_lut[((2**(N_VDAC-1))*N_LUT)-1:1], cal_dat};
 		end
 	end
+
+	// ------------------ CPU-I/F ------------------
+	// reads output data & send it to CPU
+    always @(posedge clk) begin
+        if(reset)
+            o_wb_data <= 0;
+        else if(i_wb_stb && i_wb_cyc && !i_wb_we && !o_wb_stall)
+            case(i_wb_addr)
+                `TEMP_SENS_ADDRESS: 
+                    o_wb_data <= led_out;
+                default:
+                    o_wb_data <= 8'b0;
+            endcase
+    end
+
+    // acks
+    always @(posedge clk) begin
+        if(reset)
+            o_wb_ack <= 0;
+        else
+            // return ack immediately
+            o_wb_ack <= (i_wb_stb && !o_wb_stall && (i_wb_addr == `TEMP_SENS_ADDRESS));
+    end
+	// ---------------------------------------------
 
 	// assign wire array to LUT implemented a shift register (for easy load)
 	wire [N_LUT-1:0] cal_lut_entries[0:(2**(N_VDAC-1))-1];

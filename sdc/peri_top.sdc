@@ -1,12 +1,12 @@
 ###############################################################################
 # Created by write_sdc
-# Thu Nov 16 10:47:37 2023
+# Tue Nov 21 14:49:13 2023
 ###############################################################################
 current_design peri_top
 ###############################################################################
 # Timing Constraints
 ###############################################################################
-create_clock -name mclk -period 20.0000 [get_ports {mclk}]
+create_clock -name mclk -period 100.0000 [get_ports {mclk}]
 set_clock_transition 0.1500 [get_clocks {mclk}]
 set_clock_uncertainty 0.2500 mclk
 set_propagated_clock [get_clocks {mclk}]
@@ -245,4 +245,4 @@ set_timing_derate -late 1.0500
 ###############################################################################
 # Design Rules
 ###############################################################################
-set_max_fanout 10.0000 [current_design]
+set_max_fanout 20.0000 [current_design]

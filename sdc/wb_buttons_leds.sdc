@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Thu Nov 16 16:36:32 2023
+# Tue Nov 21 16:31:20 2023
 ###############################################################################
 current_design wb_buttons_leds
 ###############################################################################
@@ -50,6 +50,8 @@ set_input_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {i_wb_da
 set_input_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {i_wb_stb}]
 set_input_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {i_wb_we}]
 set_input_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {reset}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {led_enb[0]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {led_enb[1]}]
 set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {leds[0]}]
 set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {leds[1]}]
 set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {o_wb_ack}]
@@ -91,6 +93,8 @@ set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {o_wb_s
 ###############################################################################
 set_load -pin_load 0.0729 [get_ports {o_wb_ack}]
 set_load -pin_load 0.0729 [get_ports {o_wb_stall}]
+set_load -pin_load 0.0729 [get_ports {led_enb[1]}]
+set_load -pin_load 0.0729 [get_ports {led_enb[0]}]
 set_load -pin_load 0.0729 [get_ports {leds[1]}]
 set_load -pin_load 0.0729 [get_ports {leds[0]}]
 set_load -pin_load 0.0729 [get_ports {o_wb_data[31]}]

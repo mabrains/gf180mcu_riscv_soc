@@ -77,7 +77,7 @@ set ::env(GND_NETS) [list {VSS}]
 ## =========================== FLOORPLAN ===========================
 
 set ::env(FP_PIN_ORDER_CFG) "$::env(DESIGN_DIR)/pin_order.cfg"
-set ::env(DIE_AREA) "0 0 250 400"
+set ::env(DIE_AREA) "0 0 200 500"
 set ::env(FP_SIZING) "absolute"
 set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_PDN_CORE_RING) "0"

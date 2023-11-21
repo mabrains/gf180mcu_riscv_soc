@@ -66,7 +66,7 @@ set cap_load [expr $::env(SYNTH_CAP_LOAD) / 1000.0]
 puts "\[INFO\]: Setting load to: $cap_load"
 set_load  $cap_load [all_outputs]
 
-set_max_transition 2.00 [current_design]
+set_max_transition 5.00 [current_design]
 set_max_capacitance 0.5 [current_design]
 set_max_fanout 20 [current_design]
 

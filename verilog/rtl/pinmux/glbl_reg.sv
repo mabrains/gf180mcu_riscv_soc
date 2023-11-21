@@ -31,15 +31,8 @@
 ////  Author(s):                                                  ////
 ////      - Dinesh Annayya, dinesha@opencores.org                 ////
 ////                                                              ////
-////  Revision :                                                  ////
-////    0.1 - 16th Feb 2021, Dinesh A                             ////
-////          initial version                                     ////
-////    0.2 - 28th Aug 2022, Dinesh A                             ////
-////          Additional Mail Box Register added at addr 0xF      ////
 //////////////////////////////////////////////////////////////////////
 //
-
-`include "../user_params.svh"
 
 module glbl_reg (
                        // System Signals
@@ -95,7 +88,6 @@ module glbl_reg (
 // Internal Wire Declarations
 //-----------------------------------------------------------------------
 
-logic [15:0]    strap_latch           ;
 // logic          sw_rd_en               ;
 logic          sw_wr_en;
 logic [4:0]    sw_addr; // addressing 16 registers
@@ -103,22 +95,14 @@ logic [31:0]   sw_reg_wdata;
 logic [3:0]    wr_be  ;
 
 logic [31:0]   reg_out;
-logic [31:0]   reg_0;  // Chip ID
 logic [31:0]   reg_1;  // Global Reg-0
 logic [31:0]   reg_2;  // Global Reg-1
 logic [31:0]   reg_3;  // Global Interrupt Mask
 logic [31:0]   reg_4;  // Global Interrupt Status
 logic [31:0]   reg_5;  // Multi Function Sel
 logic [31:0]   reg_6;  // 
-logic [31:0]   reg_7;  // 
-logic [31:0]   reg_8;  // 
 logic [31:0]   reg_9;  // Random Number
-//logic [31:0]   reg_10; // Interrupt Set
-logic [31:0]   reg_12; // Latched Strap 
-logic [31:0]   reg_13; // Strap Sticky
-logic [31:0]   reg_14; // System Strap
 logic [31:0]   reg_15; // MailBox Reg
-
 logic [31:0]   reg_16;  // Software Reg-0  - p_reset
 logic [31:0]   reg_17;  // Software Reg-1  - p_reset
 logic [31:0]   reg_18;  // Software Reg-2  - p_reset
@@ -156,6 +140,7 @@ end
 //-----------------------------------------------------------------------
 // register read enable and write enable decoding logic
 //-----------------------------------------------------------------------
+
 // wire   sw_wr_en_0  = sw_wr_en  & (sw_addr == 5'h0);
 wire   sw_wr_en_1  = sw_wr_en  & (sw_addr == 5'h1);
 wire   sw_wr_en_2  = sw_wr_en  & (sw_addr == 5'h2);
@@ -226,25 +211,6 @@ wire   sw_wr_en_23 = sw_wr_en  & (sw_addr == 5'h17);
 // Individual register assignments
 //-----------------------------------------------------------------------
 
-// Chip ID
-// chip-id[3:0] mapping
-//    0 -  YIFIVE (MPW-2)
-//    1 -  Riscdunio (MPW-3)
-//    2 -  Riscdunio (MPW-4)
-//    3 -  Riscdunio (MPW-5)
-//    4 -  Riscdunio (MPW-6)
-//    5 -  Riscdunio (MPW-7)
-//    6 -  Riscdunio (MPW-8)
-//    7 -  Riscdunio (MPW-9)
-
-wire [15:0] manu_id      =  16'h8268; // Asci value of RD
-wire [3:0]  total_core   =  4'h1;
-wire [3:0]  chip_id      =  4'h6;
-wire [7:0]  chip_rev     =  8'h01;
-
-assign reg_0 = {manu_id,total_core,chip_id,chip_rev};
-
-
 //------------------------------------------
 // reg-1: GLBL_CFG_0
 //------------------------------------------
@@ -260,7 +226,7 @@ ctech_buf u_buf_uart1_rst     (.A(cfg_rst_ctrl[6]),.X(uart_rst_n[1]));
 //   reg-3 : Global Interrupt Mask
 //-----------------------------------------------------------------------
 
-gen_32b_reg  #(32'h0) u_reg_3	(
+gen_32b_reg  u_reg_3	(
 	      //List of Inputs
 	      .reset_n    (s_reset_n     ),
 	      .clk        (mclk          ),
@@ -326,10 +292,6 @@ generic_intr_stat_reg #(.WD(32),
 		 .data_out    (reg_4[31:0]       )
 	      );
 
-
-
-
-
 //-----------------------------------------------------------------------
 // Logic for cfg_multi_func_sel :Enable GPIO to act as multi function pins 
 //-----------------------------------------------------------------------
@@ -354,7 +316,7 @@ gen_32b_reg  #(32'hC000_0000) u_reg_5	(
 //-----------------------------------------
 // Reg-6: Clock Control
 // ----------------------------------------
-gen_32b_reg  #(32'h0) u_reg_6	(
+gen_32b_reg  u_reg_6	(
 	      //List of Inputs
 	      .reset_n    (s_reset_n     ),
 	      .clk        (mclk          ),
@@ -368,41 +330,10 @@ gen_32b_reg  #(32'h0) u_reg_6	(
 wire [7:0] cfg_rtc_clk_ctrl     = reg_6[7:0];
 wire [7:0] cfg_usb_clk_ctrl     = reg_6[15:8];
 
-//-----------------------------------------
-// Reg-7: PLL Control-1
-// PLL register we don't want to reset during system reboot
-// ----------------------------------------
-gen_32b_reg  #(32'h8) u_reg_7	(
-	      //List of Inputs
-	      .reset_n    (p_reset_n     ),
-	      .clk        (mclk          ),
-	      .cs         (sw_wr_en_7   ),
-	      .we         (wr_be         ),		 
-	      .data_in    (sw_reg_wdata  ),
-	      
-	      //List of Outs
-	      .data_out   (reg_7       )
-	      );
-
-//-----------------------------------------
-// Reg-2: PLL Control-2
-// PLL register we don't want to reset during system reboot
-// ----------------------------------------
-gen_32b_reg  #({1'b1,5'b00000,26'b0000000000000_1010101101001} ) u_reg_8	(
-	      //List of Inputs
-	      .reset_n    (p_reset_n     ),
-	      .clk        (mclk          ),
-	      .cs         (sw_wr_en_8   ),
-	      .we         (wr_be         ),		 
-	      .data_in    (sw_reg_wdata  ),
-	      
-	      //List of Outs
-	      .data_out   (reg_8       )
-	      );
-
 //------------------------------------------
 // reg_9: Random Number Generator
 //------------------------------------------
+
 pseudorandom u_random (
   .rst_n     ( s_reset_n     ), 
   .clk       ( mclk          ), 
@@ -413,7 +344,8 @@ pseudorandom u_random (
 //-----------------------------------------
 // MailBox Register
 // ----------------------------------------
-gen_32b_reg  #(32'h0) u_reg_15	(
+
+gen_32b_reg u_reg_15	(
 	      //List of Inputs
 	      .reset_n    (s_reset_n     ),
 	      .clk        (mclk          ),
@@ -425,12 +357,11 @@ gen_32b_reg  #(32'h0) u_reg_15	(
 	      .data_out   (reg_15       )
 	      );
 
-
-
 //-----------------------------------------
-// Software Reg-0 : ASCI Representation of RISC = 32'h8273_8343
+// Software Reg-0
 // ----------------------------------------
-gen_32b_reg  #(CHIP_SIGNATURE) u_reg_16	(
+
+gen_32b_reg  u_reg_16	(
 	      //List of Inputs
 	      .reset_n    (p_reset_n     ),
 	      .clk        (mclk          ),
@@ -443,9 +374,10 @@ gen_32b_reg  #(CHIP_SIGNATURE) u_reg_16	(
 	      );
 
 //-----------------------------------------
-// Software Reg-1, Release date: <DAY><MONTH><YEAR>
+// Software Reg-1
 // ----------------------------------------
-gen_32b_reg  #(CHIP_RELEASE_DATE) u_reg_17	(
+
+gen_32b_reg  u_reg_17	(
 	      //List of Inputs
 	      .reset_n    (p_reset_n     ),
 	      .clk        (mclk          ),
@@ -458,9 +390,10 @@ gen_32b_reg  #(CHIP_RELEASE_DATE) u_reg_17	(
 	      );
 
 //-----------------------------------------
-// Software Reg-2: Poject Revison 5.1 = 0005200
+// Software Reg-2
 // ----------------------------------------
-gen_32b_reg  #(CHIP_REVISION) u_reg_18	(
+
+gen_32b_reg  u_reg_18	(
 	      //List of Inputs
 	      .reset_n    (p_reset_n     ),
 	      .clk        (mclk          ),
@@ -475,7 +408,8 @@ gen_32b_reg  #(CHIP_REVISION) u_reg_18	(
 //-----------------------------------------
 // Software Reg-3
 // ----------------------------------------
-gen_32b_reg  #(32'h0) u_reg_19	(
+
+gen_32b_reg  u_reg_19	(
 	      //List of Inputs
 	      .reset_n    (s_reset_n     ),
 	      .clk        (mclk          ),
@@ -490,7 +424,8 @@ gen_32b_reg  #(32'h0) u_reg_19	(
 //-----------------------------------------
 // Software Reg-4
 // ----------------------------------------
-gen_32b_reg  #(32'h0) u_reg_20	(
+
+gen_32b_reg  u_reg_20	(
 	      //List of Inputs
 	      .reset_n    (s_reset_n     ),
 	      .clk        (mclk          ),
@@ -505,7 +440,8 @@ gen_32b_reg  #(32'h0) u_reg_20	(
 //-----------------------------------------
 // Software Reg-5
 // ----------------------------------------
-gen_32b_reg  #(32'h0) u_reg_21	(
+
+gen_32b_reg  u_reg_21	(
 	      //List of Inputs
 	      .reset_n    (s_reset_n     ),
 	      .clk        (mclk          ),
@@ -520,7 +456,8 @@ gen_32b_reg  #(32'h0) u_reg_21	(
 //-----------------------------------------
 // Software Reg-6: 
 // ----------------------------------------
-gen_32b_reg  #(32'h0) u_reg_22	(
+
+gen_32b_reg  u_reg_22	(
 	      //List of Inputs
 	      .reset_n    (s_reset_n     ),
 	      .clk        (mclk          ),
@@ -535,7 +472,8 @@ gen_32b_reg  #(32'h0) u_reg_22	(
 //-----------------------------------------
 // Software Reg-7
 // ----------------------------------------
-gen_32b_reg  #(32'h0) u_reg_23	(
+
+gen_32b_reg  u_reg_23	(
 	      //List of Inputs
 	      .reset_n    (s_reset_n     ),
 	      .clk        (mclk          ),
@@ -546,6 +484,8 @@ gen_32b_reg  #(32'h0) u_reg_23	(
 	      //List of Outs
 	      .data_out   (reg_23       )
 	      );
+
+
 //-----------------------------------------------------------------------
 // Register Read Path Multiplexer instantiation
 //-----------------------------------------------------------------------
@@ -555,21 +495,21 @@ begin
   reg_out [31:0] = 32'h0;
 
   case (sw_addr [4:0])
-    5'b00000 : reg_out [31:0] = reg_0  ;     
+    5'b00000 : reg_out [31:0] = 'h0    ;     
     5'b00001 : reg_out [31:0] = reg_1  ;    
     5'b00010 : reg_out [31:0] = reg_2  ;     
     5'b00011 : reg_out [31:0] = reg_3  ;    
     5'b00100 : reg_out [31:0] = reg_4  ;    
     5'b00101 : reg_out [31:0] = reg_5  ;    
     5'b00110 : reg_out [31:0] = reg_6  ;    
-    5'b00111 : reg_out [31:0] = reg_7  ;    
-    5'b01000 : reg_out [31:0] = reg_8  ;    
+    5'b00111 : reg_out [31:0] = 'h0    ;    
+    5'b01000 : reg_out [31:0] = 'h0    ;    
     5'b01001 : reg_out [31:0] = reg_9  ;    
     5'b01010 : reg_out [31:0] = reg_4  ; // Interrupt Set   
     5'b01011 : reg_out [31:0] = 'h0 ;   
-    5'b01100 : reg_out [31:0] = reg_12 ;   
-    5'b01101 : reg_out [31:0] = reg_13 ;   
-    5'b01110 : reg_out [31:0] = reg_14 ;   
+    5'b01100 : reg_out [31:0] = 'h0 ;   
+    5'b01101 : reg_out [31:0] = 'h0 ;   
+    5'b01110 : reg_out [31:0] = 'h0 ;   
     5'b01111 : reg_out [31:0] = reg_15 ;   
     5'b10000 : reg_out [31:0] = reg_16  ;     
     5'b10001 : reg_out [31:0] = reg_17  ;    
@@ -595,6 +535,7 @@ end
 //----------------------------------
 // Generate RTC Clock Generation
 //----------------------------------
+
 wire   rtc_clk_div;
 wire   rtc_ref_clk_int;
 wire   rtc_ref_clk;
@@ -626,6 +567,7 @@ clk_ctl #(4) u_rtcclk (
 //----------------------------------
 // Generate USB Clock Generation
 //----------------------------------
+
 wire   usb_clk_div;
 wire   usb_ref_clk_int;
 wire   usb_ref_clk;
@@ -640,9 +582,7 @@ assign usb_ref_clk_int = (cfg_usb_clk_sel_sel ==2'b00) ? user_clock1   :
 
 ctech_clk_buf u_usb_ref_clkbuf (.A (usb_ref_clk_int), . X(usb_ref_clk));
 
-//assign usb_clk_int = (cfg_usb_clk_div)     ? usb_clk_div : usb_ref_clk;
 ctech_mux2x1_4 u_usb_clk_sel (.A0 (usb_ref_clk), .A1 (usb_clk_div), .S  (cfg_usb_clk_div), .X  (usb_clk_int));
-
 
 ctech_clk_buf u_clkbuf_usb (.A (usb_clk_int), . X(usb_clk));
 

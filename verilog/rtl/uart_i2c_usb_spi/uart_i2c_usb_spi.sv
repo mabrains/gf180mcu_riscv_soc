@@ -33,9 +33,6 @@
 ////  Author(s):                                                  ////
 ////      - Dinesh Annayya, dinesha@opencores.org                 ////
 ////                                                              ////
-////  Revision :                                                  ////
-////         0.2 - 7 April 2022, Dinesh-A                         ////
-////               2nd Uart Integrated                            ////
 //////////////////////////////////////////////////////////////////////
 ////                                                              ////
 //// Copyright (C) 2000 Authors and OPENCORES.ORG                 ////
@@ -62,6 +59,8 @@
 //// from http://www.opencores.org/lgpl.shtml                     ////
 ////                                                              ////
 //////////////////////////////////////////////////////////////////////
+
+`include "../user_params.svh"
 
 module uart_i2c_usb_spi_top (
 `ifdef USE_POWER_PINS
@@ -131,13 +130,6 @@ module uart_i2c_usb_spi_top (
 
      );
 
-// ---- DEFINES ----
-`define SEL_UART0 3'b000
-`define SEL_I2C   3'b001
-`define SEL_USB   3'b010
-`define SEL_SPI   3'b011
-`define SEL_UART1 3'b100
-
 //----------------------------------------
 //  Register Response Path Mux
 //  --------------------------------------
@@ -154,14 +146,14 @@ logic         reg_spim_ack;
 
 
 assign reg_rdata = (reg_addr[8:6] == `SEL_UART0) ? {24'h0,reg_uart0_rdata} : 
-	              (reg_addr[8:6] == `SEL_UART1) ? {24'h0,reg_uart1_rdata} :
-	              (reg_addr[8:6] == `SEL_I2C  ) ? {24'h0,reg_i2c_rdata} :
-	              (reg_addr[8:6] == `SEL_USB  ) ? reg_usb_rdata : reg_spim_rdata;
+	               (reg_addr[8:6] == `SEL_UART1) ? {24'h0,reg_uart1_rdata} :
+	               (reg_addr[8:6] == `SEL_I2C  ) ? {24'h0,reg_i2c_rdata} :
+	               (reg_addr[8:6] == `SEL_USB  ) ? reg_usb_rdata : reg_spim_rdata;
 
 assign reg_ack   = (reg_addr[8:6] == `SEL_UART0) ? reg_uart0_ack   : 
-	              (reg_addr[8:6] == `SEL_UART1) ? reg_uart1_ack   : 
-	              (reg_addr[8:6] == `SEL_I2C)   ? reg_i2c_ack     : 
-	              (reg_addr[8:6] == `SEL_USB)   ? reg_usb_ack     : reg_spim_ack;
+	               (reg_addr[8:6] == `SEL_UART1) ? reg_uart1_ack   : 
+	               (reg_addr[8:6] == `SEL_I2C)   ? reg_i2c_ack     : 
+	               (reg_addr[8:6] == `SEL_USB)   ? reg_usb_ack     : reg_spim_ack;
 
 wire reg_uart0_cs  = (reg_addr[8:6] == `SEL_UART0) ? reg_cs : 1'b0;
 wire reg_uart1_cs  = (reg_addr[8:6] == `SEL_UART1) ? reg_cs : 1'b0;
