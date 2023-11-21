@@ -49,27 +49,14 @@ module glbl_reg (
 	                   input logic             p_reset_n              ,  // power-on reset
                        input logic             s_reset_n              ,  // soft reset
 
-                       input logic [15:0]      pad_strap_in           , // strap from pad
-
                        input logic            user_clock1            ,
                        input logic            user_clock2            ,
-                       input logic            int_pll_clock          ,
-                       input logic            cpu_clk                ,
                        input logic            xtal_clk               ,
 
                        output logic            usb_clk                ,
                        output logic            rtc_clk                ,
 
-                       // to/from Global Reset FSM
-	                    input  logic [31:0]    system_strap           ,
-	                    output logic [31:0]    strap_sticky           ,
-	                    output logic [1:0]     strap_uartm            ,
-                       
-
                        // Global Reset control
-                       output logic  [3:0]     cpu_core_rst_n         ,
-                       output logic            cpu_intf_rst_n         ,
-                       output logic            qspim_rst_n            ,
                        output logic            sspim_rst_n            ,
                        output logic  [1:0]     uart_rst_n             ,
                        output logic            i2cm_rst_n             ,
@@ -86,33 +73,19 @@ module glbl_reg (
                        output logic [31:0]     reg_rdata              ,
                        output logic            reg_ack                ,
 
-		            //    input  logic [1:0]      ext_intr_in            ,
-
 		      // Risc configuration
-                       output logic [31:0]     irq_lines              ,
-                       output logic            soft_irq               ,
                        output logic [2:0]      user_irq               ,
 		               input  logic            usb_intr               ,
 		               input  logic            i2cm_intr              ,
 		               input  logic            pwm_intr              ,
 		               input  logic            rtc_intr              ,
-		               input  logic            ir_intr                ,
 
-		               output logic [15:0]     cfg_riscv_ctrl         ,
                        output  logic [31:0]    cfg_multi_func_sel     ,// multifunction pins
                         
 
 		               input   logic [2:0]      timer_intr            ,
 		               input   logic [31:0]     gpio_intr             ,
 
-                       // Digital PLL I/F
-                       output logic          cfg_pll_enb        , // Enable PLL
-                       output logic[4:0]     cfg_pll_fed_div    , // PLL feedback division ratio
-                       output logic          cfg_dco_mode       , // Run PLL in DCO mode
-                       output logic[25:0]    cfg_dc_trim        , // External trim for DCO mode
-                       output logic          pll_ref_clk        , // Input oscillator to match
-
-                       output logic          dbg_clk_mon        ,
                        output logic          cfg_gpio_dgmode    
    ); 
 
@@ -277,78 +250,11 @@ assign reg_0 = {manu_id,total_core,chip_id,chip_rev};
 //------------------------------------------
 wire [31:0] cfg_rst_ctrl = reg_1;
 
-ctech_buf u_buf_cpu_intf_rst  (.A(cfg_rst_ctrl[0]),.X(cpu_intf_rst_n));
-ctech_buf u_buf_qspim_rst     (.A(cfg_rst_ctrl[1]),.X(qspim_rst_n));
 ctech_buf u_buf_sspim_rst     (.A(cfg_rst_ctrl[2]),.X(sspim_rst_n));
 ctech_buf u_buf_uart0_rst     (.A(cfg_rst_ctrl[3]),.X(uart_rst_n[0]));
 ctech_buf u_buf_i2cm_rst      (.A(cfg_rst_ctrl[4]),.X(i2cm_rst_n));
 ctech_buf u_buf_usb_rst       (.A(cfg_rst_ctrl[5]),.X(usb_rst_n));
 ctech_buf u_buf_uart1_rst     (.A(cfg_rst_ctrl[6]),.X(uart_rst_n[1]));
-
-ctech_buf u_buf_cpu0_rst      (.A(cfg_rst_ctrl[8]),.X(cpu_core_rst_n[0]));
-ctech_buf u_buf_cpu1_rst      (.A(cfg_rst_ctrl[9]),.X(cpu_core_rst_n[1]));
-ctech_buf u_buf_cpu2_rst      (.A(cfg_rst_ctrl[10]),.X(cpu_core_rst_n[2]));
-ctech_buf u_buf_cpu3_rst      (.A(cfg_rst_ctrl[11]),.X(cpu_core_rst_n[3]));
-
-
-
-//---------------------------------------------------------
-// Default reset value decided based on riscv boot mode
-//
-//   bit [12]  - Riscv Reset control
-//               0 - Keep Riscv on Reset
-//               1 - Removed Riscv on Power On Reset
-//  Default cpu_intf_rst_n & qspim_rst_n reset is removed
-//---------------------------------------------------------
-wire        strap_riscv_bmode = system_strap[`STRAP_RISCV_RESET_MODE];
-wire [31:0] rst_in = (strap_riscv_bmode) ? 32'h103 : 32'h03;
-
-glbl_rst_reg  #(32'h0) u_reg_1	(
-	      //List of Inputs
-	      .s_reset_n  (s_reset_n     ),
-          .rst_in     (rst_in        ),
-	      .clk        (mclk          ),
-	      .cs         (sw_wr_en_1    ),
-	      .we         (wr_be         ),		 
-	      .data_in    (sw_reg_wdata  ),
-	      
-	      //List of Outs
-	      .data_out   (reg_1         )
-	      );
-
-//----------------------------------------------
-// reg-2: GLBL_CFG_1
-//------------------------------------------
-
-wire [31:0] reg_2_rst_val = {4'h0,
-                             system_strap[`STRAP_RISCV_CACHE_BYPASS],
-                             system_strap[`STRAP_RISCV_CACHE_BYPASS],
-                             2'b0,
-                             1'b0,
-                             3'b0,
-                             system_strap[`STRAP_RISCV_SRAM_CLK_EDGE],
-                             system_strap[`STRAP_RISCV_SRAM_CLK_EDGE],
-                             system_strap[`STRAP_RISCV_SRAM_CLK_EDGE],
-                             system_strap[`STRAP_RISCV_SRAM_CLK_EDGE],
-                             16'h0};
-gen_32b_reg2  u_reg_2	(
-	      //List of Inputs
-	      .reset_n    (s_reset_n     ),
-          .rst_in     (reg_2_rst_val ),
-	      .clk        (mclk          ),
-	      .cs         (sw_wr_en_2    ),
-	      .we         (wr_be         ),		 
-	      .data_in    (sw_reg_wdata  ),
-	      
-	      //List of Outs
-	      .data_out   (reg_2         )
-	      );
-
-assign  cfg_gpio_dgmode   = reg_2[8]; // gpio de-glitch mode selection
-assign  cfg_mon_sel       = reg_2[7:4];
-assign  soft_irq          = reg_2[3]; 
-assign  user_irq          = reg_2[2:0]; 
-assign cfg_riscv_ctrl     = reg_2[31:16];
 
 //-----------------------------------------------------------------------
 //   reg-3 : Global Interrupt Mask
@@ -369,14 +275,10 @@ gen_32b_reg  #(32'h0) u_reg_3	(
 //-----------------------------------------------------------------------
 //   reg-4 : Global Interrupt Status
 //-----------------------------------------------------------------
-assign  irq_lines     = reg_3[31:0] & reg_4[31:0]; 
-
-// In Arduino GPIO[7:0] is corresponds to PORT-A which is not available for user access
 
 logic usb_intr_s,usb_intr_ss;   // Usb Interrupt Double Sync
 logic i2cm_intr_s,i2cm_intr_ss; // I2C Interrupt Double Sync
 logic rtc_intr_s,rtc_intr_ss;
-logic ir_intr_s,ir_intr_ss;
 
 always @ (posedge mclk or negedge s_reset_n)
 begin  
@@ -387,8 +289,7 @@ begin
      i2cm_intr_ss     <= 'h0;
      rtc_intr_s       <= 'h0;
      rtc_intr_ss      <= 'h0;
-     ir_intr_s        <= 'h0;
-     ir_intr_ss       <= 'h0;
+
    end else begin
      usb_intr_s   <= usb_intr;
      usb_intr_ss  <= usb_intr_s;
@@ -397,12 +298,10 @@ begin
      rtc_intr_s   <= rtc_intr;
      rtc_intr_ss  <= rtc_intr_s;
 
-     ir_intr_s   <= ir_intr;
-     ir_intr_ss  <= ir_intr_s;
    end
 end
 
-wire [31:0] hware_intr_req = {gpio_intr[31:8], ir_intr_ss,rtc_intr_ss,pwm_intr,usb_intr_ss, i2cm_intr_ss,timer_intr[2:0]};
+wire [31:0] hware_intr_req = {gpio_intr[31:8], 1'b0,rtc_intr_ss,pwm_intr,usb_intr_ss, i2cm_intr_ss,timer_intr[2:0]};
 
 // Interrupt can be set by hware req or by writting reg_10
 wire [31:0]  intr_req = {{({8{sw_wr_en_10 & reg_ack & wr_be[3]}} & sw_reg_wdata[31:24]) | hware_intr_req[31:24] },
@@ -485,8 +384,6 @@ gen_32b_reg  #(32'h8) u_reg_7	(
 	      .data_out   (reg_7       )
 	      );
 
-assign     cfg_pll_enb         = reg_7[3];
-wire [2:0] cfg_ref_pll_div     = reg_7[2:0];
 //-----------------------------------------
 // Reg-2: PLL Control-2
 // PLL register we don't want to reset during system reboot
@@ -504,14 +401,6 @@ gen_32b_reg  #({1'b1,5'b00000,26'b0000000000000_1010101101001} ) u_reg_8	(
 	      );
 
 //------------------------------------------
-// PLL Trim Value
-//-----------------------------------------
-assign    cfg_dco_mode     = reg_8[31];
-assign    cfg_pll_fed_div  = reg_8[30:26];
-assign    cfg_dc_trim      = reg_8[25:0];
-
-
-//------------------------------------------
 // reg_9: Random Number Generator
 //------------------------------------------
 pseudorandom u_random (
@@ -520,33 +409,6 @@ pseudorandom u_random (
   .next      ( reg_ack       ), 
   .random    ( reg_9         )  
 );
-
-
-//-------------------------------------------------
-// Strap control
-//---------------------------------------------
-strap_ctrl u_strap (
-	       .clk                 (mclk        ),
-	       .e_reset_n           (e_reset_n   ),  // external reset
-	       .p_reset_n           (p_reset_n   ),  // power-on reset
-	       .s_reset_n           (s_reset_n   ),  // soft reset
-
-          .pad_strap_in        (pad_strap_in), // strap from pad
-	      //List of Inputs
-	       .cs                  (sw_wr_en_13 ),
-	       .we                  (wr_be       ),		 
-	       .data_in             (sw_reg_wdata),
-	      
-	      //List of Outs
-          .strap_latch         (strap_latch ),
-	       .strap_sticky        (strap_sticky),
-	       .strap_uartm         (strap_uartm) 
-         );
-
-
-assign  reg_12 = {16'h0,strap_latch};
-assign  reg_13 = strap_sticky;
-assign  reg_14 = system_strap;
 
 //-----------------------------------------
 // MailBox Register
@@ -743,10 +605,10 @@ wire       cfg_rtc_clk_div       = cfg_rtc_clk_ctrl[5];
 wire [4:0] cfg_rtc_clk_ratio     = cfg_rtc_clk_ctrl[4:0];
 
 assign rtc_ref_clk_int = (cfg_rtc_clk_sel_sel ==2'b00) ? user_clock1   :
-                         (cfg_rtc_clk_sel_sel ==2'b01) ? user_clock2   :	
-                         (cfg_rtc_clk_sel_sel ==2'b10) ? int_pll_clock : xtal_clk;	
+                         (cfg_rtc_clk_sel_sel ==2'b01) ? user_clock2   : xtal_clk;
+
 ctech_clk_buf u_rtc_ref_clkbuf (.A (rtc_ref_clk_int), . X(rtc_ref_clk));
-//assign rtc_clk_int = (cfg_rtc_clk_div)     ? rtc_clk_div : rtc_ref_clk;
+
 ctech_mux2x1_4 u_rtc_clk_sel (.A0 (rtc_ref_clk), .A1 (rtc_clk_div), .S  (cfg_rtc_clk_div), .X  (rtc_clk_int));
 
 
@@ -774,9 +636,10 @@ wire       cfg_usb_clk_div       = cfg_usb_clk_ctrl[5];
 wire [4:0] cfg_usb_clk_ratio     = cfg_usb_clk_ctrl[4:0];
 
 assign usb_ref_clk_int = (cfg_usb_clk_sel_sel ==2'b00) ? user_clock1   :
-                         (cfg_usb_clk_sel_sel ==2'b01) ? user_clock2   :	
-                         (cfg_usb_clk_sel_sel ==2'b10) ? int_pll_clock : xtal_clk;	
+                         (cfg_usb_clk_sel_sel ==2'b01) ? user_clock2   : xtal_clk;	
+
 ctech_clk_buf u_usb_ref_clkbuf (.A (usb_ref_clk_int), . X(usb_ref_clk));
+
 //assign usb_clk_int = (cfg_usb_clk_div)     ? usb_clk_div : usb_ref_clk;
 ctech_mux2x1_4 u_usb_clk_sel (.A0 (usb_ref_clk), .A1 (usb_clk_div), .S  (cfg_usb_clk_div), .X  (usb_clk_int));
 
@@ -791,43 +654,5 @@ clk_ctl #(4) u_usbclk (
        .reset_n       (s_reset_n        ), 
        .clk_div_ratio (cfg_usb_clk_ratio)
    );
-
-// PLL Ref CLock
-
-clk_ctl #(2) u_pll_ref_clk (
-   // Outputs
-       .clk_o         (pll_ref_clk      ),
-   // Inputs
-       .mclk          (user_clock1      ),
-       .reset_n       (e_reset_n        ), 
-       .clk_div_ratio (cfg_ref_pll_div  )
-   );
-
-// Debug clock monitor optin
-wire  dbg_clk_ref        = (cfg_mon_sel == 4'b0000) ? user_clock1   :
-	                       (cfg_mon_sel == 4'b0001) ? user_clock2   :
-	                       (cfg_mon_sel == 4'b0010) ? xtal_clk      :
-	                       (cfg_mon_sel == 4'b0011) ? int_pll_clock : 
-	                       (cfg_mon_sel == 4'b0100) ? mclk          : 
-	                       (cfg_mon_sel == 4'b0101) ? cpu_clk       : 
-	                       (cfg_mon_sel == 4'b0110) ? usb_clk       : 
-	                       (cfg_mon_sel == 4'b0111) ? rtc_clk       : 1'b0;
-
-wire dbg_clk_ref_buf;
-ctech_clk_buf u_clkbuf_dbg_ref (.A (dbg_clk_ref), . X(dbg_clk_ref_buf));
-
-//  DIv16 to debug monitor purpose
-logic dbg_clk_div16;
-
-clk_ctl #(3) u_dbgclk (
-   // Outputs
-       .clk_o         (dbg_clk_div16    ),
-   // Inputs
-       .mclk          (dbg_clk_ref_buf  ),
-       .reset_n       (e_reset_n        ), 
-       .clk_div_ratio (4'hE             )
-   );
-
-ctech_clk_buf u_clkbuf_dbg (.A (dbg_clk_div16), . X(dbg_clk_mon));
 
 endmodule                       

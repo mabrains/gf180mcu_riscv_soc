@@ -25,10 +25,10 @@ set ::env(DESIGN_IS_CORE) "0"
 # Local sources + no2usb sources
 set ::env(VERILOG_FILES) "\
     $::env(DESIGN_DIR)/../../verilog/rtl/lib/clk_skew_adjust.gv \
-    $::env(DESIGN_DIR)/../../verilog/rtl/uart/src/uart_core.sv  \
-    $::env(DESIGN_DIR)/../../verilog/rtl/uart/src/uart_cfg.sv   \
-    $::env(DESIGN_DIR)/../../verilog/rtl/uart/src/uart_rxfsm.sv \
-    $::env(DESIGN_DIR)/../../verilog/rtl/uart/src/uart_txfsm.sv \
+    $::env(DESIGN_DIR)/../../verilog/rtl/uart/uart_core.sv  \
+    $::env(DESIGN_DIR)/../../verilog/rtl/uart/uart_cfg.sv   \
+    $::env(DESIGN_DIR)/../../verilog/rtl/uart/uart_rxfsm.sv \
+    $::env(DESIGN_DIR)/../../verilog/rtl/uart/uart_txfsm.sv \
     $::env(DESIGN_DIR)/../../verilog/rtl/lib/async_wb.sv   \
     $::env(DESIGN_DIR)/../../verilog/rtl/lib/async_fifo.sv      \
     $::env(DESIGN_DIR)/../../verilog/rtl/lib/async_fifo_th.sv   \
@@ -36,23 +36,23 @@ set ::env(VERILOG_FILES) "\
     $::env(DESIGN_DIR)/../../verilog/rtl/lib/double_sync_low.v  \
     $::env(DESIGN_DIR)/../../verilog/rtl/lib/clk_ctl.v          \
     $::env(DESIGN_DIR)/../../verilog/rtl/lib/registers.v        \
-    $::env(DESIGN_DIR)/../../verilog/rtl/i2cm/src/core/i2cm_bit_ctrl.v      \
-    $::env(DESIGN_DIR)/../../verilog/rtl/i2cm/src/core/i2cm_byte_ctrl.v     \
-    $::env(DESIGN_DIR)/../../verilog/rtl/i2cm/src/core/i2cm_top.v           \
-    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/src/core/usbh_core.sv    \
-    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/src/core/usbh_crc16.sv   \
-    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/src/core/usbh_crc5.sv    \
-    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/src/core/usbh_fifo.sv    \  
-    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/src/core/usbh_sie.sv     \
-    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/src/phy/usb_fs_phy.v     \
-    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/src/phy/usb_transceiver.v\
-    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/src/top/usb1_host.sv     \
-    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/src/sspim_top.sv             \
-    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/src/sspim_ctl.sv             \
-    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/src/sspim_if.sv              \
-    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/src/sspim_cfg.sv             \
-    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/src/sspim_clkgen.sv             \
-    $::env(DESIGN_DIR)/../../verilog/rtl/uart_i2c_usb_spi/src/uart_i2c_usb_spi.sv\
+    $::env(DESIGN_DIR)/../../verilog/rtl/i2cm/core/i2cm_bit_ctrl.v      \
+    $::env(DESIGN_DIR)/../../verilog/rtl/i2cm/core/i2cm_byte_ctrl.v     \
+    $::env(DESIGN_DIR)/../../verilog/rtl/i2cm/core/i2cm_top.v           \
+    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/core/usbh_core.sv    \
+    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/core/usbh_crc16.sv   \
+    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/core/usbh_crc5.sv    \
+    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/core/usbh_fifo.sv    \  
+    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/core/usbh_sie.sv     \
+    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/phy/usb_fs_phy.v     \
+    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/phy/usb_transceiver.v\
+    $::env(DESIGN_DIR)/../../verilog/rtl/usb1_host/top/usb1_host.sv     \
+    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/sspim_top.sv             \
+    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/sspim_ctl.sv             \
+    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/sspim_if.sv              \
+    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/sspim_cfg.sv             \
+    $::env(DESIGN_DIR)/../../verilog/rtl/sspim/sspim_clkgen.sv             \
+    $::env(DESIGN_DIR)/../../verilog/rtl/uart_i2c_usb_spi/uart_i2c_usb_spi.sv\
     $::env(DESIGN_DIR)/../../verilog/rtl/lib/ctech_cells.sv     \
     "
 
@@ -65,12 +65,12 @@ set ::env(STD_CELL_LIBRARY_OPT) "gf180mcu_fd_sc_mcu7t5v0"
 
 ## =========================== CLK ===========================
 
-set ::env(CLOCK_PERIOD) "20"
+set ::env(CLOCK_PERIOD) "100"
 set ::env(CLOCK_PORT) "app_clk usb_clk"
 
 ## =========================== SDC ===========================
 
-set ::env(BASE_SDC_FILE) "$::env(DESIGN_DIR)/base.sdc"
+set ::env(BASE_SDC_FILE) "$::env(DESIGN_DIR)/uart_i2c_usb_spi_top.sdc"
 set ::env(MAX_FANOUT_CONSTRAINT) "20"
 set ::env(MAX_TRANSITION_CONSTRAINT) "3"
 

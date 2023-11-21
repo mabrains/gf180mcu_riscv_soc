@@ -80,7 +80,6 @@ module rtc_top(
     input  logic        rst_n, 
     input  logic        sys_clk, 
 
-
     input  logic        reg_cs, 
     input  logic [4:0]  reg_addr, 
     input  logic [31:0] reg_wdata, 
@@ -93,12 +92,7 @@ module rtc_top(
     // RTC clock Domain
 	input  logic        rtc_clk, 
 
-
-    output logic        rtc_intr,
-
-   // Debug Signals
-    output  logic       inc_time_s,
-    output  logic       inc_date_d
+    output logic        rtc_intr
 
 );
 
@@ -133,14 +127,14 @@ logic [31:0] cfg_date         ;
 // Increment Pulse
 //----------------------------------------
 
-//input logic             inc_time_s      ; // increment second
+logic             inc_time_s      ; // increment second
 logic             inc_time_ts     ; // increment tenth second
 logic             inc_time_m      ; // increment minute
 logic             inc_time_tm     ; // increment tenth minute
 logic             inc_time_h      ; // increment hour
 logic             inc_time_th     ; // increment tenth hour
 logic             inc_time_dow    ; // increment date of week
-//logic             inc_date_d      ; // increment date
+logic             inc_date_d      ; // increment date
 logic             inc_date_td     ; // increment tenth date
 logic             inc_date_m      ; // increment month
 logic             inc_date_tm     ; // increment tength month

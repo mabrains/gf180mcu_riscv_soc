@@ -43,12 +43,7 @@ set ::env(VERILOG_FILES) "\
      $::env(DESIGN_DIR)/../../verilog/rtl/timer/timer_reg.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/timer/timer.sv     \
      $::env(DESIGN_DIR)/../../verilog/rtl/pinmux/semaphore_reg.sv  \
-     $::env(DESIGN_DIR)/../../verilog/rtl/ws281x/ws281x_top.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/ws281x/ws281x_driver.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/ws281x/ws281x_reg.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/pinmux/strap_ctrl.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/pinmux/glbl_rst_reg.sv \
-     $::env(DESIGN_DIR)/../../verilog/rtl/dig2ana/dig2ana_reg.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/pulse_gen_type1.sv   \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/pulse_gen_type2.sv   \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/registers.v          \
@@ -67,7 +62,7 @@ set ::env(STD_CELL_LIBRARY_OPT) "gf180mcu_fd_sc_mcu7t5v0"
 
 ## =========================== CLK ===========================
 
-set ::env(CLOCK_PERIOD) "25"
+set ::env(CLOCK_PERIOD) "100"
 set ::env(CLOCK_PORT) "mclk"
 
 ## =========================== SDC ===========================
@@ -110,22 +105,14 @@ set ::env(GND_NETS) [list {VSS}]
 
 ## =========================== FLOORPLAN ===========================
 
-# set ::env(FP_PIN_ORDER_CFG) "$::env(DESIGN_DIR)/pin_order.cfg"
-set ::env(DIE_AREA) "0 0 1200 1000"
+set ::env(FP_PIN_ORDER_CFG) "$::env(DESIGN_DIR)/pin_order.cfg"
+set ::env(DIE_AREA) "0 0 900 1000"
 set ::env(FP_SIZING) "absolute"
 set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_PDN_CORE_RING) "0"
 
-# set ::env(FP_PDN_VWIDTH) "6.2"
-# set ::env(FP_PDN_HWIDTH) "6.2"
-# set ::env(FP_PDN_VPITCH) "100"
-# set ::env(FP_PDN_HPITCH) "100"
-
 set ::env(FP_PDN_CHECK_NODES) "0"
 set ::env(FP_PDN_ENABLE_GLOBAL_CONNECTIONS) "1"
-
-# set ::env(FP_IO_VEXTEND) 4
-# set ::env(FP_IO_HEXTEND) 4
 
 ## =========================== PL & Rotute ===========================
 
