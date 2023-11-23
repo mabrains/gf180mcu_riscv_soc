@@ -42,9 +42,9 @@ set_max_fanout $::env(MAX_FANOUT_CONSTRAINT) [current_design]
 puts "\[INFO\]: Setting maximum fanout to: $::env(MAX_FANOUT_CONSTRAINT)"
 
 # Timing paths delays derate
-set_timing_derate -early [expr {1-0.05}]
-set_timing_derate -late [expr {1+0.05}]
-puts "\[INFO\]: Setting timing derate to: [expr {0.05 * 100}] %"
+set_timing_derate -early [expr {1-$::env(SYNTH_TIMING_DERATE)}]
+set_timing_derate -late [expr {1+$::env(SYNTH_TIMING_DERATE)}]
+puts "\[INFO\]: Setting timing derate to: [expr {$::env(SYNTH_TIMING_DERATE) * 100}] %"
 
 # Reset input delay
 set_input_delay [expr $::env(CLOCK_PERIOD) * 0.5] -clock [get_clocks {clk}] [get_ports {wb_rst_i}]

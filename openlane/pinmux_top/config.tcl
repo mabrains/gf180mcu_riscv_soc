@@ -36,8 +36,8 @@ set ::env(VERILOG_FILES) "\
      $::env(DESIGN_DIR)/../../verilog/rtl/pwm/pwm_core.sv   \
      $::env(DESIGN_DIR)/../../verilog/rtl/pwm/pwm_glbl_reg.sv   \
      $::env(DESIGN_DIR)/../../verilog/rtl/pwm/pwm_blk_reg.sv   \
-     $::env(DESIGN_DIR)/../../verilog/rtl/pwm/pwm_cfg_dglitch.sv   \
      $::env(DESIGN_DIR)/../../verilog/rtl/pwm/pwm.sv       \
+     $::env(DESIGN_DIR)/../../verilog/rtl/pwm/pwm_cfg_dglitch.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/timer/timer_top.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/timer/timer_reg.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/timer/timer.sv     \
@@ -64,6 +64,7 @@ set ::env(CLOCK_PORT) "mclk"
 
 ## =========================== SDC ===========================
 
+set ::env(BASE_SDC_FILE) "$::env(DESIGN_DIR)/pinmux_top.sdc"
 set ::env(MAX_FANOUT_CONSTRAINT) "20"
 set ::env(MAX_TRANSITION_CONSTRAINT) "6"
 
@@ -94,11 +95,11 @@ set ::env(SYNTH_SPLITNETS) "1"
 set ::env(SYNTH_BUFFERING) "1"
 set ::env(SYNTH_CHECKS_ALLOW_TRISTATE) "1"
 set ::env(SYNTH_FLAT_TOP) "0"
-set ::env(IO_PCT) "0.05"
+set ::env(IO_PCT) "0.2"
 set ::env(SYNTH_USE_PG_PINS_DEFINES) "USE_POWER_PINS"
 set ::env(SYNTH_DEFINES) [list SYNTHESIS  YCR_DBG_EN]
-set ::env(VDD_NETS) [list {VDD}]
-set ::env(GND_NETS) [list {VSS}]
+set ::env(VDD_NETS) [list {vdd}]
+set ::env(GND_NETS) [list {vss}]
 
 ## =========================== FLOORPLAN ===========================
 
@@ -126,8 +127,8 @@ set ::env(GRT_ADJUSTMENT) "0.1"
 set ::env(RT_MIN_LAYER) "Metal2"
 set ::env(RT_MAX_LAYER) "Metal5"
 set ::env(GLB_RESIZER_ALLOW_SETUP_VIOS) "0"
-set ::env(GLB_RESIZER_DESIGN_OPTIMIZATIONS) "1"
 set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) "0.05"
+set ::env(GLB_RESIZER_DESIGN_OPTIMIZATIONS) "1"
 set ::env(GLB_RESIZER_TIMING_OPTIMIZATIONS) "1"
 set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS)  "1"
 set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS)  "1"

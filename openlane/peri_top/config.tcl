@@ -87,8 +87,8 @@ set ::env(SYNTH_FLAT_TOP) "0"
 set ::env(IO_PCT) "0.2"
 set ::env(SYNTH_USE_PG_PINS_DEFINES) "USE_POWER_PINS"
 set ::env(SYNTH_DEFINES) [list SYNTHESIS]
-set ::env(VDD_NETS) [list {VDD}]
-set ::env(GND_NETS) [list {VSS}]
+set ::env(VDD_NETS) [list {vdd}]
+set ::env(GND_NETS) [list {vss}]
 
 ## =========================== FLOORPLAN ===========================
 

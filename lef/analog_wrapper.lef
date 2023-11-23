@@ -1,0 +1,192 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO analog_wrapper
+  CLASS BLOCK ;
+  FOREIGN analog_wrapper ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 2550.000 BY 1750.000 ;
+  PIN in1
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.519000 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 1273.440 0.000 1274.000 4.000 ;
+    END
+  END in1
+  PIN in2
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.519000 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 1270.080 0.000 1270.640 4.000 ;
+    END
+  END in2
+  PIN out
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.893200 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 1273.440 1746.000 1274.000 1750.000 ;
+    END
+  END out
+  PIN vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER Metal4 ;
+        RECT 22.240 15.380 23.840 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 175.840 15.380 177.440 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 329.440 15.380 331.040 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 483.040 15.380 484.640 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 636.640 15.380 638.240 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 790.240 15.380 791.840 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 943.840 15.380 945.440 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1097.440 15.380 1099.040 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1251.040 15.380 1252.640 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1404.640 15.380 1406.240 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1558.240 15.380 1559.840 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1711.840 15.380 1713.440 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1865.440 15.380 1867.040 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 2019.040 15.380 2020.640 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 2172.640 15.380 2174.240 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 2326.240 15.380 2327.840 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 2479.840 15.380 2481.440 1732.940 ;
+    END
+  END vdd
+  PIN vss
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER Metal4 ;
+        RECT 99.040 15.380 100.640 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 252.640 15.380 254.240 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 406.240 15.380 407.840 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 559.840 15.380 561.440 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 713.440 15.380 715.040 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 867.040 15.380 868.640 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1020.640 15.380 1022.240 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1174.240 15.380 1175.840 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1327.840 15.380 1329.440 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1481.440 15.380 1483.040 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1635.040 15.380 1636.640 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1788.640 15.380 1790.240 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 1942.240 15.380 1943.840 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 2095.840 15.380 2097.440 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 2249.440 15.380 2251.040 1732.940 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 2403.040 15.380 2404.640 1732.940 ;
+    END
+  END vss
+  OBS
+      LAYER Metal1 ;
+        RECT 6.720 15.380 2542.960 1732.940 ;
+      LAYER Metal2 ;
+        RECT 22.380 1745.700 1273.140 1746.000 ;
+        RECT 1274.300 1745.700 2481.300 1746.000 ;
+        RECT 22.380 4.300 2481.300 1745.700 ;
+        RECT 22.380 4.000 1269.780 4.300 ;
+        RECT 1270.940 4.000 1273.140 4.300 ;
+        RECT 1274.300 4.000 2481.300 4.300 ;
+      LAYER Metal3 ;
+        RECT 22.330 15.540 2481.350 1732.780 ;
+  END
+END analog_wrapper
+END LIBRARY
+

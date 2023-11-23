@@ -7,94 +7,6 @@ MACRO uart_i2c_usb_spi_top
   FOREIGN uart_i2c_usb_spi_top ;
   ORIGIN 0.000 0.000 ;
   SIZE 1000.000 BY 900.000 ;
-  PIN VDD
-    DIRECTION INOUT ;
-    USE POWER ;
-    PORT
-      LAYER Metal4 ;
-        RECT 19.940 15.380 26.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 119.940 15.380 126.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 219.940 15.380 226.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 319.940 15.380 326.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 419.940 15.380 426.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 519.940 15.380 526.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 619.940 15.380 626.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 719.940 15.380 726.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 819.940 15.380 826.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 919.940 15.380 926.140 882.300 ;
-    END
-  END VDD
-  PIN VSS
-    DIRECTION INOUT ;
-    USE GROUND ;
-    PORT
-      LAYER Metal4 ;
-        RECT 69.940 15.380 76.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 169.940 15.380 176.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 269.940 15.380 276.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 369.940 15.380 376.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 469.940 15.380 476.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 569.940 15.380 576.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 669.940 15.380 676.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 769.940 15.380 776.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 869.940 15.380 876.140 882.300 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 969.940 15.380 976.140 882.300 ;
-    END
-  END VSS
   PIN app_clk
     DIRECTION INPUT ;
     USE SIGNAL ;
@@ -1155,6 +1067,94 @@ MACRO uart_i2c_usb_spi_top
         RECT 292.320 896.000 292.880 900.000 ;
     END
   END usb_rstn
+  PIN vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER Metal4 ;
+        RECT 19.940 15.380 26.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 119.940 15.380 126.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 219.940 15.380 226.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 319.940 15.380 326.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 419.940 15.380 426.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 519.940 15.380 526.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 619.940 15.380 626.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 719.940 15.380 726.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 819.940 15.380 826.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 919.940 15.380 926.140 882.300 ;
+    END
+  END vdd
+  PIN vss
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER Metal4 ;
+        RECT 69.940 15.380 76.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 169.940 15.380 176.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 269.940 15.380 276.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 369.940 15.380 376.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 469.940 15.380 476.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 569.940 15.380 576.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 669.940 15.380 676.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 769.940 15.380 776.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 869.940 15.380 876.140 882.300 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 969.940 15.380 976.140 882.300 ;
+    END
+  END vss
   OBS
       LAYER Metal1 ;
         RECT 6.720 14.710 992.880 882.300 ;

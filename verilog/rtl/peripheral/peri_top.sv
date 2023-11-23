@@ -38,8 +38,8 @@
 
 module peri_top (
                     `ifdef USE_POWER_PINS
-                       input logic             VDD, // User area 5V supply
-                       input logic             VSS, // User area ground
+                       input logic             vdd, // User area 5V supply
+                       input logic             vss, // User area ground
                     `endif
 
                        // System Signals

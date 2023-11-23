@@ -44,7 +44,6 @@ module glbl_reg (
 
                        input logic            user_clock1            ,
                        input logic            user_clock2            ,
-                       input logic            xtal_clk               ,
 
                        output logic            usb_clk                ,
                        output logic            rtc_clk                ,
@@ -545,8 +544,7 @@ wire [1:0] cfg_rtc_clk_sel_sel   = cfg_rtc_clk_ctrl[7:6];
 wire       cfg_rtc_clk_div       = cfg_rtc_clk_ctrl[5];
 wire [4:0] cfg_rtc_clk_ratio     = cfg_rtc_clk_ctrl[4:0];
 
-assign rtc_ref_clk_int = (cfg_rtc_clk_sel_sel ==2'b00) ? user_clock1   :
-                         (cfg_rtc_clk_sel_sel ==2'b01) ? user_clock2   : xtal_clk;
+assign rtc_ref_clk_int = (cfg_rtc_clk_sel_sel ==2'b00) ? user_clock1 : user_clock2;
 
 ctech_clk_buf u_rtc_ref_clkbuf (.A (rtc_ref_clk_int), . X(rtc_ref_clk));
 
@@ -577,8 +575,7 @@ wire [1:0] cfg_usb_clk_sel_sel   = cfg_usb_clk_ctrl[7:6];
 wire       cfg_usb_clk_div       = cfg_usb_clk_ctrl[5];
 wire [4:0] cfg_usb_clk_ratio     = cfg_usb_clk_ctrl[4:0];
 
-assign usb_ref_clk_int = (cfg_usb_clk_sel_sel ==2'b00) ? user_clock1   :
-                         (cfg_usb_clk_sel_sel ==2'b01) ? user_clock2   : xtal_clk;	
+assign usb_ref_clk_int = (cfg_usb_clk_sel_sel ==2'b00) ? user_clock1   : user_clock2;
 
 ctech_clk_buf u_usb_ref_clkbuf (.A (usb_ref_clk_int), . X(usb_ref_clk));
 

@@ -25,13 +25,12 @@
 
 module temp_sensor (
 `ifdef USE_POWER_PINS
-    inout VDD,		// User area 5.0V supply
-    inout VSS,		// User area ground
+    inout vdd,		// User area 5.0V supply
+    inout vss,		// User area ground
 `endif
 
 	input           clk,
 	input           reset,
-	input  [5:0]	io_in,
 	output [7:0]	io_out,
 	output [7:0]	io_oeb,
 
@@ -39,6 +38,7 @@ module temp_sensor (
     input wire          i_wb_cyc,       // wishbone transaction
     input wire          i_wb_stb,       // strobe - data valid and accepted as long as !o_wb_stall
     input wire          i_wb_we,        // write enable
+	input wire [31:0]   i_wb_data,     // incoming data
     input wire  [31:0]  i_wb_addr,      // address
     output reg          o_wb_ack,       // request is completed 
     output wire         o_wb_stall,     // cannot accept req
@@ -94,11 +94,8 @@ module temp_sensor (
 	};
 
 	// definition of external inputs
-	wire cal_clk = io_in[0];
-	wire cal_dat = io_in[1];
-	wire cal_ena = io_in[2];
-	wire [2:0] en_dbg = io_in[5:3];
-
+	reg cal_ena;
+	reg [2:0] en_dbg;
 
 	// definition of external outputs
 	wire [7:0] led_out;
@@ -205,16 +202,6 @@ module temp_sensor (
 		end
 	end
 
-
-	// loading of calibration LUT
-	always @(posedge cal_clk) begin
-		if (reset) begin
-			cal_lut <= LUT_PRELOAD;
-		end else begin
-			cal_lut <= {cal_lut[((2**(N_VDAC-1))*N_LUT)-1:1], cal_dat};
-		end
-	end
-
 	// ------------------ CPU-I/F ------------------
 	// reads output data & send it to CPU
     always @(posedge clk) begin
@@ -227,6 +214,29 @@ module temp_sensor (
                 default:
                     o_wb_data <= 8'b0;
             endcase
+    end
+
+	// loading of calibration LUT
+    // writes cal data
+    always @(posedge clk) begin
+        if(reset)
+            cal_lut <= 'd0;
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR1)
+            cal_lut[192:161] <= i_wb_data[31:0];
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR2)
+            cal_lut[160:129] <= i_wb_data[31:0];
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR3)
+            cal_lut[128:97] <= i_wb_data[31:0];
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR4)
+            cal_lut[96:65] <= i_wb_data[31:0];
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR5)
+            cal_lut[64:33] <= i_wb_data[31:0];
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR6)
+            cal_lut[32:1] <= i_wb_data[31:0];	
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_DBG_ADR) begin
+			en_dbg <= i_wb_data[2:0];																	
+			cal_ena <= i_wb_data[3];	
+		end															
     end
 
     // acks

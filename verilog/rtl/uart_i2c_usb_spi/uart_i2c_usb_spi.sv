@@ -64,8 +64,8 @@
 
 module uart_i2c_usb_spi_top (
 `ifdef USE_POWER_PINS
-   input logic         VDD, // User area 5.0V supply
-   input logic         VSS, // User area ground
+   input logic         vdd, // User area 5.0V supply
+   input logic         vss, // User area ground
 `endif
 
    // ==================================================

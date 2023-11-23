@@ -75,13 +75,13 @@ set ::env(SYNTH_FLAT_TOP) "0"
 set ::env(IO_PCT) "0.2"
 set ::env(SYNTH_USE_PG_PINS_DEFINES) "USE_POWER_PINS"
 set ::env(SYNTH_DEFINES) [list SYNTHESIS]
-set ::env(VDD_NETS) [list {VDD}]
-set ::env(GND_NETS) [list {VSS}]
+set ::env(VDD_NETS) [list {vdd}]
+set ::env(GND_NETS) [list {vss}]
 
 ## =========================== FLOORPLAN ===========================
 
 set ::env(FP_PIN_ORDER_CFG) "$::env(DESIGN_DIR)/pin_order.cfg"
-set ::env(DIE_AREA) "0 0 100 80"
+set ::env(DIE_AREA) "0 0 120 100"
 set ::env(FP_SIZING) "absolute"
 set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_PDN_CORE_RING) "0"

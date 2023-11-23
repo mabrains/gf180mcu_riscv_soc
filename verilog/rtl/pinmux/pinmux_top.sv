@@ -18,8 +18,8 @@
 
 module pinmux_top (
       `ifdef USE_POWER_PINS
-         input logic             VDD, // User area 5V supply
-         input logic             VSS, // User area ground
+         input logic             vdd, // User area 5V supply
+         input logic             vss, // User area ground
       `endif      
 
          // System Signals
@@ -32,7 +32,6 @@ module pinmux_top (
          input logic            user_clock1            ,
          input logic            user_clock2            ,
          
-         output logic           xtal_clk               ,
          output logic           usb_clk                ,
          output logic           rtc_clk                ,    
 
@@ -193,7 +192,6 @@ glbl_reg u_glbl_reg(
           .user_clock1                  (user_clock1             ),
           .user_clock2                  (user_clock2             ),
 
-          .xtal_clk                     (xtal_clk                ),
           .usb_clk                      (usb_clk                 ),
           .rtc_clk                      (rtc_clk                 ),
 
@@ -323,8 +321,6 @@ pinmux u_pinmux (
             .digital_io_out          (digital_io_out      ),
             .digital_io_oen          (digital_io_oen      ),
             .digital_io_in           (digital_io_in       ),
-
-            .xtal_clk                (xtal_clk            ),
 
             // Config
             .cfg_gpio_dir_sel        (cfg_gpio_dir_sel    ),

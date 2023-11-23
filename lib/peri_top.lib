@@ -138,11 +138,11 @@ library (peri_top) {
 	}
       }
     }
-    pin("VDD") {
+    pin("vdd") {
       direction : input;
       capacitance : 0.0000;
     }
-    pin("VSS") {
+    pin("vss") {
       direction : input;
       capacitance : 0.0000;
     }

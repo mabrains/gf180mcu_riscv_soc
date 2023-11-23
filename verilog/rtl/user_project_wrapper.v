@@ -56,8 +56,8 @@
 
 module user_project_wrapper (
 `ifdef USE_POWER_PINS
-    inout VDD,		// User area 5.0V supply
-    inout VSS,		// User area ground
+    inout vdd,		// User area 5.0V supply
+    inout vss,		// User area ground
 `endif
 
    // =======================================================
@@ -111,7 +111,6 @@ wire       i2c_rst_n      ;
 wire       usb_rst_n      ;
 wire       rtc_clk        ;
 wire       usb_clk        ;
-wire       xtal_clk       ;
 wire       pulse1m_mclk   ;
 
 // ====================================================================
@@ -166,8 +165,8 @@ wire                rtc_intr           ; // RTC interrupt
 
 uart_i2c_usb_spi_top   u_uart_i2c_usb_spi (
 `ifdef USE_POWER_PINS
-	.VDD(VDD),	// User area 5.0V supply
-	.VSS(VSS),	// User area ground
+	.vdd(vdd),	// User area 5.0V supply
+	.vss(vss),	// User area ground
 `endif
         // System Signals
         .uart_rstn          (uart_rst_n         ),
@@ -227,8 +226,8 @@ uart_i2c_usb_spi_top   u_uart_i2c_usb_spi (
 
 pinmux_top u_pinmux(
 `ifdef USE_POWER_PINS
-	.VDD(VDD),	// User area 5.0V supply
-	.VSS(VSS),	// User area ground
+	.vdd(vdd),	// User area 5.0V supply
+	.vss(vss),	// User area ground
 `endif
         // System Signals
         .mclk               (wb_clk_i              ),
@@ -241,7 +240,6 @@ pinmux_top u_pinmux(
 
         .rtc_clk            (rtc_clk              ),
         .usb_clk            (usb_clk              ),
-        .xtal_clk           (xtal_clk             ),
 
         // Reset Control
         .sspim_rst_n        (sspim_rst_n           ),
@@ -318,8 +316,8 @@ pinmux_top u_pinmux(
 
 peri_top u_peri(
 `ifdef USE_POWER_PINS
-	.VDD(VDD),	// User area 5.0V supply
-	.VSS(VSS),	// User area ground
+	.vdd(vdd),	// User area 5.0V supply
+	.vss(vss),	// User area ground
 `endif
 
         // System Signals
@@ -350,12 +348,13 @@ peri_top u_peri(
 
 wb_buttons_leds wb_buttons_leds (
 `ifdef USE_POWER_PINS
-	.VDD(VDD),	// User area 5.0V supply
-	.VSS(VSS),	// User area ground
+	.vdd(vdd),	// User area 5.0V supply
+	.vss(vss),	// User area ground
 `endif
 
     // clock & reset
     .clk(wb_clk_i),
+    .clk2(user_clock2),
     .reset(wb_rst_i),
 
     // wishbone
@@ -368,9 +367,12 @@ wb_buttons_leds wb_buttons_leds (
     .o_wb_data  (wbs_dat_o),
 
     // buttons & leds
-    .buttons    (io_in[6:5]),
-    .leds       (io_out[8:7]),
-    .led_enb    (io_oeb[8:7])
+    .buttons     (io_in[6:5]),
+    .leds        (io_out[8:7]),
+    .buttons_enb (io_oeb[6:5]),
+    .led_enb     (io_oeb[8:7]),
+    .xtal_clk    (io_out[10:9]),
+    .xtal_clk_enb(io_oeb[10:9])
 );
 
 // =============================================================
@@ -379,12 +381,12 @@ wb_buttons_leds wb_buttons_leds (
 
 temp_sensor temp_sensor(
 `ifdef USE_POWER_PINS
-	.VDD(VDD),	// User area 5.0V supply
-	.VSS(VSS),	// User area ground
+	.vdd(vdd),	// User area 5.0V supply
+	.vss(vss),	// User area ground
 `endif
 
     // clock & reset
-    .clk(wb_clk_i),
+    .clk(user_clock2),
     .reset(wb_rst_i),
 
     // wishbone
@@ -392,14 +394,32 @@ temp_sensor temp_sensor(
     .i_wb_stb   (wbs_stb_i),
     .i_wb_we    (wbs_we_i),
     .i_wb_addr  (wbs_adr_i),
+    .i_wb_data  (wbs_dat_i),
     .o_wb_ack   (wbs_ack_o),
     .o_wb_data  (wbs_dat_o[7:0]),
 
-    // buttons & leds
-    .io_in(io_in[14:9]),
+    // temp sensor
     .io_out(io_out[20:13]),
     .io_oeb(io_oeb[20:13])
 );
 
+
+// =============================================================
+// ---------------------- Analog Wrapper -----------------------
+// =============================================================
+
+analog_wrapper analog_wrapper(
+`ifdef USE_POWER_PINS
+	.vdd(vdd),	// User area 5.0V supply
+	.vss(vss),	// User area ground
+`endif
+
+    // dummy pins
+    .in1(),
+    .in2(),
+    .out()
+);
+
+// ===============================================================
 endmodule : user_project_wrapper
 

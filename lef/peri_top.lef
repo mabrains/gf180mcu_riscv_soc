@@ -7,30 +7,6 @@ MACRO peri_top
   FOREIGN peri_top ;
   ORIGIN 0.000 0.000 ;
   SIZE 200.000 BY 500.000 ;
-  PIN VDD
-    DIRECTION INOUT ;
-    USE POWER ;
-    PORT
-      LAYER Metal4 ;
-        RECT 19.940 15.380 26.140 482.460 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 119.940 15.380 126.140 482.460 ;
-    END
-  END VDD
-  PIN VSS
-    DIRECTION INOUT ;
-    USE GROUND ;
-    PORT
-      LAYER Metal4 ;
-        RECT 69.940 15.380 76.140 482.460 ;
-    END
-    PORT
-      LAYER Metal4 ;
-        RECT 169.940 15.380 176.140 482.460 ;
-    END
-  END VSS
   PIN mclk
     DIRECTION INPUT ;
     USE SIGNAL ;
@@ -839,6 +815,30 @@ MACRO peri_top
         RECT 49.280 0.000 49.840 4.000 ;
     END
   END s_reset_n
+  PIN vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER Metal4 ;
+        RECT 19.940 15.380 26.140 482.460 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 119.940 15.380 126.140 482.460 ;
+    END
+  END vdd
+  PIN vss
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER Metal4 ;
+        RECT 69.940 15.380 76.140 482.460 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 169.940 15.380 176.140 482.460 ;
+    END
+  END vss
   OBS
       LAYER Metal1 ;
         RECT 6.720 15.380 193.200 482.460 ;

@@ -22,7 +22,6 @@
 * PD2/RXD[1]                        **           digital_io[23]                 **
 * PD3/PWM0                          **           digital_io[24]                 **
 * PD4/TXD[1]                        **           digital_io[25]                 **
-* PB6/XTAL                          **           digital_io[26]                 **
 * PD5/SS[3]/PWM1                    **           digital_io[27]                 **
 * PD6/SS[2]/PWM2                    **           digital_io[28]                 **
 * PB1/SS[1]/PWM3                    **           digital_io[29]                 **
@@ -45,8 +44,6 @@ module pinmux (
                output logic [37:21]     digital_io_out          ,
                output logic [37:21]     digital_io_oen          ,
                input  logic [37:21]     digital_io_in           ,
-
-               output logic            xtal_clk                ,
 
                // Config
                input logic  [31:0]    cfg_gpio_dir_sel         ,
@@ -130,7 +127,6 @@ always_comb begin
      spim_mosi  = 'h0;
      i2cm_data_i= 'h0;
      i2cm_clk_i = 'h0;
-     xtal_clk   = 'b0;
 
      // ** PD0/RXD[0]       **      digital_io[21]
      port_d_in[0] = digital_io_in[21];
@@ -151,7 +147,6 @@ always_comb begin
 
      //  ** PB6/XTAL/TOSC1        **       digital_io[26]
      port_b_in[6] = digital_io_in[26];
-     xtal_clk     = digital_io_in[26];
 
      // **  PD5/SS[3]/PWM1      **       digital_io[27]
      port_d_in[5] = digital_io_in[27];
