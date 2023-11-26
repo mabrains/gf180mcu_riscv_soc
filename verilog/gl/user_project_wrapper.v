@@ -156,6 +156,7 @@ module user_project_wrapper (user_clock2,
  wire usb_rst_n;
 
  analog_wrapper analog_wrapper ();
+ mabrains_logo mabrains_logo ();
  temp_sensor temp_sensor (.clk(user_clock2),
     .i_wb_cyc(wbs_cyc_i),
     .i_wb_stb(wbs_stb_i),

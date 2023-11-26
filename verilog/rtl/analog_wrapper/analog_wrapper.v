@@ -15,18 +15,6 @@
 //
 
 
-module analog_wrapper(
-`ifdef USE_POWER_PINS
-   input wire vdd, // User area 5.0V supply
-   input wire vss, // User area ground
-`endif
-
-    input wire in1,
-    input wire in2,
-    output wire out
-);
-
-// Dummy behavirol model to verify the analog part P&R with the user_project_wrapper
-assign out = in1 & in2 ;
+module analog_wrapper();
 
 endmodule // analog_wrapper

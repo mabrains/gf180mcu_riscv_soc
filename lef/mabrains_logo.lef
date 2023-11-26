@@ -1,0 +1,33 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO mabrains_logo
+  CLASS BLOCK ;
+  FOREIGN mabrains_logo ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 447.035 BY 203.985 ;
+  OBS
+      LAYER Metal1 ;
+        RECT 0.000 0.000 447.035 203.985 ;
+      LAYER Metal2 ;
+        RECT 0.000 0.000 447.035 203.985 ;          
+      LAYER Metal3 ;
+        RECT 0.000 0.000 447.035 203.985 ;  
+      LAYER Metal4 ;
+        RECT 0.000 0.000 447.035 203.985 ;
+      LAYER Metal5 ;
+        RECT 0.000 0.000 447.035 203.985 ;
+      LAYER via1 ;
+        RECT 0.000 0.000 447.035 203.985 ;
+      LAYER via2 ;
+        RECT 0.000 0.000 447.035 203.985 ;          
+      LAYER via3 ;
+        RECT 0.000 0.000 447.035 203.985 ;  
+      LAYER via4 ;
+        RECT 0.000 0.000 447.035 203.985 ;
+      LAYER contact ;
+        RECT 0.000 0.000 447.035 203.985 ;                   
+  END
+END mabrains_logo
+END LIBRARY

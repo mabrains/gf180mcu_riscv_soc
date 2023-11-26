@@ -14,7 +14,8 @@
         ""
     ],
     "LVS_IGNORE": [
-        ""
+        "analog_wrapper",
+        "mabrains_logo"
     ],
     "LVS_SPICE_FILES": [
         "$PDK_ROOT/$PDK/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice"
@@ -25,7 +26,6 @@
         "$UPRJ_ROOT/verilog/gl/pinmux_top.v",
         "$UPRJ_ROOT/verilog/gl/peri_top.v",
         "$UPRJ_ROOT/verilog/gl/uart_i2c_usb_spi_top.v",
-        "$UPRJ_ROOT/verilog/gl/analog_wrapper.v",
         "$UPRJ_ROOT/verilog/gl/$TOP_SOURCE.v"
     ],
     "LAYOUT_FILE": "$UPRJ_ROOT/gds/$TOP_LAYOUT.gds"
