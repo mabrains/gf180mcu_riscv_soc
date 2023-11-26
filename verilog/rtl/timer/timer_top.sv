@@ -38,7 +38,7 @@
 module timer_top  (
                        // System Signals
                        // Inputs
-		               input logic           mclk,
+		                   input logic           mclk,
                        input logic           h_reset_n,
 
 		               // Reg Bus Interface Signal

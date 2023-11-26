@@ -18,8 +18,8 @@
 
 module pinmux_top (
       `ifdef USE_POWER_PINS
-         input logic             VDD, // User area 5V supply
-         input logic             VSS, // User area ground
+         input logic             vdd, // User area 5V supply
+         input logic             vss, // User area ground
       `endif      
 
          // System Signals
@@ -32,7 +32,6 @@ module pinmux_top (
          input logic            user_clock1            ,
          input logic            user_clock2            ,
          
-         output logic           xtal_clk               ,
          output logic           usb_clk                ,
          output logic           rtc_clk                ,    
 
@@ -59,9 +58,9 @@ module pinmux_top (
          input  logic            i2cm_intr,
 
          // Digital IO
-         output logic [37:0]     digital_io_out,
-         output logic [37:0]     digital_io_oen,
-         input  logic [37:0]     digital_io_in,
+         output logic [37:21]     digital_io_out,
+         output logic [37:21]     digital_io_oen,
+         input  logic [37:21]     digital_io_in,
 
          // USB I/F
          input   logic           usb_dp_o,
@@ -150,9 +149,6 @@ logic         reg_pwm_ack;
 logic [31:0]  reg_timer_rdata;
 logic         reg_timer_ack;
 
-logic [15:0]  reg_sema_rdata;
-logic         reg_sema_ack;
-
 logic [31:0]  reg_ws_rdata;
 logic         reg_ws_ack;
 
@@ -165,8 +161,6 @@ logic         reg_glbl_cs ;
 logic         reg_gpio_cs ;
 logic         reg_pwm_cs  ;
 logic         reg_timer_cs;
-logic         reg_sema_cs ;
-logic         reg_ws_cs   ;
 
 //---------------------------------------------------------------------
 
@@ -184,7 +178,6 @@ reset_sync  u_prst_sync (
           .srst_n    (p_reset_ssn    )
           );
 
-
 //------------------------------------------------------------------
 // Global Register
 //------------------------------------------------------------------
@@ -199,7 +192,6 @@ glbl_reg u_glbl_reg(
           .user_clock1                  (user_clock1             ),
           .user_clock2                  (user_clock2             ),
 
-          .xtal_clk                     (xtal_clk                ),
           .usb_clk                      (usb_clk                 ),
           .rtc_clk                      (rtc_clk                 ),
 
@@ -319,27 +311,6 @@ timer_top  u_timer(
               .timer_intr               (timer_intr                 ) 
            );
 
-//-----------------------------------------------------------------------
-// Semaphore Register
-//-----------------------------------------------------------------------
-semaphore_reg  u_semaphore(
-              // System Signals
-              // Inputs
-		        .mclk                     ( mclk                      ),
-              .h_reset_n                (s_reset_ssn                ),
-
-		      // Reg Bus Interface Signal
-              .reg_cs                   (reg_sema_cs                ),
-              .reg_wr                   (reg_wr                     ),
-              .reg_addr                 (reg_addr[5:2]              ),
-              .reg_wdata                (reg_wdata[15:0]            ),
-              .reg_be                   (reg_be[1:0]                ),
-
-              // Outputs
-              .reg_rdata                (reg_sema_rdata             ),
-              .reg_ack                  (reg_sema_ack               )
-         );
-
 //----------------------------------------------------------------------
 // Pinmux 
 //----------------------------------------------------------------------
@@ -350,8 +321,6 @@ pinmux u_pinmux (
             .digital_io_out          (digital_io_out      ),
             .digital_io_oen          (digital_io_oen      ),
             .digital_io_in           (digital_io_in       ),
-
-            .xtal_clk                (xtal_clk            ),
 
             // Config
             .cfg_gpio_dir_sel        (cfg_gpio_dir_sel    ),
@@ -395,7 +364,7 @@ pinmux u_pinmux (
 //-------------------------------------------------
 // Register Block Selection Logic
 //-------------------------------------------------
-reg [3:0] reg_blk_sel;
+reg [4:0] reg_blk_sel;
 
 always @(posedge mclk or negedge s_reset_ssn)
 begin
@@ -403,7 +372,7 @@ begin
      reg_blk_sel <= 'h0;
    end
    else begin
-      if(reg_cs) reg_blk_sel <= reg_addr[10:7];
+      if(reg_cs) reg_blk_sel <= reg_addr[10:6];
    end
 end
 
@@ -411,24 +380,18 @@ assign reg_rdata = (reg_blk_sel    == `SEL_GLBL)  ? {reg_glbl_rdata} :
 	                (reg_blk_sel    == `SEL_GPIO)  ? {reg_gpio_rdata} :
 	                (reg_blk_sel    == `SEL_PWM)   ? {reg_pwm_rdata}  :
 	                (reg_blk_sel    == `SEL_TIMER) ? reg_timer_rdata  : 
-	                (reg_blk_sel    == `SEL_SEMA)  ? {16'h0,reg_sema_rdata} : 
-	                (reg_blk_sel    == `SEL_WS)    ? reg_ws_rdata     : 
-	                (reg_blk_sel[3] == `SEL_PERI)  ? reg_peri_rdata   : 'h0;
+	                (reg_blk_sel[4] == `SEL_PERI)  ? reg_peri_rdata   : 'h0;
 
 assign reg_ack   = (reg_blk_sel    == `SEL_GLBL)  ? reg_glbl_ack   : 
 	                (reg_blk_sel    == `SEL_GPIO)  ? reg_gpio_ack   : 
 	                (reg_blk_sel    == `SEL_PWM)   ? reg_pwm_ack    : 
 	                (reg_blk_sel    == `SEL_TIMER) ? reg_timer_ack  : 
-	                (reg_blk_sel    == `SEL_SEMA)  ? reg_sema_ack   : 
-	                (reg_blk_sel    == `SEL_WS)    ? reg_ws_ack     : 
-	                (reg_blk_sel[3] == `SEL_PERI)  ? reg_peri_ack   : 1'b0;
+	                (reg_blk_sel[4] == `SEL_PERI)  ? reg_peri_ack   : 1'b0;
 
-assign reg_glbl_cs  = (reg_addr[10:7] == `SEL_GLBL) ? reg_cs : 1'b0;
-assign reg_gpio_cs  = (reg_addr[10:7] == `SEL_GPIO) ? reg_cs : 1'b0;
-assign reg_pwm_cs   = (reg_addr[10:7] == `SEL_PWM)  ? reg_cs : 1'b0;
-assign reg_timer_cs = (reg_addr[10:7] == `SEL_TIMER)? reg_cs : 1'b0;
-assign reg_sema_cs  = (reg_addr[10:7] == `SEL_SEMA) ? reg_cs : 1'b0;
-assign reg_ws_cs    = (reg_addr[10:7] == `SEL_WS)   ? reg_cs : 1'b0;
+assign reg_glbl_cs  = (reg_addr[10:6] == `SEL_GLBL) ? reg_cs : 1'b0;
+assign reg_gpio_cs  = (reg_addr[10:6] == `SEL_GPIO) ? reg_cs : 1'b0;
+assign reg_pwm_cs   = (reg_addr[10:6] == `SEL_PWM)  ? reg_cs : 1'b0;
+assign reg_timer_cs = (reg_addr[10:6] == `SEL_TIMER)? reg_cs : 1'b0;
 assign reg_peri_cs  = (reg_addr[10]   == `SEL_PERI) ? reg_cs : 1'b0;
 
 assign  reg_peri_wr    = reg_wr;

@@ -1,0 +1,10 @@
+* NGSPICE file created from analog_wrapper.ext - technology: gf180mcuD
+
+* Black-box entry subcircuit for gf180mcu_fd_sc_mcu7t5v0__and2_1 abstract view
+.subckt gf180mcu_fd_sc_mcu7t5v0__and2_1 A1 A2 Z VDD VNW VPW VSS
+.ends
+
+.subckt analog_wrapper in1 in2 out vdd vss
+X_0_ in2 in1 out vdd _0_/VNW VSUBS vss gf180mcu_fd_sc_mcu7t5v0__and2_1
+.ends
+

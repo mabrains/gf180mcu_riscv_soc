@@ -20,15 +20,15 @@
 current_design temp_sensor
 
 ## ======== CLK ========
-create_clock -name clk -period    100.00  [get_ports {io_in[0]}]
+create_clock -name clk -period    100.00  [get_ports {clk}]
 
 set_clock_transition  0.15 [all_clocks]
 set_clock_uncertainty 0.25 [all_clocks]
 set_propagated_clock [all_clocks]
 
 ## ======== I/O delay ========
-set_input_delay -min 5.0  -clock [get_clocks {clk}] -add_delay [get_ports {io_in[7:1]}]
-set_input_delay -max 10.0 -clock [get_clocks {clk}] -add_delay [get_ports {io_in[7:1]}]
+set_input_delay -min 5.0  -clock [get_clocks {clk}] -add_delay [get_ports {io_in[*]}]
+set_input_delay -max 10.0 -clock [get_clocks {clk}] -add_delay [get_ports {io_in[*]}]
 
 set_output_delay -min  5.0  -clock [get_clocks {clk}] -add_delay [get_ports {io_out[*]}]
 set_output_delay -max  10.0 -clock [get_clocks {clk}] -add_delay [get_ports {io_out[*]}]

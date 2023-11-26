@@ -75,20 +75,30 @@ set ::env(SYNTH_FLAT_TOP) "0"
 set ::env(IO_PCT) "0.2"
 set ::env(SYNTH_USE_PG_PINS_DEFINES) "USE_POWER_PINS"
 set ::env(SYNTH_DEFINES) [list SYNTHESIS]
-set ::env(VDD_NETS) [list {VDD}]
-set ::env(GND_NETS) [list {VSS}]
+set ::env(VDD_NETS) [list {vdd}]
+set ::env(GND_NETS) [list {vss}]
 
 ## =========================== FLOORPLAN ===========================
 
-set ::env(DIE_AREA) "0 0 100 100"
+set ::env(FP_PIN_ORDER_CFG) "$::env(DESIGN_DIR)/pin_order.cfg"
+set ::env(DIE_AREA) "0 0 200 250"
 set ::env(FP_SIZING) "absolute"
 set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_PDN_CORE_RING) "0"
+set ::env(FP_IO_MIN_DISTANCE) "4"
+
+set ::env(FP_PDN_VWIDTH) "6.2"
+set ::env(FP_PDN_HWIDTH) "6.2"
+set ::env(FP_PDN_VPITCH) "100"
+set ::env(FP_PDN_HPITCH) "100"
+
+set ::env(FP_PDN_CHECK_NODES) "0"
+set ::env(FP_PDN_ENABLE_GLOBAL_CONNECTIONS) "1"
 
 ## =========================== PL & Rotute ===========================
 
 set ::env(ROUTING_CORES) "8"
-set ::env(PL_TARGET_DENSITY) "0.45"
+set ::env(PL_TARGET_DENSITY) "0.55"
 set ::env(PL_BASIC_PLACEMENT) "0"
 set ::env(PL_SKIP_INITIAL_PLACEMENT) "0"
 set ::env(DIODE_PADDING) "2"

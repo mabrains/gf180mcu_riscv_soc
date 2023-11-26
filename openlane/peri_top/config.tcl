@@ -25,7 +25,6 @@ set ::env(DESIGN_IS_CORE) "0"
 set ::env(VERILOG_INCLUDE_DIRS) [glob $::env(DESIGN_DIR)/../../verilog/rtl/ ]
 # Local sources + no2usb sources
 set ::env(VERILOG_FILES) "\
-     $::env(DESIGN_DIR)/../../verilog/rtl/lib/clk_skew_adjust.gv \
      $::env(DESIGN_DIR)/../../verilog/rtl/rtc/rtc_top.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/rtc/rtc_core.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/rtc/rtc_reg.sv \
@@ -34,7 +33,6 @@ set ::env(VERILOG_FILES) "\
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/reset_sync.sv     \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/async_reg_bus.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/registers.v \
-     $::env(DESIGN_DIR)/../../verilog/rtl/sm_ctrl/sm_ctrl.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/sync_fifo_occ.sv \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/prescaler.v \
      $::env(DESIGN_DIR)/../../verilog/rtl/lib/metastability_filter.sv \
@@ -55,8 +53,8 @@ set ::env(CLOCK_PORT) "mclk rtc_clk"
 
 ## =========================== SDC ===========================
 
-set ::env(BASE_SDC_FILE) $::env(DESIGN_DIR)/base.sdc
-set ::env(MAX_FANOUT_CONSTRAINT) "10"
+set ::env(BASE_SDC_FILE) $::env(DESIGN_DIR)/peri_top.sdc
+set ::env(MAX_FANOUT_CONSTRAINT) "20"
 set ::env(MAX_TRANSITION_CONSTRAINT) "6"
 
 # =========================== OpenLane FLOW ===========================
@@ -89,13 +87,13 @@ set ::env(SYNTH_FLAT_TOP) "0"
 set ::env(IO_PCT) "0.2"
 set ::env(SYNTH_USE_PG_PINS_DEFINES) "USE_POWER_PINS"
 set ::env(SYNTH_DEFINES) [list SYNTHESIS]
-set ::env(VDD_NETS) [list {VDD}]
-set ::env(GND_NETS) [list {VSS}]
+set ::env(VDD_NETS) [list {vdd}]
+set ::env(GND_NETS) [list {vss}]
 
 ## =========================== FLOORPLAN ===========================
 
 set ::env(FP_PIN_ORDER_CFG) "$::env(DESIGN_DIR)/pin_order.cfg"
-set ::env(DIE_AREA) "0 0 450 300"
+set ::env(DIE_AREA) "0 0 200 500"
 set ::env(FP_SIZING) "absolute"
 set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_PDN_CORE_RING) "0"

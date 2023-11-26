@@ -32,19 +32,14 @@
 ////  Author(s):                                                  ////
 ////      - Dinesh Annayya, dinesha@opencores.org                 ////
 ////                                                              ////
-////  Revision :                                                  ////
-////    0.1 - 07 Dec 2022, Dinesh A                               ////
-////          initial version                                     ////
-////    0.2 - 05 Jan 2023, Dinesh A                               ////
-////          Stepper Motor Integration                           ////
 //////////////////////////////////////////////////////////////////////
 
 `include "../user_params.svh"
 
 module peri_top (
                     `ifdef USE_POWER_PINS
-                       input logic             VDD, // User area 5V supply
-                       input logic             VSS, // User area ground
+                       input logic             vdd, // User area 5V supply
+                       input logic             vss, // User area ground
                     `endif
 
                        // System Signals
@@ -75,37 +70,16 @@ logic         s_reset_ssn;  // Sync Reset
 //  Register Response Path Mux
 //  --------------------------------------
 
-logic [31:0]  reg_d2a_rdata;
-logic         reg_d2a_ack;
-logic         reg_d2a_cs;
-
 logic [31:0]  reg_rtc_rdata;
 logic         reg_rtc_ack;
 logic         reg_rtc_cs;
 
-logic [31:0]  reg_ir_rdata;
-logic         reg_ir_ack;
-logic         reg_ir_cs;
 
-logic [31:0]  reg_sm_rdata;
-logic         reg_sm_ack;
-logic         reg_sm_cs;
-
-assign reg_rdata  = (reg_addr[10:7] == `SEL_D2A) ? reg_d2a_rdata :
-                    (reg_addr[10:7] == `SEL_RTC) ? reg_rtc_rdata :
-                    (reg_addr[10:7] == `SEL_IR)  ? reg_ir_rdata :
-                    (reg_addr[10:7] == `SEL_SM)  ? reg_sm_rdata :
+assign reg_rdata  = (reg_addr[10:7] == `SEL_RTC) ? reg_rtc_rdata :
                      'h0;
-assign reg_ack    = (reg_addr[10:7] == `SEL_D2A) ? reg_d2a_ack   :
-                    (reg_addr[10:7] == `SEL_RTC) ? reg_rtc_ack   :
-                    (reg_addr[10:7] == `SEL_IR)  ? reg_ir_ack   :
-                    (reg_addr[10:7] == `SEL_SM)  ? reg_sm_ack   :
+assign reg_ack    = (reg_addr[10:7] == `SEL_RTC) ? reg_rtc_ack   :
                     1'b0;
-assign reg_d2a_cs = (reg_addr[10:7] == `SEL_D2A)  ? reg_cs : 1'b0;
 assign reg_rtc_cs = (reg_addr[10:7] == `SEL_RTC)  ? reg_cs : 1'b0;
-assign reg_ir_cs  = (reg_addr[10:7] == `SEL_IR)  ? reg_cs : 1'b0;
-assign reg_sm_cs  = (reg_addr[10:7] == `SEL_SM)  ? reg_cs : 1'b0;
-
 
 reset_sync  u_rst_sync (
 	  .scan_mode  (1'b0           ),

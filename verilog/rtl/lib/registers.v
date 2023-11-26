@@ -342,12 +342,13 @@ module  gen_32b_reg	(
 	      data_out
 	      );
 
-  parameter   RESET_DEFAULT    = 32'h0;  
+  parameter   RESET_DEFAULT    = 32'h0;
+
   input [3:0]      we;	
   input            cs;
   input [31:0]     data_in;	
   input            reset_n;
-  input		   clk;
+  input		         clk;
   output [31:0]    data_out;
 
 
@@ -364,7 +365,6 @@ always @ (posedge clk or negedge reset_n) begin
     if(cs && we[3]) data_out[31:24] <= data_in[31:24];
   end
 end
-
 
 endmodule
 
