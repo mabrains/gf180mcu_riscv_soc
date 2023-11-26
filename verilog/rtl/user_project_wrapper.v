@@ -411,15 +411,9 @@ temp_sensor temp_sensor(
 analog_wrapper analog_wrapper(
 `ifdef USE_POWER_PINS
 	.vdd(vdd),	// User area 5.0V supply
-	.vss(vss),	// User area ground
+	.vss(vss)	// User area ground
 `endif
-
-    // dummy pins
-    .in1(),
-    .in2(),
-    .out()
 );
 
 // ===============================================================
 endmodule : user_project_wrapper
-

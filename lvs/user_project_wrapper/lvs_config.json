@@ -1,20 +1,11 @@
 {
     "TOP_SOURCE": "user_project_wrapper",
     "TOP_LAYOUT": "$TOP_SOURCE",
-	"INCLUDE_CONFIGS": [
-		"$UPRJ_ROOT/lvs/temp_sensor/lvs_config.json",
-		"$UPRJ_ROOT/lvs/wb_buttons_leds/lvs_config.json",
-		"$UPRJ_ROOT/lvs/pinmux_top/lvs_config.json",
-		"$UPRJ_ROOT/lvs/peri_top/lvs_config.json",
-		"$UPRJ_ROOT/lvs/uart_i2c_usb_spi_top/lvs_config.json"
-	],
     "EXTRACT_FLATGLOB": [
         ""
     ],
     "EXTRACT_ABSTRACT": [
-        "*__fill_*",
-        "*__fakediode_*",
-        "*__tapvpwrvgnd_*"
+        "*__fill_*"
     ],
     "LVS_FLATTEN": [
         ""
@@ -23,7 +14,7 @@
         ""
     ],
     "LVS_IGNORE": [
-        "analog_wrapper"
+        ""
     ],
     "LVS_SPICE_FILES": [
         "$PDK_ROOT/$PDK/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice"
@@ -34,6 +25,7 @@
         "$UPRJ_ROOT/verilog/gl/pinmux_top.v",
         "$UPRJ_ROOT/verilog/gl/peri_top.v",
         "$UPRJ_ROOT/verilog/gl/uart_i2c_usb_spi_top.v",
+        "$UPRJ_ROOT/verilog/gl/analog_wrapper.v",
         "$UPRJ_ROOT/verilog/gl/$TOP_SOURCE.v"
     ],
     "LAYOUT_FILE": "$UPRJ_ROOT/gds/$TOP_LAYOUT.gds"

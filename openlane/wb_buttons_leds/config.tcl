@@ -81,12 +81,20 @@ set ::env(GND_NETS) [list {vss}]
 ## =========================== FLOORPLAN ===========================
 
 set ::env(FP_PIN_ORDER_CFG) "$::env(DESIGN_DIR)/pin_order.cfg"
-set ::env(DIE_AREA) "0 0 120 100"
+set ::env(DIE_AREA) "0 0 200 250"
 set ::env(FP_SIZING) "absolute"
 set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_PDN_CORE_RING) "0"
 set ::env(FP_IO_MIN_DISTANCE) "4"
- 
+
+set ::env(FP_PDN_VWIDTH) "6.2"
+set ::env(FP_PDN_HWIDTH) "6.2"
+set ::env(FP_PDN_VPITCH) "100"
+set ::env(FP_PDN_HPITCH) "100"
+
+set ::env(FP_PDN_CHECK_NODES) "0"
+set ::env(FP_PDN_ENABLE_GLOBAL_CONNECTIONS) "1"
+
 ## =========================== PL & Rotute ===========================
 
 set ::env(ROUTING_CORES) "8"

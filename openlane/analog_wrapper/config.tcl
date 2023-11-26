@@ -28,7 +28,7 @@ set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/../../verilog/rtl/analog_wrapper/an
 
 set ::env(RUN_CTS) "0"
 set ::env(RUN_CVC) "0"
-set ::env(RUN_FILL_INSERTION) "0"
+set ::env(RUN_FILL_INSERTION) "1"
 set ::env(RUN_HEURISTIC_DIODE_INSERTION) "1"
 set ::env(RUN_IRDROP_REPORT) "0"
 set ::env(RUN_KLAYOUT) "1"
@@ -39,7 +39,7 @@ set ::env(RUN_LVS) "0"
 set ::env(RUN_MAGIC) "1"
 set ::env(RUN_MAGIC_DRC) "0"
 set ::env(RUN_SPEF_EXTRACTION) "0"
-set ::env(RUN_TAP_DECAP_INSERTION) "0"
+set ::env(RUN_TAP_DECAP_INSERTION) "1"
 
 # =========================== SYNTH STEP ===========================
 
@@ -55,10 +55,6 @@ set ::env(IO_PCT) "0.2"
 set ::env(SYNTH_USE_PG_PINS_DEFINES) "USE_POWER_PINS"
 set ::env(VDD_NETS) [list {vdd}]
 set ::env(GND_NETS) [list {vss}]
-set ::env(VDD_NET) "vdd"
-set ::env(GND_NET) "vss"
-set ::env(VDD_PIN) "vdd"
-set ::env(GND_PIN) "vss"
 
 ## =========================== FLOORPLAN ===========================
 
@@ -68,6 +64,11 @@ set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_PDN_CORE_RING) "0"
 set ::env(FP_PDN_CHECK_NODES) "0"
 set ::env(FP_PDN_ENABLE_GLOBAL_CONNECTIONS) "1"
+
+set ::env(FP_PDN_VWIDTH) "6.2"
+set ::env(FP_PDN_HWIDTH) "6.2"
+set ::env(FP_PDN_VPITCH) "100"
+set ::env(FP_PDN_HPITCH) "100"
 
 ## =========================== PL & Rotute ===========================
 
