@@ -2,7 +2,7 @@
     "TOP_SOURCE": "user_project_wrapper",
     "TOP_LAYOUT": "$TOP_SOURCE",
     "EXTRACT_FLATGLOB": [
-        ""
+        "analog_wrapper"
     ],
     "EXTRACT_ABSTRACT": [
         "*__fill_*"
