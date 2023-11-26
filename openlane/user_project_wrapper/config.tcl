@@ -31,6 +31,7 @@ set ::env(VERILOG_FILES_BLACKBOX) "\
      $::env(DESIGN_DIR)/../../verilog/gl/peri_top.v             \
      $::env(DESIGN_DIR)/../../verilog/gl/pinmux_top.v           \
      $::env(DESIGN_DIR)/../../verilog/gl/analog_wrapper.v       \
+     $::env(DESIGN_DIR)/../../verilog/gl/mabrains_logo.v        \
      "
 
 set ::env(EXTRA_LEFS) "\
@@ -40,6 +41,7 @@ set ::env(EXTRA_LEFS) "\
      $::env(DESIGN_DIR)/../../lef/peri_top.lef             \
      $::env(DESIGN_DIR)/../../lef/pinmux_top.lef           \
      $::env(DESIGN_DIR)/../../lef/analog_wrapper.lef       \
+     $::env(DESIGN_DIR)/../../lef/mabrains_logo.lef        \
      "
 
 set ::env(EXTRA_GDS_FILES) "\
@@ -49,6 +51,7 @@ set ::env(EXTRA_GDS_FILES) "\
      $::env(DESIGN_DIR)/../../gds/peri_top.gds             \
      $::env(DESIGN_DIR)/../../gds/pinmux_top.gds           \
      $::env(DESIGN_DIR)/../../gds/analog_wrapper.gds       \
+     $::env(DESIGN_DIR)/../../gds/mabrains_logo.gds        \
      "
 
 # set ::env(EXTRA_LIBS) "\

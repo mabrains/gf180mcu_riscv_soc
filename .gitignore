@@ -10,4 +10,7 @@
 venv-cocotb/
 mgmt_core_wrapper/
 caravel/
+signoff/
+spi/
+sdf/
 
