@@ -2,20 +2,20 @@
     "TOP_SOURCE": "user_project_wrapper",
     "TOP_LAYOUT": "$TOP_SOURCE",
     "EXTRACT_FLATGLOB": [
-        "analog_wrapper"
+        ""
     ],
     "EXTRACT_ABSTRACT": [
-        "*__fill_*"
+        "*__fill_*",
+        "analog_wrapper"
     ],
     "LVS_FLATTEN": [
-        ""
+        "*"
     ],
     "LVS_NOFLATTEN": [
         ""
     ],
     "LVS_IGNORE": [
-        "analog_wrapper",
-        "mabrains_logo"
+        "analog_wrapper"
     ],
     "LVS_SPICE_FILES": [
         "$PDK_ROOT/$PDK/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice"
