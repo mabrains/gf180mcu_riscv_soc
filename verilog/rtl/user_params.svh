@@ -29,11 +29,11 @@
 // Pinumux/Peri Reg Map - 0x3000_0600 --> 0011000000000000000000[10000]00000
 //                      : 0x3000_06FF --> 0011000000000000000000[10111]11111
 
+`define SEL_PERI    1'b1       // Peripheral
 `define SEL_GLBL    5'b10000   // GLOBAL REGISTER
 `define SEL_GPIO    5'b10001   // GPIO REGISTER
 `define SEL_PWM     5'b10010   // PWM REGISTER
 `define SEL_TIMER   5'b10011   // TIMER REGISTER
-`define SEL_PERI    1'b1       // Peripheral
 `define SEL_RTC     5'b10100   // RTC REGISTER
 
 // ----- WB-Testing -----
