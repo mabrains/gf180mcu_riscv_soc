@@ -53,6 +53,9 @@ You need the following set of tools installed to be able to view and test all im
 |11|**Ring-Osc-5.0vFETs** |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |12|**XTAL-Osc-16M** |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |13|**XTAL-Osc-100M** |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|14|**Folded_OpAmp** |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|15|**Telescopic-OpAmp** |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|16|**Miller_2stage-Opamp** |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 
 
 ## Digital IPs
@@ -94,7 +97,7 @@ You need the following set of tools installed to be able to view and test all im
 
 * The following table explains the user GPIO Pins
 
-|GPIO |Configuration      | Block           | Usage      |
+|GPIO |Configuration      | Block         | Usage      |
 |---|-------------------| --------------- | ---------- |
 |GPIO_5 | INPUT_PULLUP  | WB-Buttons-LEDs | button-0   |
 |GPIO_6 | INPUT_PULLUP  | WB-Buttons-LEDs | button-1   |
