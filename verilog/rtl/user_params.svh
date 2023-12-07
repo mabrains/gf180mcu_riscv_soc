@@ -50,4 +50,10 @@
 `define TEMP_SENS_CAL_ADDR6    32'h3000_0032   // TEMP_SENS_CAL_ADDR5   + 4  // 6 reg for cal data
 `define TEMP_SENS_DBG_ADR      32'h3000_0036   // TEMP_SENS_CAL_ADDR6   + 4  // 3 bits for DBG + 1 bit for CAL ENABLE
 
+// ---- DSM-CORE ----
+`define DSM_CORE_ADDRESS       32'h3001_0000
+
+// ---- CORE-ALU ----
+`define CORE_ALU_ADDRESS       32'h3001_0008
+
 `endif // USER_PARMS

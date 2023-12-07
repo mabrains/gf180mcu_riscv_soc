@@ -58,7 +58,7 @@ set ::env(GND_NETS) [list {vss}]
 
 ## =========================== FLOORPLAN ===========================
 
-set ::env(DIE_AREA) "0 0 2550 1750"
+set ::env(DIE_AREA) "0 0 2550 1370"
 set ::env(FP_SIZING) "absolute"
 set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_PDN_CORE_RING) "0"
