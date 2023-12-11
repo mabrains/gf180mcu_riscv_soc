@@ -15,26 +15,6 @@
 
 `include "../user_params.svh"
 
-// module DSM_core(
-// `ifdef USE_POWER_PINS
-//     inout vdd,		// User area 5.0V supply
-//     inout vss,		// User area ground
-// `endif
-
-// 	input clk, 
-// 	input reset,
-
-//     // wb interface
-//     input wire          i_wb_cyc,       // wishbone transaction
-//     input wire          i_wb_stb,       // strobe - data valid and accepted as long as !o_wb_stall
-//     input wire          i_wb_we,        // write enable
-// 	input wire  [6:0]   i_wb_data,      // incoming data
-//     input wire  [31:0]  i_wb_addr,      // address
-//     output reg          o_wb_ack,       // request is completed 
-//     output wire         o_wb_stall,     // cannot accept req
-//     output reg  [4:0]   o_wb_data       // output data
-// 	);
-
 module DSM_core(
 	`ifdef USE_POWER_PINS
 		inout vdd,		// User area 5.0V supply
@@ -74,7 +54,7 @@ module DSM_core(
             o_wb_data <= 0;
         else if(i_wb_stb && i_wb_cyc && !i_wb_we && !o_wb_stall)
             case(i_wb_addr)
-                `DSM_CORE_ADDRESS: 
+                `DSM_CORE_ADDRESS_R: 
                     o_wb_data <= Out_Data;
                 default:
                     o_wb_data <= 5'b0;
@@ -85,7 +65,7 @@ module DSM_core(
     always @(posedge clk) begin
         if(reset)
             In_Data <= 7'b0;
-        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `DSM_CORE_ADDRESS) begin
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `DSM_CORE_ADDRESS_W) begin
             In_Data <= i_wb_data[6:0];
         end
     end
@@ -96,7 +76,7 @@ module DSM_core(
             o_wb_ack <= 0;
         else
             // return ack immediately
-            o_wb_ack <= (i_wb_stb && !o_wb_stall && (i_wb_addr == `DSM_CORE_ADDRESS));
+            o_wb_ack <= (i_wb_stb && !o_wb_stall && (i_wb_addr == `DSM_CORE_ADDRESS_R));
     end
 	// ---------------------------------------------
 

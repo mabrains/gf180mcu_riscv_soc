@@ -91,7 +91,7 @@ module wb_buttons_leds (
     always @(posedge clk) begin
         if(reset)
             leds <= 2'b0;
-        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `LED_ADDRESS) begin
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `LED_ADDRESS_W) begin
             leds <= i_wb_data[1:0];
         end
     end
@@ -102,9 +102,9 @@ module wb_buttons_leds (
             o_wb_data <= 0;
         else if(i_wb_stb && i_wb_cyc && !i_wb_we && !o_wb_stall)
             case(i_wb_addr)
-                `LED_ADDRESS: 
+                `LED_ADDRESS_R: 
                     o_wb_data <= {30'b0, leds};
-                `BUTTON_ADDRESS: 
+                `BUTTON_ADDRESS_R:
                     o_wb_data <= {30'b0, ~buttons};
                 default:
                     o_wb_data <= 32'b0;
@@ -117,7 +117,7 @@ module wb_buttons_leds (
             o_wb_ack <= 0;
         else
             // return ack immediately
-            o_wb_ack <= (i_wb_stb && !o_wb_stall && (i_wb_addr == `LED_ADDRESS || i_wb_addr == `BUTTON_ADDRESS));
+            o_wb_ack <= (i_wb_stb && !o_wb_stall && (i_wb_addr == `LED_ADDRESS_R || i_wb_addr == `BUTTON_ADDRESS_R));
     end
 
 endmodule

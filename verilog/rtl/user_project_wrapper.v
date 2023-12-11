@@ -403,6 +403,29 @@ temp_sensor temp_sensor(
     .io_oeb(io_oeb[20:13])
 );
 
+// =============================================================
+// ---------------------- Mabrains-Logo ------------------------
+// =============================================================
+
+DSM_core DSM_core (
+`ifdef USE_POWER_PINS
+	.vdd(vdd),	// User area 5.0V supply
+	.vss(vss),	// User area ground
+`endif
+
+    // clock & reset
+    .clk(wb_clk_i),
+    .reset(wb_rst_i),
+
+    // wishbone
+    .i_wb_cyc   (wbs_cyc_i),
+    .i_wb_stb   (wbs_stb_i),
+    .i_wb_we    (wbs_we_i),
+    .i_wb_addr  (wbs_adr_i),
+    .i_wb_data  (wbs_dat_i[6:0]),
+    .o_wb_ack   (wbs_ack_o),
+    .o_wb_data  (wbs_dat_o[4:0])
+);
 
 // =============================================================
 // ---------------------- Analog Wrapper -----------------------
