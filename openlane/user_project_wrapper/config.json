@@ -11,7 +11,8 @@
 		"dir::../../verilog/gl/uart_i2c_usb_spi_top.v",
 		"dir::../../verilog/gl/peri_top.v",
 		"dir::../../verilog/gl/pinmux_top.v",
-		"dir::../../verilog/gl/analog_wrapper.v"
+		"dir::../../verilog/gl/analog_wrapper.v",
+		"dir::../../verilog/gl/DSM_core.v"
 	],
 	"EXTRA_LEFS": [
 		"dir::../../lef/wb_buttons_leds.lef",
@@ -19,7 +20,8 @@
 		"dir::../../lef/uart_i2c_usb_spi_top.lef",
 		"dir::../../lef/peri_top.lef",
 		"dir::../../lef/pinmux_top.lef",
-		"dir::../../lef/analog_wrapper.lef"
+		"dir::../../lef/analog_wrapper.lef",
+		"dir::../../lef/DSM_core.lef"
 	],
 	"EXTRA_GDS_FILES": [
 		"dir::../../gds/wb_buttons_leds.gds",
@@ -27,7 +29,8 @@
 		"dir::../../gds/uart_i2c_usb_spi_top.gds",
 		"dir::../../gds/peri_top.gds",
 		"dir::../../gds/pinmux_top.gds",
-		"dir::../../gds/analog_wrapper.gds"
+		"dir::../../gds/analog_wrapper.gds",
+		"dir::../../gds/DSM_core.gds"
 	],
 	"EXTRA_LIBS": [
 		"dir::../../lib/wb_buttons_leds.lib",
@@ -35,7 +38,8 @@
 		"dir::../../lib/uart_i2c_usb_spi_top.lib",
 		"dir::../../lib/peri_top.lib",
 		"dir::../../lib/pinmux_top.lib",
-		"dir::../../lib/analog_wrapper.lib"
+		"dir::../../lib/analog_wrapper.lib",
+		"dir::../../lib/DSM_core.lib"
 	],
 	"EXTRA_SPEFS": [
 		"wb_buttons_leds",
@@ -57,7 +61,11 @@
 		"pinmux_top",
 		"dir::../../spef/multicorner/pinmux_top.min.spef",
 		"dir::../../spef/multicorner/pinmux_top.nom.spef",
-		"dir::../../spef/multicorner/pinmux_top.max.spef"                                       
+		"dir::../../spef/multicorner/pinmux_top.max.spef",
+		"DSM_core",
+		"dir::../../spef/multicorner/DSM_core.min.spef",
+		"dir::../../spef/multicorner/DSM_core.nom.spef",
+		"dir::../../spef/multicorner/DSM_core.max.spef"          
 	],
 
 	"PDK": "gf180mcuD",

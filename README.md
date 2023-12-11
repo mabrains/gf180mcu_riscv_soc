@@ -65,33 +65,35 @@ You need the following set of tools installed to be able to view and test all im
 
 |No.|IP       | Layout-DRC       | Layout-LVS       |
 |---|---------| ----------       | -----------      |
-|1|**WB-Buttons-LEDs** |:heavy_check_mark:|:heavy_check_mark:|
-|2|**Temp-Sensor** |:heavy_check_mark:|:heavy_check_mark:|
-|3|**I2C** |:heavy_check_mark:|:heavy_check_mark:|
-|4|**USB** |:heavy_check_mark:|:heavy_check_mark:|
-|5|**SSPIM** |:heavy_check_mark:|:heavy_check_mark:|
-|6|**UART0** |:heavy_check_mark:|:heavy_check_mark:|
-|6|**UART1** |:heavy_check_mark:|:heavy_check_mark:|
-|7|**PWM** |:heavy_check_mark:|:heavy_check_mark:|
-|8|**Timer** |:heavy_check_mark:|:heavy_check_mark:|
-|9|**RTC** |:heavy_check_mark:|:heavy_check_mark:|
+|1 |**WB-Buttons-LEDs** |:heavy_check_mark:|:heavy_check_mark:|
+|2 |**Temp-Sensor** |:heavy_check_mark:|:heavy_check_mark:|
+|3 |**Delta-Sigma-Mod** |:heavy_check_mark:|:heavy_check_mark:|
+|4 |**I2C** |:heavy_check_mark:|:heavy_check_mark:|
+|5 |**USB** |:heavy_check_mark:|:heavy_check_mark:|
+|6 |**SSPIM** |:heavy_check_mark:|:heavy_check_mark:|
+|7 |**UART0** |:heavy_check_mark:|:heavy_check_mark:|
+|8 |**UART1** |:heavy_check_mark:|:heavy_check_mark:|
+|9 |**PWM** |:heavy_check_mark:|:heavy_check_mark:|
+|10|**Timer** |:heavy_check_mark:|:heavy_check_mark:|
+|11|**RTC** |:heavy_check_mark:|:heavy_check_mark:|
 
 #### SOC Memory Map
 
 * The following table explains the SOC Memory Map
 
-|No.|IP       | ADDR-MAP           |
-|---|---------| ------------------ |
-|1|**WB-Buttons-LEDs** |0x3000_0000|
-|2|**Temp-Sensor** |0x3000_0008|
-|3|**I2C** |0x3000_0040|
-|4|**USB** |0x3000_0080|
-|5|**SSPIM** |0x3000_00C0|
-|6|**UART0** |0x3000_0100|
-|7|**UART1** |0x3000_01C0|
-|8|**PWM** |0x3000_0240|
-|8|**Timer** |0x3000_0260|
-|8|**RTC** |0x3000_0280|
+|No.|IP                  | ADDR-MAP-R|ADDR-MAP-W |
+|---|--------------------| ----------|-----------|
+|1  |**WB-Buttons-LEDs** |0x3000_0000|0x3001_0000|
+|2  |**Temp-Sensor**     |0x3000_0008|0x3000_0012|
+|3  |**Delta-Sigma-Mod** |0x3001_0016|0x3001_0032|
+|4  |**I2C**             |0x3000_0040|0x3001_0040|
+|5  |**USB**             |0x3000_0080|0x3001_0080|
+|6  |**SSPIM**           |0x3000_00C0|0x3001_00C0|
+|7  |**UART0**           |0x3000_0100|0x3001_0100|
+|8  |**UART1**           |0x3000_01C0|0x3001_01C0|
+|9  |**PWM**             |0x3000_0240|0x3001_0240|
+|10 |**Timer**           |0x3000_0260|0x3001_0260|
+|11 |**RTC**             |0x3000_0280|0x3001_0280|
 
 #### USER GPIO Pins
 

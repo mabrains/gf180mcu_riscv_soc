@@ -230,7 +230,7 @@ module temp_sensor (
             o_wb_data <= 0;
         else if(i_wb_stb && i_wb_cyc && !i_wb_we && !o_wb_stall)
             case(i_wb_addr)
-                `TEMP_SENS_ADDRESS: 
+                `TEMP_SENS_ADDRESS_R: 
                     o_wb_data <= led_out;
                 default:
                     o_wb_data <= 8'b0;
@@ -242,20 +242,20 @@ module temp_sensor (
     always @(posedge clk) begin
         if(reset)
             cal_lut <= 'd0;
-        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR1)
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR1_W)
             cal_lut[192:161] <= i_wb_data[31:0];
-        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR2)
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR2_W)
             cal_lut[160:129] <= i_wb_data[31:0];
-        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR3)
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR3_W)
             cal_lut[128:97] <= i_wb_data[31:0];
-        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR4)
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR4_W)
             cal_lut[96:65] <= i_wb_data[31:0];
-        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR5)
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR5_W)
             cal_lut[64:33] <= i_wb_data[31:0];
-        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR6)
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_CAL_ADDR6_W)
             cal_lut[32:1] <= i_wb_data[31:0];	
-        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_DBG_ADR) begin
-			en_dbg <= i_wb_data[2:0];																	
+        else if(i_wb_stb && i_wb_cyc && i_wb_we && !o_wb_stall && i_wb_addr == `TEMP_SENS_DBG_ADR_W) begin
+			en_dbg <= i_wb_data[2:0];
 			cal_ena <= i_wb_data[3];	
 		end															
     end
@@ -266,8 +266,9 @@ module temp_sensor (
             o_wb_ack <= 0;
         else
             // return ack immediately
-            o_wb_ack <= (i_wb_stb && !o_wb_stall && (i_wb_addr == `TEMP_SENS_ADDRESS));
+            o_wb_ack <= (i_wb_stb && !o_wb_stall && (i_wb_addr == `TEMP_SENS_ADDRESS_R));
     end
+
 	// ---------------------------------------------
 
 	// assign wire array to LUT implemented a shift register (for easy load)

@@ -32,6 +32,7 @@ set ::env(VERILOG_FILES_BLACKBOX) "\
      $::env(DESIGN_DIR)/../../verilog/gl/pinmux_top.v           \
      $::env(DESIGN_DIR)/../../verilog/gl/analog_wrapper.v       \
      $::env(DESIGN_DIR)/../../verilog/gl/mabrains_logo.v        \
+     $::env(DESIGN_DIR)/../../verilog/gl/DSM_core.v             \
      "
 
 set ::env(EXTRA_LEFS) "\
@@ -42,6 +43,7 @@ set ::env(EXTRA_LEFS) "\
      $::env(DESIGN_DIR)/../../lef/pinmux_top.lef           \
      $::env(DESIGN_DIR)/../../lef/analog_wrapper.lef       \
      $::env(DESIGN_DIR)/../../lef/mabrains_logo.lef        \
+     $::env(DESIGN_DIR)/../../lef/DSM_core.lef             \
      "
 
 set ::env(EXTRA_GDS_FILES) "\
@@ -52,6 +54,7 @@ set ::env(EXTRA_GDS_FILES) "\
      $::env(DESIGN_DIR)/../../gds/pinmux_top.gds           \
      $::env(DESIGN_DIR)/../../gds/analog_wrapper.gds       \
      $::env(DESIGN_DIR)/../../gds/mabrains_logo.gds        \
+     $::env(DESIGN_DIR)/../../gds/DSM_core.gds             \
      "
 
 # set ::env(EXTRA_LIBS) "\
@@ -66,7 +69,8 @@ set ::env(EXTRA_SPEFS) [list "wb_buttons_leds"      "$::env(DESIGN_DIR)/../../sp
                              "temp_sensor"          "$::env(DESIGN_DIR)/../../spef/multicorner/temp_sensor.min.spef"           "$::env(DESIGN_DIR)/../../spef/multicorner/temp_sensor.nom.spef"           "$::env(DESIGN_DIR)/../../spef/multicorner/temp_sensor.max.spef"          \
                              "uart_i2c_usb_spi_top" "$::env(DESIGN_DIR)/../../spef/multicorner/uart_i2c_usb_spi_top.min.spef"  "$::env(DESIGN_DIR)/../../spef/multicorner/uart_i2c_usb_spi_top.nom.spef"  "$::env(DESIGN_DIR)/../../spef/multicorner/uart_i2c_usb_spi_top.max.spef" \
                              "peri_top"             "$::env(DESIGN_DIR)/../../spef/multicorner/peri_top.min.spef"              "$::env(DESIGN_DIR)/../../spef/multicorner/peri_top.nom.spef"              "$::env(DESIGN_DIR)/../../spef/multicorner/peri_top.max.spef"             \
-                             "pinmux_top"           "$::env(DESIGN_DIR)/../../spef/multicorner/pinmux_top.min.spef"            "$::env(DESIGN_DIR)/../../spef/multicorner/pinmux_top.nom.spef"            "$::env(DESIGN_DIR)/../../spef/multicorner/pinmux_top.max.spef"]
+                             "pinmux_top"           "$::env(DESIGN_DIR)/../../spef/multicorner/pinmux_top.min.spef"            "$::env(DESIGN_DIR)/../../spef/multicorner/pinmux_top.nom.spef"            "$::env(DESIGN_DIR)/../../spef/multicorner/pinmux_top.max.spef"           \
+                             "DSM_core"           "$::env(DESIGN_DIR)/../../spef/multicorner/DSM_core.min.spef"            "$::env(DESIGN_DIR)/../../spef/multicorner/DSM_core.nom.spef"            "$::env(DESIGN_DIR)/../../spef/multicorner/DSM_core.max.spef"]
 
 ## =========================== PDK ===========================
 

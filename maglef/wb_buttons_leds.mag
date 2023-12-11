@@ -1,9 +1,9 @@
 magic
 tech gf180mcuD
 magscale 1 5
-timestamp 1700928320
+timestamp 1702288731
 << obsm1 >>
-rect 672 1471 19320 23281
+rect 672 1538 19320 23281
 << metal2 >>
 rect 1344 24600 1400 25000
 rect 3808 24600 3864 25000
@@ -218,15 +218,12 @@ rect 400 2102 19600 2658
 rect 430 1986 19600 2102
 rect 400 1430 19600 1986
 rect 430 1314 19600 1430
-rect 400 462 19600 1314
+rect 400 910 19600 1314
 << metal4 >>
 rect 1994 1538 2614 23158
 rect 6994 1538 7614 23158
 rect 11994 1538 12614 23158
 rect 16994 1538 17614 23158
-<< obsm4 >>
-rect 2814 1633 6964 4359
-rect 7644 1633 7882 4359
 << labels >>
 rlabel metal3 s 19600 3136 20000 3192 6 buttons[0]
 port 1 nsew signal input
@@ -412,8 +409,8 @@ port 88 nsew signal output
 string FIXED_BBOX 0 0 20000 25000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 700770
-string GDS_FILE /home/farag/carvel_riscv_soc/gf180mcu_riscv_soc/openlane/wb_buttons_leds/runs/23_11_25_18_02/results/signoff/wb_buttons_leds.magic.gds
-string GDS_START 150378
+string GDS_END 726398
+string GDS_FILE /home/farag/carvel_riscv_soc/gf180mcu_riscv_soc/openlane/wb_buttons_leds/runs/23_12_11_11_56/results/signoff/wb_buttons_leds.magic.gds
+string GDS_START 162298
 << end >>
 

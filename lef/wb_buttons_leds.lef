@@ -20,7 +20,7 @@ MACRO wb_buttons_leds
   PIN buttons[1]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.498500 ;
+    ANTENNAGATEAREA 0.741000 ;
     ANTENNADIFFAREA 0.410400 ;
     PORT
       LAYER Metal3 ;
@@ -483,7 +483,7 @@ MACRO wb_buttons_leds
   PIN o_wb_data[0]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 2.080400 ;
+    ANTENNADIFFAREA 1.986000 ;
     PORT
       LAYER Metal3 ;
         RECT 0.000 26.880 4.000 27.440 ;
@@ -849,7 +849,7 @@ MACRO wb_buttons_leds
   END xtal_clk_enb[1]
   OBS
       LAYER Metal1 ;
-        RECT 6.720 14.710 193.200 232.810 ;
+        RECT 6.720 15.380 193.200 232.810 ;
       LAYER Metal2 ;
         RECT 8.540 245.700 13.140 246.000 ;
         RECT 14.300 245.700 37.780 246.000 ;
@@ -976,10 +976,7 @@ MACRO wb_buttons_leds
         RECT 4.300 19.860 196.000 21.020 ;
         RECT 4.000 14.300 196.000 19.860 ;
         RECT 4.300 13.140 196.000 14.300 ;
-        RECT 4.000 4.620 196.000 13.140 ;
-      LAYER Metal4 ;
-        RECT 28.140 16.330 69.640 43.590 ;
-        RECT 76.440 16.330 78.820 43.590 ;
+        RECT 4.000 9.100 196.000 13.140 ;
   END
 END wb_buttons_leds
 END LIBRARY
